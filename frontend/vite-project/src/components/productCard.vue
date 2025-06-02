@@ -1,26 +1,61 @@
 <template>
   <el-card class="product-card">
     <div class="product-image">
-      <img src="@/assets/pictures/products/5090.webp" alt="Product Image">
+      <img :src="productImage" :alt="product.title">
     </div>
     <div class="product-info">
-      <h3 class="product-title">RTX5090 微星魔龙</h3>
-<!--      <p class="product-description">这里是商品的简要描述，可以放置商品的特色、卖点等信息。</p>-->
+      <h3 class="product-title">{{ product.title }}</h3>
       <div class="product-price">
         <span>¥</span>
-        <span class="price-integer">23999</span>
-        <span class="price-decimal">.00</span>
+        <span class="price-integer">{{ product.priceInteger }}</span>
+        <span class="price-decimal">.{{ product.priceDecimal }}</span>
       </div>
-      <el-button type="primary" class="add-to-cart-button">
-        <img class="cart-for-productCard-icon" src="@/assets/icons/cart-for-product-card.png" alt="">
-        加入购物车
+      <el-button
+          type="primary"
+          class="add-to-cart-button"
+          @click="addToCart"
+          :disabled="isAdding"
+      >
+        <img class="cart-for-productCard-icon" src="../assets/icons/cart-for-product-card.png" alt="">
+        {{ isAdding ? '添加中...' : '加入购物车' }}
       </el-button>
     </div>
   </el-card>
 </template>
 
 <script setup>
+import { defineProps, defineEmits, computed, ref } from 'vue';
 
+// 定义 ProductCard 组件接受的 props
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true,
+    default: () => ({
+      id: '',
+      image: '',
+      title: '',
+      priceInteger: '',
+      priceDecimal: ''
+    })
+  }
+});
+
+// 定义组件可以触发的事件
+const emit = defineEmits(['add-to-cart']);
+
+// 用于控制按钮禁用状态
+const isAdding = ref(false);
+
+// 计算图片路径
+const productImage = computed(() => {
+  return new URL(`../assets/pictures/products/${props.product.image}`, import.meta.url).href;
+});
+
+// 加入购物车处理函数
+const addToCart = () => {
+  emit('add-to-cart', props.product);
+};
 </script>
 
 <style scoped>
@@ -37,6 +72,7 @@
   min-width: 200px;
   aspect-ratio: 6 / 7.5; /*控制横纵比为6:7*/
   box-sizing: border-box;
+  display: flex;
 
   /* Apply the custom box-shadows */
   box-shadow:
@@ -53,6 +89,13 @@
   box-shadow:
       30px 30px 80px 0px rgba(0, 0, 0, 1),
       -30px -30px 80px 0px rgba(255, 255, 255, 0.18);
+}
+
+.product-image {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  align-items: center; /* 垂直居中子元素 */
 }
 
 .product-image img {
@@ -74,18 +117,6 @@
   margin-bottom: 2px;
   color: #000205; /* Slightly brighter for title */
 }
-
-/*.product-description {
-  font-size: 0.9em;
-  line-height: 1.5;
-  margin: 0;
-  color: #ccc;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; !* Limit description to 2 lines *!
-  -webkit-box-orient: vertical;
-}*/
 
 .product-price {
   font-size: 2.0em;
@@ -119,11 +150,17 @@
 }
 
 .add-to-cart-button {
-  background-color: #0c4781;
+  background-color: #176ec1;
   border: none;
   width: 80%;
   padding-left: 0px;
   padding-right: 5px;
+  margin: 0 15px;
+}
+
+.add-to-cart-button:active{
+  background-color: #0e407c; /* 稍微深一点的蓝色，表示点击反馈 */
+  transform: scale(95%);
 }
 
 .cart-for-productCard-icon {

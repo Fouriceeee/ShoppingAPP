@@ -1,14 +1,14 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Home from "../views/Home/home.vue";
+import HomeView from "../views/Home/HomeView.vue";
 import Products from "../views/Products/products.vue";
-import Cart from "../views/Cart/cart.vue";
+import CartView from "../views/Cart/CartView.vue";
 
 
 const routes = [
     {/*主页面*/
         path: "/",
         name: "Home",
-        component: Home
+        component: HomeView
     },
     {/*商品页面*/
         path: "/products",
@@ -18,7 +18,7 @@ const routes = [
     {
         path: "/cart",
         name: "CartPage",
-        component: Cart
+        component: CartView
     }
 
 

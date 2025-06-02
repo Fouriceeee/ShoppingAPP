@@ -54,13 +54,13 @@
 
       <!-- 购物车 -->
       <div class="cart">
-        <a href="/cart">
+      <a href="/cart">
         <el-button type="text" class="cart-btn">
-          <img class="shopping-cart-icon" src="@/assets/icons/cart.png" alt="shopping-cart" />
+          <img class="shopping-cart-icon" src="../assets/icons/cart.png" alt="shopping-cart" />
           购物车
         </el-button>
-        </a>
-      </div>
+      </a>
+    </div>
     </div>
 
 
