@@ -9,8 +9,8 @@ const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:
  * 后端根目录下的 data/products.json 文件将通过后端暴露为 API。
  * @returns {Promise<AxiosResponse>} 包含产品列表的响应。
  */
-export const getProducts = () => {
-    // 假设后端有一个 /api/products 接口来读取 data/products.json
+export const getProductsItmes = () => {
+    // /api/products 接口来读取 data/products.json
     return axiosInstance.get(`${API_BASE_URL}/products`);
 };
 
