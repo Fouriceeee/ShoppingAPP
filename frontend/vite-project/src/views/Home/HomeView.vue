@@ -43,7 +43,8 @@ import RecommendedProducts from "@/components/RecommendedProducts.vue";
 import LoginBar from "@/components/loginBar.vue";
 
 // 导入你的 JSON 数据
-import productsData from "@/data/products.json"; // 确保路径正确
+import productsData from "@/data/products.json";
+import {addCartItem} from "@/api/cart.js"; // 确保路径正确
 
 // 产品列表数据
 const products = ref([]);
@@ -67,31 +68,42 @@ onMounted(() => {
   }
 });
 
-// 处理 ProductCard 触发的 'add-to-cart' 事件
-const handleAddToCart = (productToAdd) => {
-  // 查找购物车中是否已有该产品
-  const existingItem = cartItems.value.find(item => item.id === productToAdd.id);
+const handleAddToCart = async (productToAdd) => {
 
-  if (existingItem) {
-    // 如果已存在，则增加数量
-    existingItem.quantity++;
-  } else {
-    // 如果不存在，则添加到购物车，数量为 1
-    cartItems.value.push({ ...productToAdd, quantity: 1 });
+  console.log('2. HomePage: 接收到 ProductCard 的添加购物车事件，商品ID:', productToAdd.id);
+
+  try {
+    // 后端会根据 productId 从其 products.json 中获取完整信息来创建 CartItem
+    // 所以前端只需传递 productId 和 quantity (默认为1)
+    const itemData = {
+      id: productToAdd.id, // 传递产品ID
+      quantity: 1,         // 默认添加数量为 1
+    };
+
+    // 调用后端 API 添加商品到购物车
+    const response = await addCartItem(itemData);
+
+    // 检查后端响应
+    if (response.data && response.data.code === 200) {
+      console.log('后端添加购物车成功响应:', response.data.message, response.data.data);
+      // 后端返回的 data 可能是更新后的 CartItem 或整个购物车列表
+      // 这里可以根据需要更新前端的 cartItems 状态，
+      // 但对于主页，通常只需要显示成功消息
+      ElMessage({
+        message: `${productToAdd.title} 已成功加入购物车！`,
+        type: 'success',
+        duration: 2000,
+        customClass: 'blue-message',
+      });
+    } else {
+      // 如果后端返回的 code 不是 200，表示操作失败
+      throw new Error(response.data.message || '添加商品到购物车失败');
+    }
+
+  } catch (error) {
+    console.error('添加到购物车失败:', error);
+    ElMessage.error(`添加 ${productToAdd.title} 到购物车失败，请重试！`);
   }
-
-  // 将购物车数据保存到 localStorage (模拟持久化)
-  localStorage.setItem('shoppingCart', JSON.stringify(cartItems.value));
-
-  // 弹窗提示
-  ElMessage({
-    message: `${productToAdd.title} 已成功加入购物车！`,
-    type: 'success', // 使用 Element Plus 提供的 success 类型
-    duration: 2000, // 2秒后自动关闭
-    customClass: 'blue-message', // 自定义 CSS 类名，用于修改颜色
-  });
-
-  console.log('当前购物车内容:', cartItems.value);
 };
 </script>
 
