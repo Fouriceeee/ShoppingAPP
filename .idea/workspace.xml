@@ -5,33 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7be9aa6-0b50-4af7-b7e6-dae3a08bded9" name="更改" comment="合并前端">
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/api/cart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Cart/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/views/Cart/CartView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/CategorySidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/CategorySidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/ImageCarousel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/ImageCarousel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/RecommendedProducts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/RecommendedProducts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/HomeView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/loginBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/loginBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/topNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/topNav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Products/productCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/productCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JsonIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/JsonIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/products.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/users.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/ShoppingAPP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/service/CartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/org/example/JsonIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/org/example/JsonIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/components/productCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/productCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/views/Home/HomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,16 +50,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "D:/Programming/Projects/ShoppingAPP",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Programming/Projects/ShoppingAPP/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDK",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
@@ -82,13 +75,7 @@
       <recent name="D:\Programming\Projects\ShoppingAPP\backend" />
     </key>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
-      </set>
-    </attachedChunks>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="c7be9aa6-0b50-4af7-b7e6-dae3a08bded9" name="更改" comment="" />

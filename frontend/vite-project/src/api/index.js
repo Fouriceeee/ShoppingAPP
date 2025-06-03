@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:5173/api';
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
 const instance = axios.create({
     baseURL: API_BASE_URL, // axios 实例的基础URL
     timeout: 10000, // 请求超时时间

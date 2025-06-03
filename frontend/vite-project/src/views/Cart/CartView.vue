@@ -23,10 +23,9 @@
       <el-table :data="cartItems" style="width: 100%" class="cart-table">
         <el-table-column label="选择" width="70" class="all-select">
           <template #header>
-            <el-checkbox v-model="selectAll" @change="handleSelectAllChange" />
-          </template>
+            <el-checkbox v-model="selectAll" /> </template>
           <template #default="scope">
-            <el-checkbox v-model="scope.row.selected" @change="handleItemSelectChange" class="select-checkbox" />
+            <el-checkbox v-model="scope.row.selected" @change="handleItemSelectChange(scope.row)" class="select-checkbox" />
           </template>
         </el-table-column>
         <el-table-column label="商品信息" min-width="300">
@@ -34,8 +33,7 @@
             <div class="product-info">
               <el-image :src="scope.row.image" fit="contain" class="product-image" lazy />
               <div class="product-details">
-                <p class="product-name">{{ scope.row.name }}</p>
-                <p class="product-specs">{{ scope.row.specs || '默认规格' }}</p>
+                <p class="product-name">{{ scope.row.title }}</p>
               </div>
             </div>
           </template>
@@ -43,7 +41,7 @@
 
         <el-table-column label="单价" width="120" align="center">
           <template #default="scope">
-            <span>¥{{ scope.row.price ? scope.row.price.toFixed(2) : '0.00' }}</span>
+            <span>¥{{ scope.row.priceInteger }}.{{ scope.row.priceDecimal }}</span>
           </template>
         </el-table-column>
 
@@ -55,14 +53,15 @@
                 :max="scope.row.stock || 99"
                 size="small"
                 controls-position="right"
-                @change="updateCartSummary"
-            />
+                @change="updateCartItemQuantity(scope.row)" />
           </template>
         </el-table-column>
 
         <el-table-column label="小计" width="120" align="center">
           <template #default="scope">
-            <span class="item-subtotal">¥{{ (scope.row.price * scope.row.quantity).toFixed(2) }}</span>
+            <span class="item-subtotal">
+              ¥{{ (parseFloat(scope.row.priceInteger + '.' + scope.row.priceDecimal) * scope.row.quantity).toFixed(2) }}
+            </span>
           </template>
         </el-table-column>
 
@@ -74,20 +73,30 @@
                 circle
                 plain
                 size="small"
-            />
+                @click="deleteCartItemConfirm(scope.row.id)" />
           </template>
         </el-table-column>
       </el-table>
 
       <div class="cart-summary-bar">
         <div class="summary-left">
-          <el-checkbox v-model="selectAll" @change="handleSelectAllChange" class="select-all-checkbox-button">
+          <el-checkbox v-model="selectAll" class="select-all-checkbox-button">
             全选 (已选 {{ selectedItemsCount }} 项)
           </el-checkbox>
-          <el-button type="danger" plain :disabled="selectedItemsCount === 0" class="delete-selected-button">
+          <el-button
+              type="danger"
+              plain
+              :disabled="selectedItemsCount === 0"
+              class="delete-selected-button"
+              @click="deleteSelectedItems" >
             删除选中
           </el-button>
-          <el-button type="info" plain :disabled="cartItems.length === 0" class="clean-up-button">
+          <el-button
+              type="info"
+              plain
+              :disabled="cartItems.length === 0"
+              class="clean-up-button"
+              @click="clearCart" >
             清空购物车
           </el-button>
         </div>
@@ -100,7 +109,7 @@
               size="large"
               class="checkout-button"
               :disabled="selectedItemsCount === 0"
-          >
+              @click="checkout" >
             去结算 ({{ selectedItemsCount }})
           </el-button>
         </div>
@@ -118,20 +127,20 @@ export default {
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { ArrowLeft } from '@element-plus/icons-vue';
-import { ElMessage, ElMessageBox } from 'element-plus'; // 引入消息提示和确认框
+import { ElMessage, ElMessageBox } from 'element-plus';
 import router from "@/router/index.js";
 import TopNav from "@/components/topNav.vue";
 
+// 导入所有购物车相关的 API 函数
 import {
   getCartItems,
-  addCartItem,
+  addCartItem, // 虽然 CartView 自己不直接用，但可能会通过事件接收 ProductCard 的 add-to-cart 事件
   updateCartItem,
   deleteCartItem,
   batchDeleteCartItems,
   clearAllCartItems,
   updateAllCartItemsSelection
-} from '@/api/cart'; // 注意：@ 是 webpack/vite 的 alias，通常指向 src 目录
-
+} from '@/api/cart';
 
 // --- 响应式数据 ---
 const isLoading = ref(true); // 控制加载状态，开始时设置为 true
@@ -146,12 +155,17 @@ const selectedItemsCount = computed(() => {
 
 // 计算购物车中所有选中商品的总金额
 const totalAmount = computed(() => {
-  return cartItems.value.reduce((sum, item) => item.selected ? sum + item.price * item.quantity : sum, 0);
+  return cartItems.value.reduce((sum, item) => {
+    if (item.selected) {
+      // 确保将 priceInteger 和 priceDecimal 组合为数字
+      const price = parseFloat(item.priceInteger + '.' + item.priceDecimal);
+      return sum + price * item.quantity;
+    }
+    return sum;
+  }, 0);
 });
 
 // 控制全选框的状态：
-// get: 如果所有商品都被选中，则为 true；否则为 false。
-// set: 当全选框被点击时，更新所有商品的 selected 状态。
 const selectAll = computed({
   get: () => cartItems.value.length > 0 && cartItems.value.every(item => item.selected),
   set: async (val) => {
@@ -165,7 +179,8 @@ const selectAll = computed({
       console.error('更新全选状态失败:', error);
       ElMessage.error('更新全选状态失败，请稍后再试。');
       // 如果 API 调用失败，回滚 UI 状态以保持数据一致性
-      cartItems.value.forEach(item => (item.selected = !val));
+      // 这里需要重新从后端获取数据，以确保最终状态的一致性
+      await fetchCartItems(); // 重新拉取数据
     }
   },
 });
@@ -175,16 +190,16 @@ const selectAll = computed({
 // 页面头部返回按钮的回调
 const goBack = () => {
   console.log('返回上一页');
-  router.back()
+  router.back();
 };
 
 // 购物车为空时“马上去逛逛”按钮的回调
 const goShopping = () => {
   console.log('去购物');
-  router.push('/')
+  router.push('/');
 };
 
-// 获取购物车商品数据
+// 获取购物车商品数据 (核心)
 const fetchCartItems = async () => {
   isLoading.value = true; // 开始加载动画
   try {
@@ -193,39 +208,43 @@ const fetchCartItems = async () => {
     console.log('购物车数据已加载:', cartItems.value);
   } catch (error) {
     console.error('获取购物车数据失败:', error);
-    // 错误处理已在 `src/api/index.js` 的响应拦截器中统一处理，这里可以根据需要添加额外提示
-    // ElMessage.error('加载购物车失败，请稍后再试。');
+    ElMessage.error('加载购物车失败，请稍后再试。');
   } finally {
     isLoading.value = false; // 停止加载动画
   }
 };
 
-// 处理单个商品数量变化
+// 处理单个商品数量变化 (触发后端 PATCH 更新)
 const updateCartItemQuantity = async (item) => {
-  // 优化：只有当数量实际改变时才发送请求
-  // 假设 item.originalQuantity 存储了改变前的值，或这里简单地认为 v-model 绑定后会触发更新
+  // item.quantity 已经是更新后的值 (v-model 绑定)
   try {
     // 构造只包含需要更新字段的数据对象
     const updateData = { quantity: item.quantity };
-    await updateCartItem(item.id, updateData); // 调用封装的 API 函数进行 PATCH 更新
+    const response = await updateCartItem(item.id, updateData); // 调用 PATCH API
+    // 假设后端返回的是更新后的 item，如果需要的话可以更新本地 item，但 v-model 已处理
     // ElMessage.success('商品数量更新成功'); // 频繁更新可能不适合每次都提示
+    // 如果后端因为 quantity 为 0 而删除了商品，我们需要更新本地列表
+    if (response.data && response.data.message && response.data.message.includes("removed due to quantity 0")) {
+      cartItems.value = cartItems.value.filter(cartItem => cartItem.id !== item.id);
+      ElMessage.success('商品数量更新为0，已从购物车中移除。');
+    }
   } catch (error) {
-    console.error(`更新商品 ${item.name} 数量失败:`, error);
+    console.error(`更新商品 ID: ${item.id} 数量失败:`, error);
     ElMessage.error(`更新数量失败，请稍后再试。`);
-    // 如果后端更新失败，可能需要回滚本地的 quantity 状态
-    // fetchCartItems(); // 或者重新拉取数据以确保一致性
+    // API 失败时，最好重新从后端拉取数据以确保本地和后端一致
+    await fetchCartItems();
   }
 };
 
-// 处理单个商品选择框变化
+// 处理单个商品选择框变化 (触发后端 PATCH 更新)
 const handleItemSelectChange = async (item) => {
-  // 乐观更新 UI：因为 v-model 已经双向绑定，本地状态 item.selected 已经改变
+  // item.selected 已经是更新后的值 (v-model 绑定)
   try {
     const updateData = { selected: item.selected };
-    await updateCartItem(item.id, updateData); // 调用封装的 API 函数进行 PATCH 更新
+    await updateCartItem(item.id, updateData); // 调用 PATCH API
     // ElMessage.success('商品选中状态更新成功'); // 频繁更新可能不适合每次都提示
   } catch (error) {
-    console.error(`更新商品 ${item.name} 选中状态失败:`, error);
+    console.error(`更新商品 ID: ${item.id} 选中状态失败:`, error);
     ElMessage.error(`更新选中状态失败，请稍后再试。`);
     // 如果后端更新失败，回滚 UI 状态
     item.selected = !item.selected;
@@ -235,14 +254,13 @@ const handleItemSelectChange = async (item) => {
 // 删除购物车中的单个商品
 const deleteCartItemConfirm = async (itemId) => {
   try {
-    // 弹出 Element Plus 确认框
     await ElMessageBox.confirm('确定要从购物车删除该商品吗？', '提示', {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
       type: 'warning',
     });
 
-    await deleteCartItem(itemId); // 调用封装的 API 函数
+    await deleteCartItem(itemId); // 调用 DELETE API
     ElMessage.success('商品已成功删除！');
     // 从本地数据中移除该商品，Vue 会自动更新 UI
     cartItems.value = cartItems.value.filter(item => item.id !== itemId);
@@ -275,7 +293,7 @@ const deleteSelectedItems = async () => {
         .filter(item => item.selected)
         .map(item => item.id);
 
-    await batchDeleteCartItems(selectedIds); // 调用封装的 API 函数进行批量删除
+    await batchDeleteCartItems(selectedIds); // 调用 POST 批量删除 API
     ElMessage.success(`${selectedItemsCount.value} 件商品已成功删除！`);
     // 过滤掉所有被选中的商品，更新本地数据
     cartItems.value = cartItems.value.filter(item => !item.selected);
@@ -303,7 +321,7 @@ const clearCart = async () => {
       type: 'warning',
     });
 
-    await clearAllCartItems(); // 调用封装的 API 函数
+    await clearAllCartItems(); // 调用 DELETE 清空购物车 API
     ElMessage.success('购物车已成功清空！');
     cartItems.value = []; // 清空本地数据
   } catch (error) {
@@ -314,6 +332,16 @@ const clearCart = async () => {
       ElMessage.error('清空购物车失败，请稍后再试。');
     }
   }
+};
+
+// 结算功能（待实现）
+const checkout = () => {
+  if (selectedItemsCount.value === 0) {
+    ElMessage.warning('请选择要结算的商品。');
+    return;
+  }
+  ElMessage.info('结算功能待实现...');
+  // 这里可以跳转到订单确认页，或弹出支付窗口等
 };
 
 // --- 生命周期钩子 ---

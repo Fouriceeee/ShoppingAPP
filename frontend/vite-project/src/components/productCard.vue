@@ -44,9 +44,6 @@ const props = defineProps({
 // 定义组件可以触发的事件
 const emit = defineEmits(['add-to-cart']);
 
-// 用于控制按钮禁用状态
-const isAdding = ref(false);
-
 // 计算图片路径
 const productImage = computed(() => {
   return new URL(`../assets/pictures/products/${props.product.image}`, import.meta.url).href;
@@ -54,6 +51,7 @@ const productImage = computed(() => {
 
 // 加入购物车处理函数
 const addToCart = () => {
+  console.log('1. ProductCard: "加入购物车" 按钮被点击了！');
   emit('add-to-cart', props.product);
 };
 </script>
@@ -84,7 +82,6 @@ const addToCart = () => {
 }
 
 .product-card:hover {
-  /* Optional: Slight lift or change on hover */
   transform: translateY(-5px);
   box-shadow:
       30px 30px 80px 0px rgba(0, 0, 0, 1),

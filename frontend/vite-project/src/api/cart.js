@@ -3,7 +3,7 @@ import axiosInstance from './index';
 // 定义 API 的基础路径
 // 推荐从环境变量中获取，例如使用 Vite 的 import.meta.env.VITE_APP_API_BASE_URL
 // 如果没有设置环境变量，则使用默认值
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:5173/api';
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
 
 /**
  * 获取购物车中的所有商品。
