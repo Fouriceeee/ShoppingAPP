@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "image": "5090.webp",
+    "title": "RTX5090 微星魔龙",
+    "priceInteger": "23999",
+    "priceDecimal": "00"
+  },
+  {
+    "id": "2",
+    "image": "4080.webp",
+    "title": "RTX4080 华硕天启",
+    "priceInteger": "14999",
+    "priceDecimal": "00"
+  },
+  {
+    "id": "3",
+    "image": "9700xt.webp",
+    "title": "RX9700xt 蓝宝石超白金",
+    "priceInteger": "7999",
+    "priceDecimal": "00"
+  },
+  {
+    "id": "4",
+    "image": "4070ti.webp",
+    "title": "RTX4070Ti 技嘉雪鹰",
+    "priceInteger": "5999",
+    "priceDecimal": "00"
+  }
+]

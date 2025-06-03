@@ -1,9 +1,8 @@
-// src/main/java/org/example/Product.java
 package org.example;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Product {
+public class CartItem {
     private String id;
     private String image;
     private String title;
@@ -11,16 +10,19 @@ public class Product {
     private String priceInteger;
     @SerializedName("priceDecimal")
     private String priceDecimal;
+    private int quantity;
+    private boolean selected;
 
-    // 无参构造函数是 Gson 反序列化所必需的
-    public Product() {}
+    public CartItem() {}
 
-    public Product(String id, String image, String title, String priceInteger, String priceDecimal) {
+    public CartItem(String id, String image, String title, String priceInteger, String priceDecimal, int quantity, boolean selected) {
         this.id = id;
         this.image = image;
         this.title = title;
         this.priceInteger = priceInteger;
         this.priceDecimal = priceDecimal;
+        this.quantity = quantity;
+        this.selected = selected;
     }
 
     // Getters and Setters
@@ -34,14 +36,18 @@ public class Product {
     public void setPriceInteger(String priceInteger) { this.priceInteger = priceInteger; }
     public String getPriceDecimal() { return priceDecimal; }
     public void setPriceDecimal(String priceDecimal) { this.priceDecimal = priceDecimal; }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public boolean isSelected() { return selected; }
+    public void setSelected(boolean selected) { this.selected = selected; }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "CartItem{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", priceInteger='" + priceInteger + '\'' +
-                ", priceDecimal='" + priceDecimal + '\'' +
+                ", quantity=" + quantity +
+                ", selected=" + selected +
                 '}';
     }
 }
