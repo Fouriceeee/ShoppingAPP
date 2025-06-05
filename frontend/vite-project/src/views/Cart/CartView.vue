@@ -31,7 +31,21 @@
         <el-table-column label="商品信息" min-width="300">
           <template #default="scope">
             <div class="product-info">
-              <el-image :src="scope.row.image" fit="contain" class="product-image" lazy />
+              <el-image
+                  :src="getProductImageUrl(scope.row.image)"
+                  fit="contain"
+                  class="product-image"
+                  lazy
+                  :alt="scope.row.title"
+              >
+                <!-- 添加加载失败时的占位图 -->
+                <template #error>
+                  <div class="image-error">
+                    <el-icon><picture-filled /></el-icon>
+                  </div>
+                </template>
+              </el-image>
+
               <div class="product-details">
                 <p class="product-name">{{ scope.row.title }}</p>
               </div>
@@ -169,6 +183,42 @@ const totalAmount = computed(() => {
 
 // --- 方法 ---
 
+/**
+ * 计算商品图片的完整URL
+ * @param {string} imagePath - 图片路径
+ * @returns {string} 完整的图片URL
+ */
+const getProductImageUrl = (imagePath) => {
+  if (!imagePath) {
+    // 如果没有图片，返回默认图片
+    try {
+      return new URL('../assets/pictures/products/default-product.jpg', import.meta.url).href;
+    } catch (error) {
+      return '';
+    }
+  }
+
+  // 处理后端返回的图片路径
+  if (imagePath.startsWith('./images/')) {
+    // 静态资源服务器的基础URL
+    const baseUrl = 'http://localhost:8080';
+    // 将 "./images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
+    return `${baseUrl}/${imagePath.substring(2)}`;
+  } else if (imagePath.startsWith('http')) {
+    // 如果已经是完整URL，直接返回
+    return imagePath;
+  } else {
+    // 本地资源文件夹中的图片
+    try {
+      return new URL(`../assets/pictures/products/${imagePath}`, import.meta.url).href;
+    } catch (error) {
+      console.error('无法加载产品图片:', error);
+      return '';
+    }
+  }
+};
+
+
 // 控制全选框的状态：
 const selectAll = computed({
   get: () => cartItems.value.length > 0 && cartItems.value.every(item => item.selected),
@@ -210,6 +260,12 @@ const fetchCartItems = async () => {
     const response = await getCartItems(); // 调用封装的 API 函数
     cartItems.value = response.data; // 更新本地数据
     console.log('购物车数据已加载:', cartItems.value);
+    // 调试：打印每个商品的图片路径
+    cartItems.value.forEach(item => {
+      console.log(`商品 ${item.title} 的图片路径: ${item.image}`);
+      console.log(`处理后的图片URL: ${getProductImageUrl(item.image)}`);
+    });
+
   } catch (error) {
     console.error('获取购物车数据失败:', error);
     ElMessage.error('加载购物车失败，请稍后再试。');
@@ -483,4 +539,20 @@ onMounted(() => {
   background-color: #4d36a5; /* 稍微深一点的紫色，表示点击反馈 */
   transform: scale(95%);
 }
+
+.image-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f7fa;
+  color: #909399;
+  font-size: 14px;
+}
+
+.image-error .el-icon {
+  font-size: 32px;
+}
+
 </style>

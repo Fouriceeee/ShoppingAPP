@@ -12,6 +12,18 @@
   </div>
 
     <main class="home-main-content-wrapper"> <h1>首页</h1>
+      <div v-if="isLoading" class="loading-container">
+        <el-skeleton :rows="5" animated />
+      </div>
+
+      <div v-else-if="loadError" class="error-container">
+        <el-empty :description="loadError">
+          <template #extra>
+            <el-button type="primary" @click="fetchProducts">重试</el-button>
+          </template>
+        </el-empty>
+      </div>
+
       <div class="product-wrapper"> <ProductCard
           v-for="product in products"
           :key="product.id"
@@ -34,7 +46,7 @@
 import { ref, onMounted } from 'vue';
 import { ElMessage } from 'element-plus'; // 导入 Element Plus 的 Message 组件
 
-// 导入你的组件
+// 导入组件
 import topNav from '../../components/topNav.vue'
 import ProductCard from "@/components/productCard.vue";
 import CategorySidebar from "@/components/CategorySidebar.vue";
@@ -42,34 +54,47 @@ import ImageCarousel from "@/components/ImageCarousel.vue";
 import RecommendedProducts from "@/components/RecommendedProducts.vue";
 import LoginBar from "@/components/loginBar.vue";
 
-// 导入你的 JSON 数据
-import productsData from "@/data/products.json";
-import {addCartItem} from "@/api/cart.js"; // 确保路径正确
+// 导入 JSON 数据
+import {addCartItem} from "@/api/cart.js";
+import {getProducts} from "@/api/products.js"; // 确保路径正确
 
 // 产品列表数据
 const products = ref([]);
-// 购物车数据
-const cartItems = ref([]);
+// 加载状态
+const isLoading = ref(true);
+// 加载错误信息
+const loadError = ref(null);
 
-// 在组件挂载后加载产品数据
-onMounted(() => {
-  products.value = productsData;
 
-  const savedCart = localStorage.getItem('shoppingCart');
-  if (savedCart) {
-    try {
-      cartItems.value = JSON.parse(savedCart);
-      console.log('Home: 从 localStorage 加载购物车成功:', cartItems.value);
-    } catch (e) {
-      console.error("Home: 解析购物车数据失败:", e);
-      localStorage.removeItem('shoppingCart');
-      cartItems.value = [];
+// 在组件挂载后从后端加载产品数据
+const fetchProducts = async () => {
+  try {
+    isLoading.value = true;
+    loadError.value = null;
+
+    const response = await getProducts();
+
+    if (response.data && response.data.code === 200) {
+      products.value = response.data.data;
+      console.log('从后端成功获取产品数据:', products.value.length, '个产品');
+    } else {
+      throw new Error(response.data.message || '获取产品数据失败');
     }
+  } catch (error) {
+    console.error('加载产品数据失败:', error);
+    loadError.value = '无法加载产品数据，请刷新页面重试';
+    ElMessage.error('加载产品列表失败');
+  } finally {
+    isLoading.value = false;
   }
+};
+
+onMounted(() => {
+  fetchProducts();
 });
 
-const handleAddToCart = async (productToAdd) => {
 
+const handleAddToCart = async (productToAdd) => {
   console.log('2. HomePage: 接收到 ProductCard 的添加购物车事件，商品ID:', productToAdd.id);
 
   try {
@@ -86,9 +111,6 @@ const handleAddToCart = async (productToAdd) => {
     // 检查后端响应
     if (response.data && response.data.code === 200) {
       console.log('后端添加购物车成功响应:', response.data.message, response.data.data);
-      // 后端返回的 data 可能是更新后的 CartItem 或整个购物车列表
-      // 这里可以根据需要更新前端的 cartItems 状态，
-      // 但对于主页，通常只需要显示成功消息
       ElMessage({
         message: `${productToAdd.title} 已成功加入购物车！`,
         type: 'success',

@@ -44,10 +44,21 @@ const props = defineProps({
 // 定义组件可以触发的事件
 const emit = defineEmits(['add-to-cart']);
 
-// 计算图片路径
+// 计算图片路径 - 修改为处理两种图片来源
 const productImage = computed(() => {
-  return new URL(`../assets/pictures/products/${props.product.image}`, import.meta.url).href;
+  if (!props.product.image) {
+    // 如果没有图片，返回默认图片
+    return new URL('../assets/pictures/products/default-product.jpg', import.meta.url).href;
+  }
+
+  // 处理后端返回的图片路径
+  if (props.product.image.startsWith('./images/')) {
+    const baseUrl = 'http://localhost:8080';
+    // 去掉开头的 "./"
+    return `${baseUrl}/${props.product.image.substring(2)}`;
+  }
 });
+
 
 // 加入购物车处理函数
 const addToCart = () => {

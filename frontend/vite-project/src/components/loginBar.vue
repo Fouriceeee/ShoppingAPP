@@ -4,12 +4,17 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
     </div>
     <div class="greeting">欢迎回来！</div>
-    <div class="tips">登录以继续您的精彩旅程</div>
+    <div class="tips">登录享受更多优惠！</div>
     <div class="button-container login-button">
-      <el-button type="primary" size="large" class="action-el-button">登录</el-button>
+      <el-button
+          type="primary"
+          size="large"
+          class="login-button">
+        登录
+      </el-button>
     </div>
     <div class="button-container signup-button">
-      <el-button plain size="large" class="action-el-button">注册新账号</el-button>
+      <el-button plain size="large" class="signup-button">注册新账号</el-button>
     </div>
   </div>
 </template>
@@ -65,10 +70,19 @@ export default {
   display: flex; /* 使用 flex 来控制内部 el-button 的行为 */
 }
 
-.action-el-button {
+.login-button {
   width: 100%;
   font-weight: 500;
   border: none;
+  background-color: #7852f5;
+  border-radius: 8px;
+}
+
+.signup-button {
+  width: 100%;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
 }
 
 </style>
