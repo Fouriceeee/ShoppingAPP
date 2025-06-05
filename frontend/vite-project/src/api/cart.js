@@ -65,6 +65,7 @@ export const clearAllCartItems = () => {
  * @param {boolean} selected - 是否选中所有商品。
  * @returns {Promise<AxiosResponse>} 更新所有商品选中状态后的响应。
  */
-export const updateAllCartItemsSelection = (selected) => {
-    return axiosInstance.patch(`${API_BASE_URL}/cart/select-all`, { selected });
+export const selectAllCartItems = (selected) => {
+    console.log('api/cart.js:成功调用selectAllCartItems()函数，参数为：', selected);
+    return axiosInstance.patch(`${API_BASE_URL}/cart/select-all`, { selected: selected });
 };

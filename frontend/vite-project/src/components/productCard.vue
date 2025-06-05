@@ -68,7 +68,7 @@ const addToCart = () => {
   width: 100%;
   max-width: 300px;
   min-width: 200px;
-  aspect-ratio: 6 / 7.5; /*控制横纵比为6:7*/
+  aspect-ratio: 6 / 7.8; /*控制横纵比为6:7*/
   box-sizing: border-box;
   display: flex;
 
@@ -104,8 +104,10 @@ const addToCart = () => {
 }
 
 .product-info {
-  margin: 0px 15px 0px 15px;
-  color: #f0f0f0; /* Light text color for contrast */
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .product-title {
@@ -136,18 +138,18 @@ const addToCart = () => {
 .product-price .price-integer {
   font-size: 1em; /* 继承 .product-price 的 2.0em，所以是最大的 */
   /* 可以选择不设置 color，继承父级 */
-  color: #0d60cf; /* 整数部分使用较深的颜色，如果与父级颜色不同的话 */
+  color: #ed115d; /* 整数部分使用较深的颜色，如果与父级颜色不同的话 */
 }
 
 /* 小数部分样式 */
 .product-price .price-decimal {
   font-size: 0.6em; /* 关键：相对于父级 .product-price 的字号缩小，例如 0.6 * 2.0em = 1.2em */
   margin-left: 0px; /* 与整数部分紧密连接 */
-  color: #000205; /* 小数部分可以颜色稍浅 */
+  color: #ed115d; /* 小数部分可以颜色稍浅 */
 }
 
 .add-to-cart-button {
-  background-color: #176ec1;
+  background-color: #7852f5;
   border: none;
   width: 80%;
   padding-left: 0px;
@@ -155,9 +157,12 @@ const addToCart = () => {
   margin: 0 15px;
 }
 
-.add-to-cart-button:active{
-  background-color: #0e407c; /* 稍微深一点的蓝色，表示点击反馈 */
+.add-to-cart-button:active {
+  background-color: #4d36a5; /* 稍微深一点的紫色，表示点击反馈 */
   transform: scale(95%);
+}
+.add-to-cart-button:hover {
+  background-color: #4d36a5;
 }
 
 .cart-for-productCard-icon {

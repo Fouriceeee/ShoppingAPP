@@ -3,7 +3,7 @@
     <nav class="navbar">
       <ul class="nav-list">
         <li v-for="(item, index) in navItems" :key="index">
-          <a href="#">{{ item }}</a>
+          <router-link :to="item.path">{{ item.text }}</router-link>
         </li>
       </ul>
     </nav>
@@ -12,8 +12,8 @@
     <div class="toolbar">
       <div class="toolbar-left">
         <!-- Logo -->
-        <a href="#" class="logo">
-          <img src="https://via.placeholder.com/120x50?text=LOGO" alt="Logo" />
+        <a href="/" class="logo">
+          <img src="../assets/logo.png" alt="Logo" />
         </a>
 
         <!-- 菜单按钮 -->
@@ -73,7 +73,11 @@
 import { ref } from 'vue'
 import { } from "@element-plus/icons-vue";
 
-const navItems = ['首页', '产品', '服务', '关于我们']
+const navItems = ref([
+  { text: '首页', path: '/' },
+  { text: '登录', path: '/login' },
+  { text: '关于我们', path: '/about' }
+]);
 const showMenu = ref(false)
 
 function toggleMenu() {
@@ -84,7 +88,7 @@ function toggleMenu() {
 <style scoped>
 /* 顶部蓝色导航栏 */
 .navbar {
-  background-color: #05284e;
+  background-color: rgba(95, 31, 232, 0.95);
   padding: 10px 20px;
   height: 20px;
 }
@@ -116,7 +120,7 @@ function toggleMenu() {
   justify-content: space-between;
   position: sticky; /* 固定在顶部 */
   height: 80px;
-  background: #064273;
+  background: #7852f5;
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   top: 0;

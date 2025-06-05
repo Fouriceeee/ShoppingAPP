@@ -139,7 +139,7 @@ import {
   deleteCartItem,
   batchDeleteCartItems,
   clearAllCartItems,
-  updateAllCartItemsSelection
+  selectAllCartItems
 } from '@/api/cart';
 
 // --- 响应式数据 ---
@@ -165,6 +165,10 @@ const totalAmount = computed(() => {
   }, 0);
 });
 
+
+
+// --- 方法 ---
+
 // 控制全选框的状态：
 const selectAll = computed({
   get: () => cartItems.value.length > 0 && cartItems.value.every(item => item.selected),
@@ -173,19 +177,19 @@ const selectAll = computed({
     cartItems.value.forEach(item => (item.selected = val));
     try {
       // 调用 API 更新后端所有商品的选中状态
-      await updateAllCartItemsSelection(val);
-      ElMessage.success(val ? '已全选所有商品' : '已取消全选');
+      console.log("CartView:调用selectAllCartItems开始");
+      await selectAllCartItems(val);
+      console.log("cartView:调用selectAllCartItems成功");
+      /*ElMessage.success(val ? '已全选所有商品' : '已取消全选');*/
     } catch (error) {
       console.error('更新全选状态失败:', error);
-      ElMessage.error('更新全选状态失败，请稍后再试。');
+      /*ElMessage.error('更新全选状态失败，请稍后再试。');*/
       // 如果 API 调用失败，回滚 UI 状态以保持数据一致性
       // 这里需要重新从后端获取数据，以确保最终状态的一致性
       await fetchCartItems(); // 重新拉取数据
     }
   },
 });
-
-// --- 方法 ---
 
 // 页面头部返回按钮的回调
 const goBack = () => {
@@ -406,14 +410,9 @@ onMounted(() => {
   color: #303133;
 }
 
-.product-specs {
-  font-size: 0.9em;
-  color: #909399;
-}
-
 .item-subtotal {
   font-weight: bold;
-  color: #4aa6e3;
+  color: #ed115d;
 }
 
 .cart-summary-bar {
@@ -445,7 +444,11 @@ onMounted(() => {
 }
 
 .delete-selected-button:hover {
-  background-color: #fa4343;
+  background-color: #ed115d;
+}
+
+.clean-up-button {
+  color:black;
 }
 
 .summary-right {
@@ -462,17 +465,22 @@ onMounted(() => {
 .amount-value {
   font-size: 1.4em;
   font-weight: bold;
-  color: #4aa6e3;
+  color: #ed115d;
 }
 
 .checkout-button {
-  background-color: #0b78ea;
+  background-color: #7852f5;
   border: none;
   padding: 10px 30px;
   font-size: 1.1em;
 }
 
 .checkout-button:hover {
-  background-color: #91c1ff;
+  background-color: #4d36a5;
+}
+
+.checkout-button:active {
+  background-color: #4d36a5; /* 稍微深一点的紫色，表示点击反馈 */
+  transform: scale(95%);
 }
 </style>
