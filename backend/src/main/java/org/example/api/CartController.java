@@ -98,6 +98,8 @@ public class CartController {
                         productData.getTitle(),
                         productData.getPriceInteger(),
                         productData.getPriceDecimal(),
+                        productData.getCategory(),
+                        productData.getDescription(),
                         quantity,
                         true
                 );
