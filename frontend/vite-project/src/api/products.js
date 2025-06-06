@@ -33,4 +33,18 @@ export const getProductsByCategory = (category) => {
     });
 };
 
+/**
+ * 获取推荐产品列表。
+ * 注意：这个API将使用与getProducts相同的接口，
+ * 但前端会随机选择部分产品作为推荐显示。
+ * 如果后端支持，也可以传递一个limit参数限制返回的数量。
+ * @param {number} limit - 可选，限制返回的推荐产品数量。
+ * @returns {Promise<AxiosResponse>} 包含推荐产品列表的响应。
+ */
+export const getRecommendedProducts = (limit) => {
+    return axiosInstance.get(`${API_BASE_URL}/products`, {
+        params: { limit, recommended: true }
+    });
+};
+
 // 你可以根据需要添加更多产品相关的API，例如搜索、筛选等

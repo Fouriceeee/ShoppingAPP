@@ -14,7 +14,6 @@
           type="primary"
           class="add-to-cart-button"
           @click="addToCart"
-          :disabled="isAdding"
       >
         <img class="cart-for-productCard-icon" src="../assets/icons/cart-for-product-card.png" alt="">
         {{ isAdding ? '添加中...' : '加入购物车' }}
@@ -54,11 +53,12 @@ const productImage = computed(() => {
   // 处理后端返回的图片路径
   if (props.product.image.startsWith('/images/')) {
     const baseUrl = 'http://localhost:8080';
-    // 去掉开头的 "./"
-    return `${baseUrl}/${props.product.image.substring(1)}`;
+    console.log('DEBUG:获取到的图片路径：' + baseUrl + props.product.image);
+    let gotImage = `${baseUrl}${props.product.image}`
+    console.log('DEBUG:productImage的值：' + gotImage)
+    return `${baseUrl}${props.product.image}`;
   }
 });
-
 
 // 加入购物车处理函数
 const addToCart = () => {
