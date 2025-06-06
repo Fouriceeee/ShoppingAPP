@@ -3,23 +3,31 @@
     <div class="login-content">
       <div class="login-form-container">
         <div class="welcome-section">
-          <h1>Welcome!</h1>
-          <p>请登录您的账号以继续</p>
+          <h1>注册账号</h1>
+          <p>创建您的账号以开始使用</p>
         </div>
 
-        <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginFormRef">
+        <el-form class="login-form" :model="registerForm" :rules="registerRules" ref="registerFormRef">
           <el-form-item prop="username">
             <el-input
                 class="user-name-box"
-              v-model="loginForm.username"
+              v-model="registerForm.username"
               placeholder="用户名"
               prefix-icon="User"
             />
           </el-form-item>
 
+          <el-form-item prop="email">
+            <el-input
+              v-model="registerForm.email"
+              placeholder="电子邮箱"
+              prefix-icon="Message"
+            />
+          </el-form-item>
+
           <el-form-item prop="password">
             <el-input
-              v-model="loginForm.password"
+              v-model="registerForm.password"
               type="password"
               placeholder="密码"
               prefix-icon="Lock"
@@ -27,22 +35,31 @@
             />
           </el-form-item>
 
+          <el-form-item prop="confirmPassword">
+            <el-input
+              v-model="registerForm.confirmPassword"
+              type="password"
+              placeholder="确认密码"
+              prefix-icon="Lock"
+              show-password
+            />
+          </el-form-item>
+
           <div class="form-options">
-            <el-checkbox v-model="rememberMe" class="remember-me">记住我</el-checkbox>
-            <el-link type="primary">忘记密码？</el-link>
+            <el-checkbox v-model="agreeTerms" class="remember-me">我同意服务条款和隐私政策</el-checkbox>
           </div>
 
-          <el-button type="primary" class="login-button" @click="handleLogin" :loading="loading">登录</el-button>
+          <el-button type="primary" class="login-button" @click="handleRegister" :loading="loading">注册</el-button>
 
           <div class="register-link">
-            <span>还没有账号？</span>
-            <el-link type="primary" @click="goToRegister">立即注册</el-link>
+            <span>已有账号？</span>
+            <el-link type="primary" @click="goToLogin">立即登录</el-link>
           </div>
         </el-form>
       </div>
 
       <div class="login-image-container">
-        <img src="/src/assets/pictures/LoginImages/Login-image.jpeg" alt="登录页面插图" class="login-image" />
+        <img src="/src/assets/pictures/LoginImages/Login-image.jpeg" alt="注册页面插图" class="login-image" />
       </div>
     </div>
   </div>
@@ -50,50 +67,71 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { User, Lock } from '@element-plus/icons-vue'
+import { User, Lock, Message } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { useRouter, useRoute } from 'vue-router'
-import { login } from '@/utils/userService'
+import { useRouter } from 'vue-router'
+import { register } from '@/utils/userService'
 
 const router = useRouter()
-const route = useRoute()
-const loginFormRef = ref(null)
+const registerFormRef = ref(null)
 const loading = ref(false)
-const rememberMe = ref(false)
+const agreeTerms = ref(false)
 
-const loginForm = reactive({
+const registerForm = reactive({
   username: '',
-  password: ''
+  email: '',
+  password: '',
+  confirmPassword: ''
 })
 
-const loginRules = {
+const validatePass2 = (rule, value, callback) => {
+  if (value === '') {
+    callback(new Error('请再次输入密码'))
+  } else if (value !== registerForm.password) {
+    callback(new Error('两次输入密码不一致'))
+  } else {
+    callback()
+  }
+}
+
+const registerRules = {
   username: [
     { required: true, message: '请输入用户名', trigger: 'blur' },
     { min: 3, max: 20, message: '用户名长度应在3到20个字符之间', trigger: 'blur' }
   ],
+  email: [
+    { required: true, message: '请输入电子邮箱', trigger: 'blur' },
+    { type: 'email', message: '请输入有效的电子邮箱地址', trigger: 'blur' }
+  ],
   password: [
     { required: true, message: '请输入密码', trigger: 'blur' },
     { min: 6, message: '密码长度至少为6个字符', trigger: 'blur' }
+  ],
+  confirmPassword: [
+    { required: true, message: '请确认密码', trigger: 'blur' },
+    { validator: validatePass2, trigger: 'blur' }
   ]
 }
 
-const handleLogin = async () => {
-  if (!loginFormRef.value) return
+const handleRegister = async () => {
+  if (!registerFormRef.value) return
 
-  await loginFormRef.value.validate(async (valid) => {
+  if (!agreeTerms.value) {
+    ElMessage.warning('请同意服务条款和隐私政策')
+    return
+  }
+
+  await registerFormRef.value.validate(async (valid) => {
     if (valid) {
       loading.value = true
       try {
-        // 使用userService进行登录
-        const result = await login(loginForm.username, loginForm.password)
-        ElMessage.success(result.message || '登录成功')
-
-        // 登录成功后的重定向逻辑
-        // 如果有重定向参数，则跳转到原来要访问的页面
-        const redirectPath = route.query.redirect || '/'
-        router.push(redirectPath)
+        // 使用userService进行注册
+        await register(registerForm)
+        ElMessage.success('注册成功')
+        // 注册成功后重定向到登录页面
+        router.push('/login')
       } catch (error) {
-        ElMessage.error(error.message || '登录失败，请检查用户名和密码')
+        ElMessage.error(error.message || '注册失败，请稍后再试')
       } finally {
         loading.value = false
       }
@@ -103,14 +141,13 @@ const handleLogin = async () => {
   })
 }
 
-const goToRegister = () => {
-  router.push('/register')
+const goToLogin = () => {
+  router.push('/login')
 }
 </script>
 
 <style scoped>
 .login-page-container {
-/*  background-image: url('/src/assets/pictures/LoginImages/Login-background.svg');*/
   display: flex;
   justify-content: center;
   align-items: center;

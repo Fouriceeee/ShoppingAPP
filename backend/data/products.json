@@ -1,30 +1,47 @@
 [
   {
     "id": "1",
-    "image": "./images/5090.webp",
+    "image": "/images/5090.webp",
     "title": "RTX5090 微星魔龙",
     "priceInteger": "23999",
-    "priceDecimal": "00"
+    "priceDecimal": "00",
+    "category": "videoCard",
+    "description": "微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"
   },
   {
     "id": "2",
-    "image": "./images/4080.webp",
-    "title": "RTX4080 华硕天启",
+    "image": "/images/4080.webp",
+    "title": "RTX4080 华硕TUF",
     "priceInteger": "14999",
-    "priceDecimal": "00"
+    "priceDecimal": "00",
+    "category": "videoCard",
+    "description": "RTX5080 16G华硕TUF电竞游戏显卡"
   },
   {
     "id": "3",
-    "image": "./images/9700xt.webp",
+    "image": "/images/9700xt.webp",
     "title": "RX9700xt 蓝宝石超白金",
     "priceInteger": "7999",
-    "priceDecimal": "00"
+    "priceDecimal": "00",
+    "category": "videoCard",
+    "description": "蓝宝石9700XTX 24G超白金版9700XT 9070 台式机游戏算力电脑显卡"
   },
   {
     "id": "4",
-    "image": "./images/4070ti.webp",
+    "image": "/images/4070ti.webp",
     "title": "RTX4070Ti 技嘉雪鹰",
     "priceInteger": "5999",
-    "priceDecimal": "00"
+    "priceDecimal": "00",
+    "category": "videoCard",
+    "description": "技嘉RTX5070Ti/4070ti SUPER魔鹰雪鹰台式电脑独立显卡"
+  },
+  {
+    "id": "5",
+    "image": "/images/9800x3d.webp",
+    "title": "AMD Ryzen 7 9800x3d",
+    "priceInteger": "4150",
+    "priceDecimal": "00",
+    "category": "CPU",
+    "description": "AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"
   }
 ]

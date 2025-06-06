@@ -8,7 +8,10 @@
       <div class="home-top-3-bottom-section"> </div>
     </div>
 
-    <div class="home-top-4-wrapper"> <login-bar class="home-login-bar" /> </div>
+    <div class="home-top-4-wrapper">
+      <login-bar v-if="!isLoggedIn" class="home-login-bar" />
+      <user-info-bar v-else class="home-login-bar" />
+    </div>
   </div>
 
     <main class="home-main-content-wrapper"> <h1>首页</h1>
@@ -53,6 +56,8 @@ import CategorySidebar from "@/components/CategorySidebar.vue";
 import ImageCarousel from "@/components/ImageCarousel.vue";
 import RecommendedProducts from "@/components/RecommendedProducts.vue";
 import LoginBar from "@/components/loginBar.vue";
+import UserInfoBar from "@/components/UserInfoBar.vue";
+import { checkAuth } from '@/utils/userService';
 
 // 导入 JSON 数据
 import {addCartItem} from "@/api/cart.js";
@@ -64,6 +69,8 @@ const products = ref([]);
 const isLoading = ref(true);
 // 加载错误信息
 const loadError = ref(null);
+// 用户登录状态
+const isLoggedIn = ref(false);
 
 
 // 在组件挂载后从后端加载产品数据
@@ -91,6 +98,8 @@ const fetchProducts = async () => {
 
 onMounted(() => {
   fetchProducts();
+  // 检查用户是否已登录
+  isLoggedIn.value = checkAuth() !== null;
 });
 
 
@@ -213,4 +222,8 @@ h1 {
   justify-content: center;
 }
 
+.el-message {
+  z-index: 9999 !important;
+
+}
 </style>

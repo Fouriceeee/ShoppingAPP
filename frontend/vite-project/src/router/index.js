@@ -3,6 +3,9 @@ import HomeView from "../views/Home/HomeView.vue";
 import Products from "../views/Products/products.vue";
 import CartView from "../views/Cart/CartView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
+import RegisterView from "@/views/Login/RegisterView.vue";
+import { checkAuth } from '@/utils/userService';
+import { ElMessage } from 'element-plus';
 
 
 const routes = [
@@ -19,12 +22,18 @@ const routes = [
     {/*购物车*/
         path: "/cart",
         name: "CartPage",
-        component: CartView
+        component: CartView,
+        meta: { requiresAuth: true }
     },
     {/*登录页面*/
         path: "/login",
         name: "LoginPage",
         component: LoginView
+    },
+    {/*注册页面*/
+        path: "/register",
+        name: "RegisterPage",
+        component: RegisterView
     },
     /*{/!*关于*!/
         path: "/about",
@@ -36,6 +45,24 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes
+})
+
+// 全局前置守卫，验证用户是否登录
+router.beforeEach((to, from, next) => {
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+    const currentUser = checkAuth()
+
+    if (requiresAuth && !currentUser) {
+        // 如果需要登录但用户未登录，重定向到登录页面
+        ElMessage.warning('请先登录再继续操作')
+        next({
+            path: '/login',
+            query: { redirect: to.fullPath } // 保存原来要访问的路径，登录后可以重定向回去
+        })
+    } else {
+        // 不需要验证或已登录，正常导航
+        next()
+    }
 })
 
 export default router

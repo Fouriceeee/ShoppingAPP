@@ -1,5 +1,5 @@
 <template>
-  <el-card class="product-card">
+  <el-card class="product-card" >
     <div class="product-image">
       <img :src="productImage" :alt="product.title">
     </div>
@@ -52,10 +52,10 @@ const productImage = computed(() => {
   }
 
   // 处理后端返回的图片路径
-  if (props.product.image.startsWith('./images/')) {
+  if (props.product.image.startsWith('/images/')) {
     const baseUrl = 'http://localhost:8080';
     // 去掉开头的 "./"
-    return `${baseUrl}/${props.product.image.substring(2)}`;
+    return `${baseUrl}/${props.product.image.substring(1)}`;
   }
 });
 
@@ -72,7 +72,6 @@ const addToCart = () => {
   padding: 0px;
   --el-card-padding: 15px;
   margin: 0px;
-  /* Set the background color of the card based on the image */
   background-color: #ffffff;
   border: none;
   border-radius: 30px;
@@ -99,16 +98,24 @@ const addToCart = () => {
       -30px -30px 80px 0px rgba(255, 255, 255, 0.18);
 }
 
+:deep(.el-card__body) { /*并非从未使用。IDE解析错了*/
+  width: 100%;
+}
+
 .product-image {
   width: 100%;
   height: 65%;
   display: flex;
   align-items: center; /* 垂直居中子元素 */
+  justify-content: center;
 }
 
 .product-image img {
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   border-radius: 8px; /* Slightly rounded corners for the image */
   margin-bottom: 15px;
   display: block; /* Remove extra space below image */

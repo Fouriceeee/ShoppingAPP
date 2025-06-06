@@ -1,7 +1,7 @@
 import axiosInstance from './index';
 
 // 定义 API 的基础路径
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080';
 
 /**
  * 获取所有产品列表。

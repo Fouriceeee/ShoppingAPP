@@ -199,11 +199,11 @@ const getProductImageUrl = (imagePath) => {
   }
 
   // 处理后端返回的图片路径
-  if (imagePath.startsWith('./images/')) {
+  if (imagePath.startsWith('/images/')) {
     // 静态资源服务器的基础URL
     const baseUrl = 'http://localhost:8080';
-    // 将 "./images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
-    return `${baseUrl}/${imagePath.substring(2)}`;
+    // 将 "/images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
+    return `${baseUrl}/${imagePath.substring(1)}`;
   } else if (imagePath.startsWith('http')) {
     // 如果已经是完整URL，直接返回
     return imagePath;

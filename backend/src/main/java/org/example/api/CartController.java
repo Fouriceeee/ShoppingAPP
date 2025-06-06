@@ -243,7 +243,7 @@ public class CartController {
 
         res.type("application/json");
         String requestBodyString = req.body();
-        System.out.println("DEBUG: Received request body: " + requestBodyString);
+        System.out.println("DEBUG: selectAllCartItems: Received request body: " + requestBodyString);
 
         try {
             JsonObject requestBody = GSON.fromJson(requestBodyString, JsonObject.class);

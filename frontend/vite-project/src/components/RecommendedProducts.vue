@@ -64,13 +64,13 @@ const displayedProducts = ref([
 
 .more-link {
   font-size: 0.9em;
-  color: #0b78ea;
+  color: #ed115d;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .more-link:hover {
-  color: #0a407e;
+  color: #b5174d;
 }
 
 .products-container {
@@ -111,7 +111,7 @@ const displayedProducts = ref([
 .product-price {
   margin-top: 10px;
   font-size: 1.1em;
-  color: #0b78ea; /* 价格颜色 */
+  color: #ed115d; /* 价格颜色 */
   font-weight: bold;
 }
 </style>

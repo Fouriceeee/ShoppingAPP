@@ -10,20 +10,16 @@ import org.example.api.Router;
 
 import java.io.File;
 
-
 public class App {
-
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create(); // 用于API响应
 
     /**
      * 获取GSON实例
      */
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create(); // 用于API响应
+
     public static Gson getGson() {
         return GSON;
     }
-
-    // AddToCartRequest类已移至CartController
-
 
     public static void main(String[] args) {
         // 设置端口，可以从环境变量获取，或使用默认值 8080
@@ -41,7 +37,7 @@ public class App {
 
         // 启动服务器
         Spark.init();
-        System.out.println("购物车API服务器已启动，端口：" + Spark.port());
+        System.out.println("后端服务器已启动，端口：" + Spark.port());
         System.out.println("数据文件位于项目根目录的 'data' 文件夹下。");
         System.out.println("请确保前端请求的 API_BASE_URL 与后端端口匹配，例如：http://localhost:" + port + "/api");
     }
