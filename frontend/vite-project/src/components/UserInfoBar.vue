@@ -42,11 +42,11 @@
     </div>
 
     <div class="user-actions">
-      <el-button type="primary" class="action-button" @click="goToOrders">
+      <el-button type="primary" class="action-button order-button" @click="goToOrders">
         我的订单
       </el-button>
 
-      <el-button plain class="action-button" @click="handleLogout">
+      <el-button plain class="action-button logout-button" @click="handleLogout">
         退出登录
       </el-button>
     </div>
@@ -214,10 +214,16 @@ onMounted(async () => {
   width: 100%;
   border-radius: 8px;
   font-weight: 500;
+  margin: 0;
 }
 
 .action-button:first-child {
   background-color: #7852f5;
   border: none;
 }
+
+.action-button:last-child {
+  margin: 0;
+}
+
 </style>

@@ -22,4 +22,15 @@ export const getProductById = (productId) => {
     return axiosInstance.get(`${API_BASE_URL}/products/${productId}`);
 };
 
+/**
+ * 根据分类获取产品列表。
+ * @param {string} category - 产品分类代码，例如 VIDEOCARD, CPU 等。
+ * @returns {Promise<AxiosResponse>} 包含特定分类产品列表的响应。
+ */
+export const getProductsByCategory = (category) => {
+    return axiosInstance.get(`${API_BASE_URL}/products`, {
+        params: { category }
+    });
+};
+
 // 你可以根据需要添加更多产品相关的API，例如搜索、筛选等

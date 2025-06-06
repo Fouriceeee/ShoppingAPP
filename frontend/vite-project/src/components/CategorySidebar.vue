@@ -5,31 +5,42 @@
     </div>
     <ul class="category-list">
       <li v-for="category in categories" :key="category.id" class="category-item">
-        <a :href="category.link" class="category-link">
+        <div @click="navigateToCategory(category.code)" class="category-link">
           {{ category.name }}
-          <i class="el-icon-arrow-right arrow-icon"></i> </a>
+          <i class="el-icon-arrow-right arrow-icon"></i>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
-// 如果你使用 Composition API 和 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+
+// 使用产品数据中的实际分类
 const categories = ref([
-  { id: '1', name: '类型 1', link: '#category1' },
-  { id: '2', name: '类型 2', link: '#category2' },
-  { id: '3', name: '类型 3', link: '#category3' },
-  { id: '4', name: '类型 4', link: '#category4' },
-  { id: '5', name: '类型 5', link: '#category5' },
-  { id: '6', name: '类型 6', link: '#category6' },
-  { id: '7', name: '类型 7', link: '#category7' },
-  { id: '8', name: '类型 8', link: '#category8' },
-  { id: '9', name: '类型 9', link: '#category9' },
-  { id: '10', name: '类型 10', link: '#category10' },
-  // ... 更多分类
+  { id: '1', name: '显卡', code: 'VIDEOCARD' },
+  { id: '2', name: '处理器', code: 'CPU' },
+  { id: '3', name: '主板', code: 'MOTHERBOARD' },
+  { id: '4', name: '内存', code: 'RAM' },
+  { id: '5', name: '存储设备', code: 'STORAGE' },
+  { id: '6', name: '电源', code: 'POWERSUPPLY' },
+  { id: '7', name: '机箱', code: 'CASE' },
+  { id: '8', name: '散热器', code: 'COOLING' },
+  { id: '9', name: '显示器', code: 'MONITOR' },
+  { id: '10', name: '外设', code: 'PERIPHERALS' },
 ]);
+
+// 导航到分类页面的函数
+const navigateToCategory = (categoryCode) => {
+  router.push({
+    path: '/products',
+    query: { category: categoryCode }
+  });
+};
 </script>
 
 <style scoped>
