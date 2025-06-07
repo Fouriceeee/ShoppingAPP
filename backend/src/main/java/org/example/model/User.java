@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class User {
     @SerializedName("ID")
-    private Long id;
+    private String id;
 
     @SerializedName("NAME")
     private String name;
@@ -22,9 +22,9 @@ public class User {
     private Group group = Group.CUSTOMER;
 
     @SerializedName("CART")
-    private ArrayList<Long> cart = new ArrayList<>();
+    private ArrayList<String> cart = new ArrayList<>();
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -44,9 +44,9 @@ public class User {
         return group;
     }
 
-    public ArrayList<Long> getCart() { return cart; }
+    public ArrayList<String> getCart() { return cart; }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,7 +66,7 @@ public class User {
         this.group = group;
     }
 
-    public void setCart(ArrayList<Long> cart) { this.cart = cart; }
+    public void setCart(ArrayList<String> cart) { this.cart = cart; }
 
     public void addCartItem(CartItem item) {
         cart.add(item.getId());
