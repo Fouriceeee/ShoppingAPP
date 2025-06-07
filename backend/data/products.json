@@ -82,7 +82,7 @@
   },
   {
     "id": "10",
-    "image": "/image/iPad Pro 2024.png",
+    "image": "/images/iPad Pro 2024.png",
     "title": "iPad Pro 2024",
     "priceInteger": "8999",
     "priceDecimal": "99",
@@ -91,7 +91,7 @@
   },
   {
     "id": "11",
-    "image": "/image/HUAWEI MatePad Air.jpg",
+    "image": "/images/HUAWEI MatePad Air.jpg",
     "title": "HUAWEI MatePad Air 12''",
     "priceInteger": "2199",
     "priceDecimal": "99",
@@ -100,7 +100,7 @@
   },
   {
     "id": "12",
-    "image": "/image/Redmi Pad Pro.jpg",
+    "image": "/images/Redmi Pad Pro.jpg",
     "title": "Redmi Pad Pro",
     "priceInteger": "999",
     "priceDecimal": "99",
@@ -109,7 +109,7 @@
   },
   {
     "id": "13",
-    "image": "/image/ASUS TUF 6 Pro.png",
+    "image": "/images/ASUS TUF 6 Pro.png",
     "title": "华硕天选6 Pro 酷睿版",
     "priceInteger": "7499",
     "priceDecimal": "99",
@@ -118,7 +118,7 @@
   },
   {
     "id": "14",
-    "image": "/image/LENOVO Legion Y7000P.jpg",
+    "image": "/images/LENOVO Legion Y7000P.jpg",
     "title": "联想拯救者Y7000P",
     "priceInteger": "6499",
     "priceDecimal": "99",
