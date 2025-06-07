@@ -172,7 +172,7 @@ onMounted(() => {
   height: 200px;
   min-width: 300px; /* 模块最小宽度 */
   max-width: 512px; /* 模块最大宽度 */
-  background-color: #edeef2; /* 模块背景色 */
+  background-color: #f5f5f5; /* 模块背景色 */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -258,6 +258,7 @@ onMounted(() => {
   width: 80px;
   height: 80px;
   object-fit: contain; /* 确保图片完整显示，不裁剪 */
+  overflow: hidden;
   display: block;
   border-radius: 4px;
   background-color: #f5f5f5;
