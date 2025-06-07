@@ -1,6 +1,6 @@
 <template>
   <div class="user-info-bar-wrapper">
-    <div class="user-profile">
+    <div class="user-profile" @click="goToUserPage">
       <div class="avatar-container">
         <!-- 用户头像，如果用户没有头像则显示默认头像 -->
         <img
@@ -110,6 +110,12 @@ const goToCart = () => {
   router.push('/cart')
 }
 
+// 前往用户中心页面
+const goToUserPage = () => {
+  router.push('/user')
+}
+
+
 // 处理退出登录
 const handleLogout = () => {
   userLogout()
@@ -147,6 +153,7 @@ onMounted(async () => {
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .avatar-container {

@@ -49,8 +49,10 @@
 </template>
 
 <script setup>
+//页面导航栏标题信息
+document.title = '登录 - 易猫商城';
+
 import { ref, reactive } from 'vue'
-import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
 import { login } from '@/utils/userService'

@@ -66,6 +66,9 @@
 </template>
 
 <script setup>
+//页面导航栏标题信息
+document.title = '注册 - 易猫商城';
+
 import { ref, reactive } from 'vue'
 import { User, Lock, Message } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
