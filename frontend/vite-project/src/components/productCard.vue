@@ -13,7 +13,7 @@
       <el-button
           type="primary"
           class="add-to-cart-button"
-          @click="addToCart"
+          @click.stop="addToCart"
       >
         <img class="cart-for-productCard-icon" src="../assets/icons/cart-for-product-card.png" alt="">
         {{ isAdding ? '添加中...' : '加入购物车' }}
@@ -180,6 +180,7 @@ const navigateToProductDetail = (productId) => {
   padding-left: 0px;
   padding-right: 5px;
   margin: 0 15px;
+  z-index: 100 !important;
 }
 
 .add-to-cart-button:active {
