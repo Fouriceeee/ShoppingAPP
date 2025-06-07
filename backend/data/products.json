@@ -1,15 +1,15 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "image": "/images/5090.webp",
     "title": "RTX5090 微星魔龙",
-    "priceInteger": 23999,
-    "priceDecimal": 0,
+    "priceInteger": "23999",
+    "priceDecimal": "00",
     "category": "VIDEOCARD",
     "description": "微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"
   },
   {
-    "id": 2,
+    "id": "2",
     "image": "/images/4080.webp",
     "title": "RTX4080 华硕TUF",
     "priceInteger": "14999",
@@ -18,7 +18,7 @@
     "description": "RTX5080 16G华硕TUF电竞游戏显卡"
   },
   {
-    "id": 3,
+    "id": "3",
     "image": "/images/9700xt.webp",
     "title": "RX9700xt 蓝宝石超白金",
     "priceInteger": "7999",
@@ -27,7 +27,7 @@
     "description": "蓝宝石9700XTX 24G超白金版9700XT 9070 台式机游戏算力电脑显卡"
   },
   {
-    "id": 4,
+    "id": "4",
     "image": "/images/4070ti.webp",
     "title": "RTX4070Ti 技嘉雪鹰",
     "priceInteger": "5999",
@@ -36,7 +36,7 @@
     "description": "技嘉RTX5070Ti/4070ti SUPER魔鹰雪鹰台式电脑独立显卡"
   },
   {
-    "id": 5,
+    "id": "5",
     "image": "/images/9800x3d.webp",
     "title": "AMD Ryzen 7 9800x3d",
     "priceInteger": "4150",
@@ -45,39 +45,84 @@
     "description": "AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"
   },
   {
-    "id": 6,
+    "id": "6",
     "image": "/images/orange.png",
     "title": "Orange",
-    "priceInteger":0,
-    "priceDecimal":99,
+    "priceInteger":"0",
+    "priceDecimal":"99",
     "category":"FRUIT",
     "description":"Organic oranges"
   },
   {
-    "id": 7,
+    "id": "7",
     "image": "/images/apple.png",
     "title": "Apple",
-    "priceInteger":0,
-    "priceDecimal":99,
+    "priceInteger":"0",
+    "priceDecimal":"99",
     "category":"FRUIT",
     "description":"Organic apples"
   },
   {
-    "id": 8,
+    "id": "8",
     "image": "/images/cookie.png",
     "title": "Chocolate Cookie",
-    "priceInteger":1,
-    "priceDecimal":99,
+    "priceInteger":"1",
+    "priceDecimal":"99",
     "category":"SNACK",
     "description":"Crispy chocolate cookies"
   },
   {
-    "id": 9,
+    "id": "9",
     "image": "/images/coca_cola.jpg",
     "title": "Coca Cola",
-    "priceInteger":2,
-    "priceDecimal":99,
+    "priceInteger":"2",
+    "priceDecimal":"99",
     "category":"DRINK",
     "description":"Carbonated soft drink"
+  },
+  {
+    "id": "10",
+    "image": "/image/iPad Pro 2024.png",
+    "title": "iPad Pro 2024",
+    "priceInteger": "8999",
+    "priceDecimal": "99",
+    "category": "PAD",
+    "description": "11-inch, Ultra Retina XDR display"
+  },
+  {
+    "id": "11",
+    "image": "/image/HUAWEI MatePad Air.jpg",
+    "title": "HUAWEI MatePad Air 12''",
+    "priceInteger": "2199",
+    "priceDecimal": "99",
+    "category": "PAD",
+    "description": "HUAWEI MatePad Air 12-inch, 8GB + 256GB"
+  },
+  {
+    "id": "12",
+    "image": "/image/Redmi Pad Pro.jpg",
+    "title": "Redmi Pad Pro",
+    "priceInteger": "999",
+    "priceDecimal": "99",
+    "category": "PAD",
+    "description": "Redmi Pad Pro, 8GB + 128GB"
+  },
+  {
+    "id": "13",
+    "image": "/image/ASUS TUF 6 Pro.png",
+    "title": "华硕天选6 Pro 酷睿版",
+    "priceInteger": "7499",
+    "priceDecimal": "99",
+    "category": "LAPTOP",
+    "description": "Ultra 7-255HX/RTX5060/2.5K 16:10高刷高亮高色域电竞屏/1T/16G"
+  },
+  {
+    "id": "14",
+    "image": "/image/LENOVO Legion Y7000P.jpg",
+    "title": "联想拯救者Y7000P",
+    "priceInteger": "6499",
+    "priceDecimal": "99",
+    "category": "LAPTOP",
+    "description": "Y7000 2025/i7-14650HX/RTX5060/2.5k 180Hz/512G/16G"
   }
 ]
