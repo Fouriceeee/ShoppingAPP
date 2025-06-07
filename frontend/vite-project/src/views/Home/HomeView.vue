@@ -1,4 +1,5 @@
 <template>
+  <title>您的电商网站</title>
   <div class="home-page">
     <top-nav /> <div class="page-container"> <div class="home-top-wrapper"> <div class="home-top-1-wrapper"> <CategorySidebar class="home-category-sidebar" /> </div>
 
@@ -46,6 +47,9 @@
 </template>
 
 <script setup>
+//页面导航栏标题信息
+document.title = '首页 - 易猫emall';
+
 import { ref, onMounted } from 'vue';
 import { ElMessage } from 'element-plus'; // 导入 Element Plus 的 Message 组件
 
@@ -71,7 +75,6 @@ const isLoading = ref(true);
 const loadError = ref(null);
 // 用户登录状态
 const isLoggedIn = ref(false);
-
 
 // 在组件挂载后从后端加载产品数据
 const fetchProducts = async () => {
@@ -101,7 +104,6 @@ onMounted(() => {
   // 检查用户是否已登录
   isLoggedIn.value = checkAuth() !== null;
 });
-
 
 const handleAddToCart = async (productToAdd) => {
   console.log('2. HomePage: 接收到 ProductCard 的添加购物车事件，商品ID:', productToAdd.id);

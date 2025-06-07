@@ -133,6 +133,9 @@
 </template>
 
 <script setup>
+//页面导航栏标题信息
+document.title = '购物车 - 易猫商城';
+
 import { ref, computed, onMounted } from 'vue';
 import { ArrowLeft } from '@element-plus/icons-vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
@@ -149,6 +152,8 @@ import {
   clearAllCartItems,
   selectAllCartItems
 } from '@/api/cart';
+
+
 
 // --- 响应式数据 ---
 const isLoading = ref(true); // 控制加载状态，开始时设置为 true

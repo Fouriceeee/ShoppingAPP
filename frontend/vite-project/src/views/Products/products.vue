@@ -37,6 +37,9 @@
 </template>
 
 <script setup>
+//页面导航栏标题信息
+document.title = '商品列表 - 易猫商城';
+
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';

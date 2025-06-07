@@ -139,7 +139,9 @@ function toggleMenu() {
 }
 
 .logo img {
-  height: 50px;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
 }
 
 /* 菜单按钮 */

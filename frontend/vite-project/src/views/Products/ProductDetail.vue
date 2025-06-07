@@ -55,10 +55,10 @@
               </div>
             </div>
 
-            <div class="product-availability">
+<!--            <div class="product-availability">
               <el-tag type="success" effect="plain" v-if="product.stock > 0">有库存</el-tag>
               <el-tag type="danger" effect="plain" v-else>缺货</el-tag>
-            </div>
+            </div>-->
 
             <div class="product-actions">
               <div class="quantity-selector">
@@ -67,12 +67,12 @@
               </div>
 
               <div class="action-buttons">
-                <el-button type="primary" size="large" class="add-to-cart-btn" @click="addToCart" :disabled="product.stock <= 0">
+                <el-button type="primary" size="large" class="add-to-cart-button" @click="addToCart" :disabled="product.stock <= 0">
                   <el-icon><ShoppingCart /></el-icon>
                   加入购物车
                 </el-button>
-                <el-button size="large" class="buy-now-btn" type="danger" @click="buyNow" :disabled="product.stock <= 0">
-                  立即购买
+                <el-button size="large" class="buy-now-button" type="danger" @click="buyNow" :disabled="product.stock <= 0">
+                  领券购买
                 </el-button>
               </div>
             </div>
@@ -237,6 +237,10 @@ const fetchProductDetail = async () => {
 
     if (response.data && response.data.code === 200) {
       product.value = response.data.data;
+
+      // 动态设置页面标题为商品名称
+      document.title = `${product.value.title} - 商品详情 - 易猫商城`
+
 
       // 设置示例原价（比实际价格高10-30%）
       const actualPrice = parseFloat(`${product.value.priceInteger}.${product.value.priceDecimal || '00'}`);
@@ -482,19 +486,26 @@ onMounted(() => {
   width: 100%;
 }
 
-.add-to-cart-btn {
+.add-to-cart-button {
   flex: 1;
   background-color: #7852f5;
   border: none;
+  border-radius: 10px;
   height: 50px;
   font-size: 16px;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #6a46e5;
+.add-to-cart-button:hover {
+  background-color: #4d36a5;
 }
 
-.buy-now-btn {
+.add-to-cart-button:active {
+  background-color: #4d36a5; /* 稍微深一点的紫色，表示点击反馈 */
+  transform: scale(95%);
+}
+
+.buy-now-button {
+  border-radius: 10px;
   flex: 1;
   height: 50px;
   font-size: 16px;

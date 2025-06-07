@@ -12,7 +12,7 @@ const routes = [
     {/*主页面*/
         path: "/",
         name: "Home",
-        component: HomeView
+        component: HomeView,
     },
     {/*商品页面*/
         path: "/products",
@@ -29,6 +29,12 @@ const routes = [
         name: "CartPage",
         component: CartView,
         meta: { requiresAuth: true }
+    },
+    {/*用户主页*/
+        path: "/user",
+        name: "UserPage",
+        component: () => import('../views/User/UserPage.vue'),
+        meta: { requiresAuth: true, title: '个人中心 - 易猫商城' }
     },
     {/*登录页面*/
         path: "/login",
