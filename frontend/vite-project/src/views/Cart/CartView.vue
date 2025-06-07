@@ -132,12 +132,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Cart'
-}
-</script>
-
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { ArrowLeft } from '@element-plus/icons-vue';
