@@ -4,7 +4,7 @@ package org.example.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Product {
-    protected Long id;
+    protected String id;
     protected String image;
     protected String title;
     protected String priceInteger;
@@ -13,9 +13,8 @@ public class Product {
     protected String description;
 
     // 无参构造函数是 Gson 反序列化所必需的
-    public Product() {}
 
-    public Product(Long id, String image, String title, String priceInteger, String priceDecimal, Category category, String description) {
+    public Product(String id, String image, String title, String priceInteger, String priceDecimal, Category category, String description) {
         this.id = id;
         this.image = image;
         this.title = title;
@@ -26,8 +25,8 @@ public class Product {
     }
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public String getImage() { return image; }
     public void setImage(String image) { this.image = image; }
     public String getTitle() { return title; }

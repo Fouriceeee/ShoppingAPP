@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "image": "/images/coca cola.jpg",
+    "image": "/images/coca_cola.jpg",
     "title": "Coca Cola",
     "priceInteger":2,
     "priceDecimal":99,

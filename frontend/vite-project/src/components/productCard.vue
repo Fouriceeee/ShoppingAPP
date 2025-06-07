@@ -1,5 +1,5 @@
 <template>
-  <el-card class="product-card" >
+  <el-card class="product-card" @click="navigateToProductDetail(product.id)">
     <div class="product-image">
       <img :src="productImage" :alt="product.title">
     </div>
@@ -24,6 +24,7 @@
 
 <script setup>
 import { defineProps, defineEmits, computed, ref } from 'vue';
+import router from "@/router/index.js";
 
 // 定义 ProductCard 组件接受的 props
 const props = defineProps({
@@ -65,6 +66,11 @@ const addToCart = () => {
   console.log('1. ProductCard: "加入购物车" 按钮被点击了！');
   emit('add-to-cart', props.product);
 };
+
+// 导航到产品详情页
+const navigateToProductDetail = (productId) => {
+  router.push(`/products/${productId}`);
+};
 </script>
 
 <style scoped>
@@ -81,6 +87,7 @@ const addToCart = () => {
   aspect-ratio: 6 / 7.8; /*控制横纵比为6:7*/
   box-sizing: border-box;
   display: flex;
+  cursor: pointer;
 
   /* Apply the custom box-shadows */
   box-shadow:

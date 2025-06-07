@@ -82,7 +82,10 @@ export default {
   border: none;
   background-color: #7852f5;
   border-radius: 8px;
+}
 
+.login-button:hover {
+  background-color: #4a2fb1;
 }
 
 .signup-button {

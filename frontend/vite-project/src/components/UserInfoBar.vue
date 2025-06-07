@@ -114,7 +114,11 @@ const goToCart = () => {
 const handleLogout = () => {
   userLogout()
   ElMessage.success('已成功退出登录')
-  router.push('/login')
+  router.push('/').then(() => {
+    // 导航完成后刷新页面
+    window.location.reload()
+  })
+
 }
 
 onMounted(async () => {
