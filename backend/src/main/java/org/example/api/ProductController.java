@@ -33,4 +33,34 @@ public class ProductController {
             return ApiResponseUtil.serverError(res, "Failed to read products data", e);
         }
     }
+
+    /**
+     * 根据ID获得对应产品
+     */
+    public static Object getProductById(Request req, Response res) {
+        res.type("application/json");
+        String productId = req.params(":productId");
+
+        try {
+            List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
+            Product foundProduct = null;
+
+            for (Product product : products) {
+                if (product.getId().equals(productId)) {
+                    foundProduct = product;
+                    break;
+                }
+            }
+
+            if (foundProduct != null) {
+                System.out.println("DEBUG: Found product with ID: " + productId);
+                return ApiResponseUtil.success("产品获取成功", foundProduct);
+            } else {
+                res.status(404);
+                return ApiResponseUtil.clientError(res, 404, "未找到ID为" + productId + "的产品");
+            }
+        } catch (IOException e) {
+            return ApiResponseUtil.serverError(res, "获取产品数据失败", e);
+        }
+    }
 }

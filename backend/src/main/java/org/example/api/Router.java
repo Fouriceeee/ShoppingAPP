@@ -36,6 +36,9 @@ public class Router {
         Spark.delete("/api/cart/:itemId", CartController::deleteCartItem);
         System.out.println("已注册: DELETE /api/cart/:itemId");
 
+        Spark.get("/api/products/:productId", ProductController::getProductById);
+        System.out.println("已注册: GET /api/products/:productId");
+
         System.out.println("所有API路由注册完成！");
     }
 
