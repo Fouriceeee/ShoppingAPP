@@ -4,13 +4,13 @@ package org.example.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Product {
-    protected String id;
-    protected String image;
-    protected String title;
-    protected String priceInteger;
-    protected String priceDecimal;
-    protected Category category;
-    protected String description;
+    private String id;
+    private String image;
+    private String title;
+    private String priceInteger;
+    private String priceDecimal;
+    private Category category;
+    private String description;
 
     // 无参构造函数是 Gson 反序列化所必需的
 
@@ -47,6 +47,8 @@ public class Product {
                 ", title='" + title + '\'' +
                 ", priceInteger='" + priceInteger + '\'' +
                 ", priceDecimal='" + priceDecimal + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

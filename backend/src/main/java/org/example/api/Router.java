@@ -39,6 +39,9 @@ public class Router {
         Spark.get("/api/products/:productId", ProductController::getProductById);
         System.out.println("已注册: GET /api/products/:productId");
 
+        Spark.get("/api/products/:productId", ProductController::addToProducts);
+        //System.out.println("已注册: GET /api/products/:productId");
+
         System.out.println("所有API路由注册完成！");
     }
 
