@@ -33,7 +33,7 @@ const routes = [
     {/*用户主页*/
         path: "/user",
         name: "UserPage",
-        component: () => import('../views/User/UserPage.vue'),
+        component: () => import('../views/User/UserView.vue'),
         meta: { requiresAuth: true, title: '个人中心 - 易猫商城' }
     },
     {/*登录页面*/

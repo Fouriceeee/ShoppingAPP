@@ -38,7 +38,7 @@
           <el-menu-item index="cart">
             <el-icon><ShoppingCart /></el-icon>
             <span>我的购物车</span>
-            <el-badge :value="cartItemCount || 0" :max="99" class="menu-badge" />
+            <el-badge :value="cartItemCount || 0" :max="999" class="menu-badge" />
           </el-menu-item>
           <el-menu-item index="coupons">
             <el-icon><Ticket /></el-icon>
@@ -127,7 +127,7 @@
               </div>
               <div class="order-products">
                 <div class="product-item">
-                  <img src="/src/assets/pictures/products/default-product.jpg" class="product-img" />
+                  <img src="/src/assets/pictures/products/default-product.png" class="product-img" />
                   <div class="product-info">
                     <div class="product-title">高性能主板 X570</div>
                     <div class="product-price">¥1299.00 × 1</div>
@@ -655,7 +655,7 @@ onMounted(async () => {
   flex-direction: column;
   align-items: center;
   padding: 30px 0;
-  background: linear-gradient(to right, #7852f5, #6a46e5);
+  background: linear-gradient(to top, rgba(157, 105, 255, 0.63), rgba(127, 184, 255, 0.6));
   color: white;
 }
 
@@ -724,6 +724,13 @@ onMounted(async () => {
 
 .sidebar-menu :deep(.el-menu-item:hover) {
   background-color: rgba(120, 82, 245, 0.05);
+}
+
+
+.menu-badge {
+  display: grid;
+  place-items: center;
+  margin-left: 10px;
 }
 
 .menu-badge :deep(.el-badge__content) {
@@ -859,8 +866,8 @@ onMounted(async () => {
 
 .coupon-item {
   display: flex;
-  background: linear-gradient(to right, rgba(120, 82, 245, 0.1), rgba(120, 82, 245, 0.05));
-  border-radius: 8px;
+  background: linear-gradient(to right, rgba(237, 73, 58, 0.23), rgba(120, 82, 245, 0.11));
+  border-radius: 15px;
   overflow: hidden;
   height: 100px;
   position: relative;
@@ -882,10 +889,10 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 35px;
   font-weight: bold;
-  color: #7852f5;
-  background-color: rgba(120, 82, 245, 0.15);
+  color: #ed115d;
+  background-color: rgb(223, 177, 116);
   padding: 0 10px;
 }
 
@@ -973,6 +980,7 @@ onMounted(async () => {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  border-radius: 10px;
 }
 
 .address-info {

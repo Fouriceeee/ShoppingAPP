@@ -1,5 +1,5 @@
-import UserPage from './UserPage.vue';
+import UserView from './UserView.vue';
 
 export {
-  UserPage
+  UserView
 };
