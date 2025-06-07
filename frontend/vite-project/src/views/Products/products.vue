@@ -83,11 +83,11 @@ const categoryName = computed(() => {
     'MOTHERBOARD': '主板',
     'RAM': '内存',
     'STORAGE': '存储设备',
-    'POWERSUPPLY': '电源',
-    'CASE': '机箱',
-    'COOLER': '散热器',
+    'POWERSUPPLY & COOLING': '电源/散热器',
+    'CASE & PERIPHERALS': '机箱/外设',
     'MONITOR': '显示器',
-    'PERIPHERAL': '外设'
+    'PAD': '平板电脑',
+    'LAPTOP': '笔记本电脑',
   };
 
   return categoryMap[categoryCode.value] || categoryCode.value;

@@ -140,6 +140,9 @@ const navigateToProductDetail = (productId) => {
   margin-top: 0;
   margin-bottom: 2px;
   color: #000205; /* Slightly brighter for title */
+  overflow: hidden;
+  white-space: nowrap; /* 限制为单行 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
 }
 
 .product-price {

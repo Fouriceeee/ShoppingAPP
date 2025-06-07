@@ -45,42 +45,6 @@
     "description": "AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"
   },
   {
-    "id": "6",
-    "image": "/images/orange.png",
-    "title": "Orange",
-    "priceInteger":"0",
-    "priceDecimal":"99",
-    "category":"FRUIT",
-    "description":"Organic oranges"
-  },
-  {
-    "id": "7",
-    "image": "/images/apple.png",
-    "title": "Apple",
-    "priceInteger":"0",
-    "priceDecimal":"99",
-    "category":"FRUIT",
-    "description":"Organic apples"
-  },
-  {
-    "id": "8",
-    "image": "/images/cookie.png",
-    "title": "Chocolate Cookie",
-    "priceInteger":"1",
-    "priceDecimal":"99",
-    "category":"SNACK",
-    "description":"Crispy chocolate cookies"
-  },
-  {
-    "id": "9",
-    "image": "/images/coca_cola.jpg",
-    "title": "Coca Cola",
-    "priceInteger":"2",
-    "priceDecimal":"99",
-    "category":"DRINK",
-    "description":"Carbonated soft drink"
-  },
-  {
     "id": "10",
     "image": "/images/iPad Pro 2024.png",
     "title": "iPad Pro 2024",
@@ -124,5 +88,51 @@
     "priceDecimal": "99",
     "category": "LAPTOP",
     "description": "Y7000 2025/i7-14650HX/RTX5060/2.5k 180Hz/512G/16G"
+  },
+  {
+    "id": "15",
+    "image": "/images/i5-14600kf.webp",
+    "title": "英特尔i5-14600kf盒装CPU",
+    "priceInteger": "1315",
+    "priceDecimal": "75",
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "16",
+    "image": "/images/i5-14490f.webp",
+    "title": "英特尔i5-14490f处理器(盒装)",
+    "priceInteger": "1080",
+    "priceDecimal": "15",
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "17",
+    "image": "/images/i5-13490f.webp",
+    "title": "INTEL i5-13490f CPU(盒装)",
+    "priceInteger": "751",
+    "priceDecimal": "45",
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "18",
+    "image": "/images/i5-12600kf.webp",
+    "title": "英特尔i5-12600kf盒装CPU",
+    "priceInteger": "1080",
+    "priceDecimal": "15",
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "19",
+    "image": "/images/i5-12490f.webp",
+    "title": "英特尔i5-12490f处理器(盒装)",
+    "priceInteger": "703",
+    "priceDecimal": "95",
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
   }
+
 ]

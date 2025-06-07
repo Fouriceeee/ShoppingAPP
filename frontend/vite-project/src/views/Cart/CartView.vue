@@ -457,12 +457,18 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  max-width: 300px;
 }
 
 .product-name {
   font-weight: bold;
   margin-bottom: 5px;
   color: #303133;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .item-subtotal {

@@ -26,12 +26,12 @@ const categories = ref([
   { id: '2', name: '处理器', code: 'CPU' },
   { id: '3', name: '主板', code: 'MOTHERBOARD' },
   { id: '4', name: '内存', code: 'RAM' },
-  { id: '5', name: '存储设备', code: 'STORAGE' },
-  { id: '6', name: '电源', code: 'POWERSUPPLY' },
-  { id: '7', name: '机箱', code: 'CASE' },
-  { id: '8', name: '散热器', code: 'COOLING' },
+  { id: '5', name: '硬盘', code: 'STORAGE' },
+  { id: '6', name: '电源/散热器', code: 'POWERSUPPLY & COOLING' },
+  { id: '7', name: '机箱/外设', code: 'CASE & PERIPHERALS' },
+  { id: '8', name: '平板电脑', code: 'PAD' },
   { id: '9', name: '显示器', code: 'MONITOR' },
-  { id: '10', name: '外设', code: 'PERIPHERALS' },
+  { id: '10', name: '笔记本', code: 'LAPTOP' },
 ]);
 
 // 导航到分类页面的函数
@@ -85,6 +85,7 @@ const navigateToCategory = (categoryCode) => {
   background-color: rgba(179, 205, 221, 0.3); /* 悬停背景色 */
   color: #05bcff; /* 悬停文字颜色 */
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .arrow-icon {

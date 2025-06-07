@@ -250,7 +250,7 @@ const fetchProductDetail = async () => {
       // 随机设置是否有评价
       hasReviews.value = Math.random() > 0.5;
 
-      // 设置详情图片 - 使用相同图片但可以在实际项目中替换
+      // 设置详情图片 - 临时先使用相同图片
       if (productImage.value) {
         // 添加2-4张详情图片（实际项目中这些会来自后端）
         const numImages = Math.floor(Math.random() * 3) + 2;

@@ -22,7 +22,7 @@
         <div class="benefit-name">购物车</div>
       </div>
 
-      <div class="benefit-item">
+      <div class="benefit-item" @click="goToCoupons" style="cursor: pointer">
         <el-badge :value="couponsCount || 0" :max="99" class="badge-item">
           <div class="benefit-icon">
             <el-icon><Ticket /></el-icon>
@@ -31,13 +31,13 @@
         <div class="benefit-name">优惠券</div>
       </div>
 
-      <div class="benefit-item">
-        <el-badge :value="rewardsCount || 0" :max="99" class="badge-item">
+      <div class="benefit-item" @click="goToFavorites" style="cursor: pointer">
+        <el-badge :value="favoritesCount || 0" :max="99" class="badge-item">
           <div class="benefit-icon">
             <el-icon><Present /></el-icon>
           </div>
         </el-badge>
-        <div class="benefit-name">红包</div>
+        <div class="benefit-name">我的收藏</div>
       </div>
     </div>
 
@@ -64,8 +64,8 @@ import {getCartItems} from "@/api/cart.js";
 const router = useRouter()
 const userInfo = ref({})
 const cartItems = ref([])
-const couponsCount = ref(3) // 示例数据，实际应从API获取
-const rewardsCount = ref(2) // 示例数据，实际应从API获取
+const couponsCount = ref(3)
+const favoritesCount = ref(14) // 示例数据，实际应从API获取
 
 // 计算购物车中的商品总数量
 const cartItemCount = computed(() => {
@@ -113,6 +113,22 @@ const goToCart = () => {
 // 前往用户中心页面
 const goToUserPage = () => {
   router.push('/user')
+}
+
+// 前往优惠券页面
+const goToCoupons = () => {
+  router.push({
+    path: '/user',
+    query: { activeTab: 'coupons' }
+  })
+}
+
+// 前往收藏页面
+const goToFavorites = () => {
+  router.push({
+    path: '/user',
+    query: { activeTab: 'favorites' }
+  })
 }
 
 

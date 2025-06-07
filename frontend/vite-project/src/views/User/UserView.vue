@@ -358,7 +358,7 @@
 document.title = '个人中心 - 易猫商城'
 
 import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import topNav from '@/components/topNav.vue'
 import {
@@ -369,6 +369,7 @@ import { checkAuth, userLogout } from '@/utils/userService'
 import { getCartItems } from '@/api/cart'
 
 const router = useRouter()
+const route = useRoute()
 const activeMenu = ref('account')
 const userInfo = ref({})
 const cartItems = ref([])
@@ -622,6 +623,11 @@ const handleLogout = () => {
 
 onMounted(async () => {
   await loadUserData()
+
+  // 检查URL中是否有activeTab参数，如果有则切换到对应的标签页
+  if (route.query.activeTab) {
+    activeMenu.value = route.query.activeTab
+  }
 })
 </script>
 
@@ -642,6 +648,7 @@ onMounted(async () => {
 /* 侧边栏样式 */
 .sidebar {
   width: 240px;
+  margin-top: 30px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -746,6 +753,7 @@ onMounted(async () => {
 
 /* 主内容区样式 */
 .main-content {
+  margin-top: 30px;
   flex: 1;
   background-color: #fff;
   border-radius: 12px;
