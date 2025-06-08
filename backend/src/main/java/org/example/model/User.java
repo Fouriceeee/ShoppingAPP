@@ -1,7 +1,6 @@
 package org.example.model;
 
 import com.google.gson.annotations.SerializedName;
-import org.example.Group;
 
 import java.util.ArrayList;
 

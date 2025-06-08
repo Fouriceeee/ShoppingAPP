@@ -290,6 +290,8 @@
 
         <!-- 账号设置 -->
         <div v-if="activeMenu === 'settings'" class="content-section">
+
+
           <div class="section-header">
             <h2>账号设置</h2>
           </div>
@@ -347,6 +349,48 @@
               </el-card>
             </el-tab-pane>
           </el-tabs>
+
+          <!--注销账号-->
+          <el-card class="settings-card danger-zone">
+            <h3>危险操作</h3>
+            <div class="danger-zone-content">
+              <div class="danger-item">
+                <div class="danger-info">
+                  <h4>注销账号</h4>
+                  <p>注意：此操作不可撤销，您的所有数据将被永久删除。</p>
+                </div>
+                <el-button type="danger" @click="showDeleteAccountDialog = true">注销账号</el-button>
+              </div>
+            </div>
+          </el-card>
+
+          <!-- 注销账号确认对话框 -->
+          <el-dialog
+              v-model="showDeleteAccountDialog"
+              title="注销账号确认"
+              width="400px"
+          >
+            <div class="delete-account-warning">
+              <el-icon class="warning-icon"><WarningFilled /></el-icon>
+              <p>您确定要注销您的账号吗？此操作不可撤销，您的所有数据将被永久删除。</p>
+            </div>
+            <div class="delete-account-confirm">
+              <el-input v-model="deleteConfirmText" placeholder="请输入'确认注销'以确认操作" />
+            </div>
+            <template #footer>
+              <span class="dialog-footer">
+                <el-button @click="showDeleteAccountDialog = false">取消</el-button>
+                <el-button
+                    type="danger"
+                    :disabled="deleteConfirmText !== '确认注销'"
+                    :loading="deletingAccount"
+                    @click="handleDeleteAccount"
+                >
+                  注销账号
+                </el-button>
+              </span>
+            </template>
+          </el-dialog>
         </div>
       </div>
     </div>
@@ -449,6 +493,26 @@ const handleMenuSelect = (key) => {
     router.push('/cart')
   }
 }
+
+// 处理注销账号
+const handleDeleteAccount = async () => {
+  try {
+    deletingAccount.value = true
+    await deleteUserAccount(userInfo.id)
+    ElMessage.success('账号已成功注销')
+    router.push('/')
+  } catch (error) {
+    ElMessage.error(error.message || '注销账号失败，请稍后再试')
+  } finally {
+    deletingAccount.value = false
+    showDeleteAccountDialog.value = false
+  }
+}
+
+// 注销账号相关
+const showDeleteAccountDialog = ref(false)
+const deleteConfirmText = ref('')
+const deletingAccount = ref(false)
 
 // 加载用户数据
 const loadUserData = async () => {
@@ -1020,6 +1084,78 @@ onMounted(async () => {
 
 .region-select .el-select {
   flex: 1;
+}
+
+/* 账号设置相关样式 */
+.settings-card {
+  margin-bottom: 20px;
+}
+
+.settings-card h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.danger-zone {
+  border: 1px solid #f56c6c;
+}
+
+.danger-zone h3 {
+  color: #f56c6c;
+}
+
+.danger-zone-content {
+  padding: 10px 0;
+}
+
+.danger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.danger-item:last-child {
+  border-bottom: none;
+}
+
+.danger-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.danger-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.delete-account-warning {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.warning-icon {
+  font-size: 24px;
+  color: #f56c6c;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.delete-account-warning p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.delete-account-confirm {
+  margin-top: 20px;
 }
 
 /* 空数据样式 */

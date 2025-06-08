@@ -76,7 +76,8 @@ import { } from "@element-plus/icons-vue";
 const navItems = ref([
   { text: '首页', path: '/' },
   { text: '登录', path: '/login' },
-  { text: '关于我们', path: '/about' }
+  { text: '关于我们', path: '/about' },
+  { text: '管理员登录', path: '/admin/login' }
 ]);
 const showMenu = ref(false)
 

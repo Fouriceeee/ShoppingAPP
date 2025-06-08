@@ -6,6 +6,7 @@ import LoginView from "@/views/Login/LoginView.vue";
 import RegisterView from "@/views/Login/RegisterView.vue";
 import { checkAuth } from '@/utils/userService';
 import { ElMessage } from 'element-plus';
+import {checkAdminAuth} from "@/utils/adminService.js";
 
 
 const routes = [
@@ -46,6 +47,22 @@ const routes = [
         name: "RegisterPage",
         component: RegisterView
     },
+    {
+        path: '/admin/login',
+        name: 'AdminLoginPage',
+        component: () => import('../views/Admin/AdminLogin.vue')
+    },
+    {
+      path: '/admin/register',
+      name: 'AdminRegister',
+      component: () => import('../views/Admin/AdminRegister.vue')
+    },
+    {
+        path: '/admin/dashboard',
+        name: 'AdminDashboard',
+        component: () => import('../views/Admin/Dashboard.vue'),
+        meta: { requiresAdmin: true }
+    },
     /*{/!*关于*!/
         path: "/about",
         name: "AboutPage",
@@ -58,8 +75,22 @@ const router = createRouter({
     routes
 })
 
-// 全局前置守卫，验证用户是否登录
+// 全局前置守卫，验证用户权限和管理员权限
 router.beforeEach((to, from, next) => {
+    // 检查是否需要管理员权限
+    if (to.matched.some(record => record.meta.requiresAdmin)) {
+        // 验证管理员是否已登录
+        if (!checkAdminAuth()) {
+            ElMessage.error('请先登录管理员账号')
+            next({ path: '/admin/login' })
+            return
+        }
+        // 管理员已登录，放行
+        next()
+        return
+    }
+
+    // 检查是否需要普通用户权限
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
     const currentUser = checkAuth()
 

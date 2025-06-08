@@ -14,11 +14,11 @@ const instance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use(
     config => {
-        // 可以在这里添加 token
-        // const token = localStorage.getItem('token');
-        // if (token) {
-        //   config.headers.Authorization = `Bearer ${token}`;
-        // }
+        // 添加认证token到请求头
+        const token = localStorage.getItem('token');
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
         return config;
     },
     error => {

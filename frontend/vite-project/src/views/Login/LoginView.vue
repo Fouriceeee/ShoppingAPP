@@ -38,6 +38,11 @@
             <span>还没有账号？</span>
             <el-link type="primary" @click="goToRegister">立即注册</el-link>
           </div>
+
+          <div class="register-link admin-link">
+            <span>管理员？</span>
+            <el-link type="primary" @click="goToAdminLogin">管理员登录</el-link>
+          </div>
         </el-form>
       </div>
 
@@ -107,6 +112,10 @@ const handleLogin = async () => {
 
 const goToRegister = () => {
   router.push('/register')
+}
+
+const goToAdminLogin = () => {
+  router.push('/admin/login')
 }
 </script>
 
@@ -200,6 +209,10 @@ const goToRegister = () => {
   margin-top: 16px;
   font-size: 14px;
   color: #fbfafa;
+}
+
+.admin-link {
+  margin-top: 8px;
 }
 
 .remember-me {
