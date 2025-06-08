@@ -47,4 +47,45 @@ export const getRecommendedProducts = (limit) => {
     });
 };
 
-// 你可以根据需要添加更多产品相关的API，例如搜索、筛选等
+/**
+ * 添加新商品（管理员功能）
+ * @param {Object} productData - 商品数据
+ * @param {string} productData.id - 商品ID
+ * @param {string} productData.image - 商品图片URL
+ * @param {string} productData.title - 商品标题
+ * @param {number} productData.priceInteger - 价格整数部分
+ * @param {number} productData.priceDecimal - 价格小数部分
+ * @param {string} productData.category - 商品分类
+ * @param {string} productData.description - 商品描述
+ * @returns {Promise<AxiosResponse>} 操作结果响应
+ */
+export const addProduct = (productData) => {
+    return axiosInstance.post(`${API_BASE_URL}/admin/products`, productData);
+};
+
+/**
+ * 更新商品信息（管理员功能）
+ * @param {string} productId - 商品ID
+ * @param {Object} productData - 要更新的商品数据
+ * @returns {Promise<AxiosResponse>} 操作结果响应
+ */
+export const updateProduct = (productId, productData) => {
+    return axiosInstance.put(`${API_BASE_URL}/admin/products/${productId}`, productData);
+};
+
+/**
+ * 删除商品（管理员功能）
+ * @param {string} productId - 要删除的商品ID
+ * @returns {Promise<AxiosResponse>} 操作结果响应
+ */
+export const deleteProduct = (productId) => {
+    return axiosInstance.delete(`${API_BASE_URL}/admin/products/${productId}`);
+};
+
+/**
+ * 获取商品类别列表
+ * @returns {Promise<AxiosResponse>} 包含类别列表的响应
+ */
+export const getCategories = () => {
+    return axiosInstance.get(`${API_BASE_URL}/categories`);
+};

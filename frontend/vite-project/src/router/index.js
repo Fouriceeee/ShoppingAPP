@@ -4,76 +4,106 @@ import Products from "../views/Products/products.vue";
 import CartView from "../views/Cart/CartView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
 import RegisterView from "@/views/Login/RegisterView.vue";
+import UserView from "@/views/User/UserView.vue";
 import { checkAuth } from '@/utils/userService';
 import { ElMessage } from 'element-plus';
 import {checkAdminAuth} from "@/utils/adminService.js";
+import adminRoutes from "@/router/admin.routes.js";
+import {User} from "@element-plus/icons-vue";
 
 
-const routes = [
-    {/*主页面*/
-        path: "/",
-        name: "Home",
+/**
+ * 前台客户路由配置
+ */
+const customerRoutes = [
+    {
+        path: '/',
+        name: 'home',
         component: HomeView,
+        meta: {
+            title: '首页 - 易猫商城'
+        }
     },
-    {/*商品页面*/
-        path: "/products",
-        name: "Products",
-        component: Products
+    {
+        path: '/login',
+        name: 'login',
+        component: LoginView,
+        meta: {
+            title: '登录 - 易猫商城'
+        }
     },
-    {/*商品详情页*/
-        path: "/products/:id",
-        name: "ProductDetail",
-        component: () => import('../views/Products/ProductDetail.vue')
+    {
+        path: '/register',
+        name: 'register',
+        component: RegisterView,
+        meta: {
+            title: '注册 - 易猫商城'
+        }
     },
-    {/*购物车*/
-        path: "/cart",
-        name: "CartPage",
+    {
+        path: '/product/:id',
+        name: 'product',
+        component: Products,
+        props: true,
+        meta: {
+            title: '商品详情 - 易猫商城'
+        }
+    },
+    {
+        path: '/user',
+        name: 'user',
+        component: UserView,
+        meta: {
+            requiresAuth: true,
+            title: '个人中心 - 易猫商城'
+        }
+    },
+    {
+        path: '/cart',
+        name: 'cart',
         component: CartView,
-        meta: { requiresAuth: true }
+        meta: {
+            requiresAuth: true,
+            title: '购物车 - 易猫商城'
+        }
     },
-    {/*用户主页*/
-        path: "/user",
-        name: "UserPage",
-        component: () => import('../views/User/UserView.vue'),
-        meta: { requiresAuth: true, title: '个人中心 - 易猫商城' }
-    },
-    {/*登录页面*/
-        path: "/login",
-        name: "LoginPage",
-        component: LoginView
-    },
-    {/*注册页面*/
-        path: "/register",
-        name: "RegisterPage",
-        component: RegisterView
-    },
-    {
-        path: '/admin/login',
-        name: 'AdminLoginPage',
-        component: () => import('../views/Admin/AdminLogin.vue')
-    },
-    {
-      path: '/admin/register',
-      name: 'AdminRegister',
-      component: () => import('../views/Admin/AdminRegister.vue')
-    },
-    {
-        path: '/admin/dashboard',
-        name: 'AdminDashboard',
-        component: () => import('../views/Admin/Dashboard.vue'),
-        meta: { requiresAdmin: true }
-    },
-    /*{/!*关于*!/
-        path: "/about",
-        name: "AboutPage",
-        component: AboutPage
+/*    {
+        path: '/checkout',
+        name: 'checkout',
+        component: CheckoutView,
+        meta: {
+            requiresAuth: true,
+            title: '结算 - 易猫商城'
+        }
     },*/
+/*    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: NotFoundView,
+        meta: {
+            title: '页面未找到 - 易猫商城'
+        }
+    }*/
 ]
+
+/**
+ * 合并所有路由
+ */
+const routes = [
+    ...customerRoutes,
+    ...adminRoutes
+]
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    routes
+    routes,
+    scrollBehavior() {
+        // 始终滚动到顶部
+        return { top: 0 }
+    },
 })
+
 
 // 全局前置守卫，验证用户权限和管理员权限
 router.beforeEach((to, from, next) => {

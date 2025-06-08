@@ -1,9 +1,6 @@
 /**
  * 用户服务模块 - 使用localStorage存储用户数据
  */
-import {getCartItems} from "@/api/cart.js";
-import {ElMessage} from "element-plus";
-import {getAllUsers} from "@/api/user.js";
 
 // 从localStorage获取用户列表
 const getUsersFromStorage = () => {
