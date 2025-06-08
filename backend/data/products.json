@@ -45,6 +45,42 @@
     "description": "AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"
   },
   {
+    "id": "6",
+    "image":"/images/Gaomon 1060pro.jpg",
+    "title":"Gaomon 1060pro Graphics Tablet",
+    "priceInteger":"188",
+    "priceDecimal":"88",
+    "category":"GRAPHIC_TABLET",
+    "description":"Gaomon 1060pro Graphics Tablet, 25.4x15.88cm"
+  },
+  {
+    "id": "7",
+    "image":"/images/Gaomon M6.jpg",
+    "title":"Gaomon M6 Graphic Tablet",
+    "priceInteger":"168",
+    "priceDecimal":"00",
+    "category":"GRAPHIC_TABLET",
+    "description":"Gaomon M6 Graphic Tablet, 34.7x20.5cm"
+  },
+  {
+    "id": "8",
+    "image":"/images/Wacom CTL 472.jpg",
+    "title":"Wacom CTL 472 Graphic Tablet",
+    "priceInteger":"346",
+    "priceDecimal":"00",
+    "category":"GRAPHIC_TABLET",
+    "description":"Wacom CTL 472 Graphic Tablet, 21x14.6cm"
+  },
+  {
+    "id": "9",
+    "image":"/images/Wacom PTK670.png",
+    "title":"Wacom PTK670 Graphic Tablet",
+    "priceInteger":"3299",
+    "priceDecimal":"99",
+    "category":"GRAPHIC_TABLET",
+    "description":"Wacom PTK670 Graphic Tablet, 29.1x20.6cm"
+  },
+  {
     "id": "10",
     "image": "/images/iPad Pro 2024.png",
     "title": "iPad Pro 2024",
