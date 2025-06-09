@@ -34,7 +34,7 @@
       <div class="benefit-item" @click="goToFavorites" style="cursor: pointer">
         <el-badge :value="favoritesCount || 0" :max="99" class="badge-item">
           <div class="benefit-icon">
-            <el-icon><Present /></el-icon>
+            <el-icon><star /></el-icon>
           </div>
         </el-badge>
         <div class="benefit-name">我的收藏</div>
@@ -57,7 +57,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import { ShoppingCart, Ticket, Present } from '@element-plus/icons-vue'
+import {ShoppingCart, Ticket, Present, Star} from '@element-plus/icons-vue'
 import { checkAuth, userLogout } from '@/utils/userService'
 import {getCartItems} from "@/api/cart.js";
 
