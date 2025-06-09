@@ -123,7 +123,7 @@
               size="large"
               class="checkout-button"
               :disabled="selectedItemsCount === 0"
-              @click="checkout" >
+              @click="goToCheckout" >
             去结算 ({{ selectedItemsCount }})
           </el-button>
         </div>
@@ -147,13 +147,13 @@ import TopNav from "@/components/topNav.vue";
 // 导入所有购物车相关的 API 函数
 import {
   getCartItems,
-  addCartItem, // 虽然 CartView 自己不直接用，但可能会通过事件接收 ProductCard 的 add-to-cart 事件
   updateCartItem,
   deleteCartItem,
   batchDeleteCartItems,
   clearAllCartItems,
   selectAllCartItems
 } from '@/api/cart';
+import CheckoutView from "@/views/Checkout/CheckoutView.vue";
 
 
 
@@ -360,13 +360,12 @@ const clearCart = async () => {
 };
 
 // 结算功能（待实现）
-const checkout = () => {
+const goToCheckout = () => {
   if (selectedItemsCount.value === 0) {
     ElMessage.warning('请选择要结算的商品。');
     return;
   }
-  ElMessage.info('结算功能待实现...');
-  // 这里可以跳转到订单确认页，或弹出支付窗口等
+  router.push('/checkout');
 };
 
 // --- 生命周期钩子 ---
@@ -507,7 +506,7 @@ onMounted(() => {
 }
 
 .checkout-button:active {
-  background-color: #4d36a5; /* 稍微深一点的紫色，表示点击反馈 */
+  background-color: #4d36a5;
   transform: scale(95%);
 }
 

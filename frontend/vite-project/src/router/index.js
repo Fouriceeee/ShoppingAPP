@@ -11,6 +11,7 @@ import { ElMessage } from 'element-plus';
 import {checkAdminAuth} from "@/utils/adminService.js";
 import adminRoutes from "@/router/admin.routes.js";
 import {User} from "@element-plus/icons-vue";
+import CheckoutView from "@/views/Checkout/CheckoutView.vue";
 
 
 /**
@@ -76,6 +77,12 @@ const customerRoutes = [
             requiresAuth: true,
             title: '购物车 - 易猫商城'
         }
+    },
+    {
+        path: '/checkout',
+        name: 'Checkout',
+        component: CheckoutView,
+        meta: { requiresAuth: true }
     },
 /*    {
         path: '/checkout',
