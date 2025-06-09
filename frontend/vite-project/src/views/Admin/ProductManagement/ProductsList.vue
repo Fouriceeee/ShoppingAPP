@@ -69,7 +69,7 @@
         <el-table-column label="分类" prop="category" width="120" sortable>
           <template #default="scope">
             <el-tag size="small" type="info" effect="plain">
-              {{ getCategoryLabel(scope.row.category) }}
+              {{ scope.row.category }}
             </el-tag>
           </template>
         </el-table-column>
