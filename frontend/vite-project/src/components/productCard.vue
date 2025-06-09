@@ -52,7 +52,9 @@ const productImage = computed(() => {
   }
 
   // 处理后端返回的图片路径
-  if (props.product.image.startsWith('/images/')) {
+  if (props.product.image.startsWith('http')) {
+    return props.product.image;
+  } else if (props.product.image.startsWith('/images/')) {
     const baseUrl = 'http://localhost:8080';
     console.log('DEBUG:获取到的图片路径：' + baseUrl + props.product.image);
     let gotImage = `${baseUrl}${props.product.image}`
