@@ -13,6 +13,10 @@ public class Router {
         Spark.get("/api/products", ProductController::getAllProducts);
         System.out.println("已注册: GET /api/products");
 
+        // 分类相关路由
+        Spark.get("/api/categories", CategoryController::getAllCategories);
+        System.out.println("已注册: GET /api/categories");
+
         // 购物车相关路由
         Spark.get("/api/cart", CartController::getCart);
         System.out.println("已注册: GET /api/cart");
@@ -39,7 +43,10 @@ public class Router {
         Spark.get("/api/products/:productId", ProductController::getProductById);
         System.out.println("已注册: GET /api/products/:productId");
 
-        Spark.get("/api/products/:productId", ProductController::addToProducts);
+        Spark.post("/api/products", ProductController::addToProducts);
+        System.out.println("已注册: POST /api/products");
+
+        //Spark.get("/api/products/:productId", ProductController::addToProducts);
         //System.out.println("已注册: GET /api/products/:productId");
 
         System.out.println("所有API路由注册完成！");

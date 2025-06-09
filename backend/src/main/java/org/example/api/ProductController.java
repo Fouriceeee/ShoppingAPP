@@ -45,6 +45,7 @@ public class ProductController {
     public static Object getProductById(Request req, Response res) {
         res.type("application/json");
         String productId = req.params(":productId");
+        System.out.println("DEBUG：开始查找ID为" + productId + "的产品");
 
         try {
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
@@ -58,7 +59,7 @@ public class ProductController {
             }
 
             if (foundProduct != null) {
-                System.out.println("DEBUG: Found product with ID: " + productId);
+                System.out.println("DEBUG: 成功找到ID为 " + productId + " 的产品");
                 return ApiResponseUtil.success("产品获取成功", foundProduct);
             } else {
                 res.status(404);
