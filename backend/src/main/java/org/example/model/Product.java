@@ -7,14 +7,14 @@ public class Product {
     private String id;
     private String image;
     private String title;
-    private String priceInteger;
-    private String priceDecimal;
+    private int priceInteger;
+    private int priceDecimal;
     private Category category;
     private String description;
 
     // 无参构造函数是 Gson 反序列化所必需的
 
-    public Product(String id, String image, String title, String priceInteger, String priceDecimal, Category category, String description) {
+    public Product(String id, String image, String title, int priceInteger, int priceDecimal, Category category, String description) {
         this.id = id;
         this.image = image;
         this.title = title;
@@ -31,10 +31,10 @@ public class Product {
     public void setImage(String image) { this.image = image; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
-    public String getPriceInteger() { return priceInteger; }
-    public void setPriceInteger(String priceInteger) { this.priceInteger = priceInteger; }
-    public String getPriceDecimal() { return priceDecimal; }
-    public void setPriceDecimal(String priceDecimal) { this.priceDecimal = priceDecimal; }
+    public int getPriceInteger() { return priceInteger; }
+    public void setPriceInteger(int priceInteger) { this.priceInteger = priceInteger; }
+    public int getPriceDecimal() { return priceDecimal; }
+    public void setPriceDecimal(int priceDecimal) { this.priceDecimal = priceDecimal; }
     public Category getCategory() { return category; }
     public void setCategory(Category category) { this.category = category; }
     public String getDescription() { return description; }
@@ -53,6 +53,6 @@ public class Product {
     }
 
     public Boolean isValid() {
-        return (id != null && !id.isEmpty() && Integer.valueOf(priceInteger) >= 0 && Integer.valueOf(priceDecimal) >= 0 && Integer.valueOf(priceDecimal) <= 99);
+        return (id != null && !id.isEmpty() && priceInteger >= 0 && priceDecimal >= 0 && priceDecimal <= 99);
     }
 }

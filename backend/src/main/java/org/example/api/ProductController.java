@@ -82,18 +82,10 @@ public class ProductController {
                 return ApiResponseUtil.clientError(res, 400, "Invalid add to products data. Required fields: id, priceInteger, priceDecimal, category.");
             }
 
-            String id = product.getId();
-            String image = product.getImage();
-            String title = product.getTitle();
-            int priceInteger = Integer.parseInt(product.getPriceInteger());
-            int priceDecimal = Integer.parseInt(product.getPriceDecimal());
-            String category = String.valueOf(product.getCategory());
-            String description = product.getDescription();
-
             //1.从products.json中查找是否有相同ID的商品
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
             Optional<Product> productToAddOpt = products.stream()
-                    .filter(p -> p.getId().equals(id))
+                    .filter(p -> p.getId().equals(product.getId()))
                     .findFirst();
 
             Product productData;
@@ -102,22 +94,22 @@ public class ProductController {
             if (productToAddOpt.isPresent()) {
                 // 更新已存在的商品
                 productData = productToAddOpt.get();
-                productData.setImage(image);
-                productData.setTitle(title);
-                productData.setPriceInteger(String.valueOf(priceInteger));
-                productData.setPriceDecimal(String.valueOf(priceDecimal));
-                productData.setCategory(Category.valueOf(category));
-                productData.setDescription(description);
+                productData.setImage(product.getImage());
+                productData.setTitle(product.getTitle());
+                productData.setPriceInteger(product.getPriceInteger());
+                productData.setPriceDecimal(product.getPriceDecimal());
+                productData.setCategory(product.getCategory());
+                productData.setDescription(product.getDescription());
             }else{
                 //添加新商品
                 productData = new Product(
-                        id,
-                        image,
-                        title,
-                        String.valueOf(priceInteger),
-                        String.valueOf(priceDecimal),
-                        Category.valueOf(category),
-                        description
+                        product.getId(),
+                        product.getImage(),
+                        product.getTitle(),
+                        product.getPriceInteger(),
+                        product.getPriceDecimal(),
+                        product.getCategory(),
+                        product.getDescription()
                 );
                 products.add(productData);
             }
@@ -190,8 +182,7 @@ public class ProductController {
 
         }catch (IllegalArgumentException e) {
             return ApiResponseUtil.clientError(res, 400, "无效的商品分类: ");
-        }
-        catch (JsonSyntaxException e) {
+        } catch (JsonSyntaxException e) {
             return ApiResponseUtil.clientError(res, 400, "请求体JSON格式错误: " + e.getMessage());
         } catch (IOException e) {
             return ApiResponseUtil.serverError(res, "处理商品更新请求时发生错误", e);
