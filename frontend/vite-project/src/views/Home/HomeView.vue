@@ -35,12 +35,6 @@
           @add-to-cart="handleAddToCart"
       />
       </div>
-
-      <div style="height: 1000px; padding: 20px;"> <p>滚动内容测试...</p>
-        <p>更多内容...</p>
-        <p>更多内容...</p>
-        <p>更多内容...</p>
-      </div>
     </main>
   </div>
   </div>

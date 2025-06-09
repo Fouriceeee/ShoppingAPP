@@ -115,7 +115,7 @@ const navigateToProductDetail = (productId) => {
   width: 100%;
   height: 65%;
   display: flex;
-  align-items: center; /* 垂直居中子元素 */
+  align-items: center;
   justify-content: center;
 }
 

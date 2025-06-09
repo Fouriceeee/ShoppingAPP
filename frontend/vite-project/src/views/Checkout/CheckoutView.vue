@@ -120,8 +120,8 @@ const addresses = ref([
   {
     id: 1,
     name: '张三',
-    phone: '13888888888',
-    address: '浙江省 杭州市 西湖区 文三路 123 号',
+    phone: '13812345678',
+    address: '广东省 深圳市 南山区 科技园路 123 号',
     isDefault: true
   }
 ]);

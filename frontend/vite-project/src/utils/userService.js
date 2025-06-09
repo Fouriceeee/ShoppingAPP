@@ -115,6 +115,44 @@ export const userLogout = () => {
 }
 
 /**
+ * 更新用户头像
+ * @param {string} avatarUrl - 新头像的URL
+ * @returns {Promise} 包含成功/失败信息的Promise
+ */
+export const updateUserAvatar = (avatarUrl) => {
+  return new Promise((resolve, reject) => {
+    try {
+      // 获取当前用户
+      const currentUser = getCurrentUser()
+      if (!currentUser) {
+        return reject({ message: '用户未登录' })
+      }
+
+      // 获取所有用户
+      const users = getUsersFromStorage()
+
+      // 查找当前用户在用户列表中的索引
+      const userIndex = users.findIndex(user => user.id === currentUser.id)
+      if (userIndex === -1) {
+        return reject({ message: '未找到用户账号' })
+      }
+
+      // 更新头像
+      users[userIndex].avatar = avatarUrl
+      currentUser.avatar = avatarUrl
+
+      // 保存更新后的用户列表和当前用户
+      saveUsersToStorage(users)
+      setCurrentUser(currentUser)
+
+      resolve({ message: '头像更新成功' })
+    } catch (error) {
+      reject({ message: '头像更新失败，请稍后再试' })
+    }
+  })
+}
+
+/**
  * 删除用户账号
  * @param {string} userId - 用户ID
  * @returns {Promise} 包含成功/失败信息的Promise

@@ -6,15 +6,30 @@
       <!-- 侧边栏导航 -->
       <div class="sidebar">
         <div class="user-profile">
-          <div class="avatar-container">
-            <img
-              :src="userInfo.avatar || '/src/assets/pictures/loginImages/default-avatar.png'"
-              alt="用户头像"
-              class="avatar-image"
-            />
+          <div class="avatar-container" @click="triggerAvatarUpload">
+            <el-tooltip
+              class="box-item"
+              effect="dark"
+              content="点击修改头像"
+              placement="top"
+            >
+              <img
+                  :src="userInfo.avatar || '/src/assets/pictures/loginImages/default-avatar.png'"
+                  alt="用户头像"
+                  class="avatar-image"
+              />
+            </el-tooltip>
+
             <div class="update-avatar">
               <el-icon><Camera /></el-icon>
             </div>
+            <input 
+              type="file" 
+              ref="avatarInput" 
+              style="display: none" 
+              accept="image/*"
+              @change="handleAvatarChange" 
+            />
           </div>
           <div class="username">{{ userInfo.username }}</div>
           <div class="user-level">
@@ -407,9 +422,9 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import topNav from '@/components/topNav.vue'
 import {
   User, Setting, ShoppingCart, Tickets, Ticket, Star, 
-  Location, Camera, SwitchButton, Delete
+  Location, Camera, SwitchButton, Delete, WarningFilled
 } from '@element-plus/icons-vue'
-import { checkAuth, userLogout } from '@/utils/userService'
+import { checkAuth, userLogout, updateUserAvatar, deleteUserAccount } from '@/utils/userService'
 import { getCartItems } from '@/api/cart'
 
 const router = useRouter()
@@ -545,6 +560,77 @@ const formatDate = (dateString) => {
   if (!dateString) return ''
   const date = new Date(dateString)
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+}
+
+// 触发头像上传
+const triggerAvatarUpload = () => {
+  // 通过ref获取文件输入元素并触发点击
+  const avatarInput = document.querySelector('input[type="file"]')
+  if (avatarInput) {
+    avatarInput.click()
+  }
+}
+
+// 处理头像变更
+const handleAvatarChange = async (event) => {
+  const file = event.target.files[0]
+  if (!file) return
+
+  // 验证文件类型
+  const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+  if (!validTypes.includes(file.type)) {
+    ElMessage.error('请上传有效的图片文件（JPEG, PNG, GIF, WEBP）')
+    return
+  }
+
+  // 验证文件大小（限制为2MB）
+  const maxSize = 2 * 1024 * 1024 // 2MB
+  if (file.size > maxSize) {
+    ElMessage.error('图片大小不能超过2MB')
+    return
+  }
+
+  try {
+    // 显示加载中提示
+    const loadingInstance = ElMessage({
+      type: 'info',
+      message: '正在上传头像...',
+      duration: 0
+    })
+
+    // 将文件转换为Data URL
+    const reader = new FileReader()
+    reader.onload = async (e) => {
+      try {
+        const dataUrl = e.target.result
+
+        // 调用API更新头像
+        await updateUserAvatar(dataUrl)
+
+        // 更新本地用户信息
+        userInfo.value.avatar = dataUrl
+
+        // 关闭加载提示并显示成功消息
+        loadingInstance.close()
+        ElMessage.success('头像更新成功')
+      } catch (error) {
+        loadingInstance.close()
+        ElMessage.error(error.message || '头像更新失败')
+      }
+    }
+
+    reader.onerror = () => {
+      loadingInstance.close()
+      ElMessage.error('读取文件失败，请重试')
+    }
+
+    reader.readAsDataURL(file)
+  } catch (error) {
+    ElMessage.error('处理图片时出错，请重试')
+  }
+
+  // 清空文件输入，以便可以再次选择同一文件
+  event.target.value = ''
 }
 
 // 保存用户信息
