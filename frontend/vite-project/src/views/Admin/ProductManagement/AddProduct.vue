@@ -155,14 +155,18 @@ const productRules = {
 // 分类选项
 const categoryOptions = ref([
   { value: 'CPU', label: 'CPU处理器' },
-  { value: 'GPU', label: '显卡' },
+  { value: 'VIDEOCARD', label: '显卡' },
   { value: 'MOTHERBOARD', label: '主板' },
   { value: 'RAM', label: '内存' },
   { value: 'STORAGE', label: '存储设备' },
-  { value: 'POWER', label: '电源' },
+  { value: 'POWERSUPPLY', label: '电源' },
   { value: 'CASE', label: '机箱' },
   { value: 'COOLING', label: '散热器' },
-  { value: 'PERIPHERAL', label: '外设' }
+  { value: 'PERIPHERAL', label: '外设' },
+  { value: 'PAD', label: '平板电脑'},
+  { value: 'MONITOR', label: '显示器'},
+  { value: 'LAPTOP', label: '笔记本电脑'},
+  { value: 'GRAPHIC_TABLET', label: '数位板'}
 ]);
 
 // 在组件挂载时获取分类列表
