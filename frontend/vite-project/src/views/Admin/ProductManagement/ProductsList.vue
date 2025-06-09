@@ -42,6 +42,8 @@
         :data="products"
         style="width: 100%"
         border
+        @row-click="handleRowClick"
+        class="clickable-table"
       >
         <el-table-column label="ID" prop="id" width="220" sortable />
 
@@ -66,7 +68,7 @@
 
         <el-table-column label="分类" prop="category" width="120" sortable>
           <template #default="scope">
-            <el-tag size="small" :type="getCategoryType(scope.row.category)" effect="plain">
+            <el-tag size="small" type="info" effect="plain">
               {{ getCategoryLabel(scope.row.category) }}
             </el-tag>
           </template>
@@ -227,30 +229,16 @@ const confirmDelete = (product) => {
   });
 };
 
-
-// 获取分类名称
-const getCategoryLabel = (categoryCode) => {
-  const category = categoryOptions.value.find(cat => cat.value === categoryCode);
-  return category ? category.label : categoryCode;
+// 导航到产品详情页
+const navigateToProductDetail = (productId) => {
+  router.push(`/products/${productId}`);
 };
 
-// 获取分类标签类型
-const getCategoryType = (categoryCode) => {
-  // 根据不同分类返回不同的标签类型
-  const categoryTypes = {
-    'CPU': 'danger',
-    'GPU': 'success',
-    'MOTHERBOARD': 'warning',
-    'RAM': 'info',
-    'STORAGE': 'primary',
-    'POWER': '',
-    'CASE': '',
-    'COOLING': '',
-    'PERIPHERAL': ''
-  };
-
-  return categoryTypes[categoryCode] || '';
+// 处理表格行点击事件
+const handleRowClick = (row) => {
+  navigateToProductDetail(row.id);
 };
+
 </script>
 
 <style scoped>
@@ -320,6 +308,12 @@ const getCategoryType = (categoryCode) => {
 .price-tag {
   color: #f56c6c;
   font-weight: bold;
+}
+
+/* 可点击表格样式 */
+.clickable-table :deep(.el-table__row) {
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 </style>
 

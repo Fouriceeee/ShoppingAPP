@@ -193,18 +193,33 @@ onMounted(async () => {
 
     // 获取商品详情
     const productResponse = await getProductById(productId);
-    originalProduct.value = productResponse.data;
+    console.log('DEBUG:商品详情响应:', productResponse.data);
+
+    // 检查API响应格式，处理不同的响应结构
+    let productData;
+    if (productResponse.data && productResponse.data.code === 200) {
+      // 如果是标准API包装响应 {code: 200, data: {...}, message: '...'}
+      productData = productResponse.data.data;
+      originalProduct.value = productData;
+    } else {
+      // 如果直接返回产品数据对象
+      productData = productResponse.data;
+      originalProduct.value = productData;
+    }
+
+    console.log('DEBUG:处理后的商品数据:', productData);
 
     // 填充表单数据
     Object.assign(productForm, {
-      id: productResponse.data.id,
-      title: productResponse.data.title,
-      image: productResponse.data.image,
-      priceInteger: productResponse.data.priceInteger,
-      priceDecimal: productResponse.data.priceDecimal,
-      category: productResponse.data.category,
-      description: productResponse.data.description
+      id: productData.id || '',
+      title: productData.title || '',
+      image: productData.image || '',
+      priceInteger: productData.priceInteger || 0,
+      priceDecimal: productData.priceDecimal || 0,
+      category: productData.category || '',
+      description: productData.description || ''
     });
+    console.log("DEBUG:获得的商品标题为:" + productForm.title);
   } catch (error) {
     ElMessage.error('获取商品信息失败');
     console.error('获取商品信息失败:', error);

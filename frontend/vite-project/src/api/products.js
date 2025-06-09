@@ -1,25 +1,31 @@
 import axiosInstance from './index';
 
-// 定义 API 的基础路径
-const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080';
-
 /**
  * 获取所有产品列表。
  * 后端根目录下的 data/products.json 文件将通过后端暴露为 API。
  * @returns {Promise<AxiosResponse>} 包含产品列表的响应。
  */
 export const getProducts = () => {
-    // /api/products 接口来读取 data/products.json
-    return axiosInstance.get(`${API_BASE_URL}/products`);
+    return axiosInstance.get(`/products`);
 };
 
 /**
- * 根据产品ID获取单个产品详情 (如果需要的话)。
+ * 根据产品ID获取单个产品详情。
  * @param {number} productId - 产品ID。
  * @returns {Promise<AxiosResponse>} 包含单个产品详情的响应。
  */
 export const getProductById = (productId) => {
-    return axiosInstance.get(`${API_BASE_URL}/products/${productId}`);
+    console.log("DEBUG：getProductById：开始调用，商品ID为", productId);
+    // 使用相对路径，axiosInstance已经配置了baseURL
+    return axiosInstance.get(`/products/${productId}`)
+        .then(response => {
+            console.log('DEBUG: 获取商品详情响应:', response.data);
+            return response;
+        })
+        .catch(error => {
+            console.error('获取商品详情失败:', error);
+            throw error;
+        });
 };
 
 /**
@@ -28,7 +34,7 @@ export const getProductById = (productId) => {
  * @returns {Promise<AxiosResponse>} 包含特定分类产品列表的响应。
  */
 export const getProductsByCategory = (category) => {
-    return axiosInstance.get(`${API_BASE_URL}/products`, {
+    return axiosInstance.get(`/products`, {
         params: { category }
     });
 };
@@ -42,7 +48,7 @@ export const getProductsByCategory = (category) => {
  * @returns {Promise<AxiosResponse>} 包含推荐产品列表的响应。
  */
 export const getRecommendedProducts = (limit) => {
-    return axiosInstance.get(`${API_BASE_URL}/products`, {
+    return axiosInstance.get(`/products`, {
         params: { limit, recommended: true }
     });
 };
@@ -60,7 +66,7 @@ export const getRecommendedProducts = (limit) => {
  * @returns {Promise<AxiosResponse>} 操作结果响应
  */
 export const addProduct = (productData) => {
-    return axiosInstance.post(`${API_BASE_URL}/admin/products`, productData);
+    return axiosInstance.post(`/admin/products`, productData);
 };
 
 /**
@@ -70,7 +76,7 @@ export const addProduct = (productData) => {
  * @returns {Promise<AxiosResponse>} 操作结果响应
  */
 export const updateProduct = (productId, productData) => {
-    return axiosInstance.put(`${API_BASE_URL}/admin/products/${productId}`, productData);
+    return axiosInstance.put(`/admin/products/${productId}`, productData);
 };
 
 /**
@@ -79,7 +85,7 @@ export const updateProduct = (productId, productData) => {
  * @returns {Promise<AxiosResponse>} 操作结果响应
  */
 export const deleteProduct = (productId) => {
-    return axiosInstance.delete(`${API_BASE_URL}/admin/products/${productId}`);
+    return axiosInstance.delete(`/admin/products/${productId}`);
 };
 
 /**
@@ -87,5 +93,5 @@ export const deleteProduct = (productId) => {
  * @returns {Promise<AxiosResponse>} 包含类别列表的响应
  */
 export const getCategories = () => {
-    return axiosInstance.get(`${API_BASE_URL}/categories`);
+    return axiosInstance.get(`/categories`);
 };

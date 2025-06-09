@@ -3,19 +3,6 @@
  * 商品相关工具函数
  */
 
-// 分类映射配置
-const CATEGORY_CONFIG = {
-  'CPU': { label: 'CPU处理器', type: 'danger' },
-  'GPU': { label: '显卡', type: 'success' },
-  'MOTHERBOARD': { label: '主板', type: 'warning' },
-  'RAM': { label: '内存', type: 'info' },
-  'STORAGE': { label: '存储设备', type: 'primary' },
-  'POWER': { label: '电源', type: '' },
-  'CASE': { label: '机箱', type: '' },
-  'COOLING': { label: '散热器', type: '' },
-  'PERIPHERAL': { label: '外设', type: '' }
-};
-
 /**
  * 格式化商品价格
  * @param {number} integer - 价格整数部分
@@ -46,7 +33,8 @@ export const getProductImageUrl = (imagePath) => {
     // 静态资源服务器的基础URL
     const baseUrl = 'http://localhost:8080';
     // 将 "/images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
-    return `${baseUrl}/${imagePath.substring(1)}`;
+    console.log('处理图片路径:', `${baseUrl}${imagePath}`);
+    return `${baseUrl}${imagePath}`;
   } else if (imagePath.startsWith('http')) {
     // 如果已经是完整URL，直接返回
     return imagePath;
@@ -61,42 +49,6 @@ export const getProductImageUrl = (imagePath) => {
   }
 };
 
-/**
- * 获取分类显示标签
- * @param {string} categoryCode - 分类代码
- * @param {Array} customCategories - 自定义分类列表（可选）
- * @returns {string} 分类显示名称
- */
-export const getCategoryLabel = (categoryCode, customCategories = []) => {
-  // 优先使用自定义分类
-  if (customCategories.length > 0) {
-    const category = customCategories.find(cat => cat.value === categoryCode);
-    if (category) return category.label;
-  }
-
-  // 使用默认分类配置
-  return CATEGORY_CONFIG[categoryCode]?.label || categoryCode;
-};
-
-/**
- * 获取分类标签样式类型
- * @param {string} categoryCode - 分类代码
- * @returns {string} Element Plus 标签类型
- */
-export const getCategoryType = (categoryCode) => {
-  return CATEGORY_CONFIG[categoryCode]?.type || '';
-};
-
-/**
- * 获取默认分类选项
- * @returns {Array} 分类选项数组
- */
-export const getDefaultCategoryOptions = () => {
-  return Object.entries(CATEGORY_CONFIG).map(([value, config]) => ({
-    value,
-    label: config.label
-  }));
-};
 
 /**
  * 验证商品数据
