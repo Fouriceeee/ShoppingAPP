@@ -45,10 +45,10 @@ public class Router {
 
         // 管理员路由
         Spark.patch("/api/admin/products/:productId", ProductController::updateProduct);
-        System.out.println("已注册: PATCH /admin/products/:productId");
+        System.out.println("已注册: PATCH /api/admin/products/:productId");
 
-        Spark.post("/api/products", ProductController::addToProducts);
-        System.out.println("已注册: POST /api/products");
+        Spark.post("/api/admin/products", ProductController::addToProducts);
+        System.out.println("已注册: POST /api/admin/products");
 
         //Spark.get("/api/products/:productId", ProductController::addToProducts);
         //System.out.println("已注册: GET /api/products/:productId");

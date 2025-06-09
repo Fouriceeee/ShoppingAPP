@@ -3,7 +3,7 @@
     "id": "1",
     "image": "http://localhost:8080/images/5090.webp",
     "title": "RTX5090 微星魔龙",
-    "priceInteger": 25999,
+    "priceInteger": 25989,
     "priceDecimal": 0,
     "category": "VIDEOCARD",
     "description": "微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"
@@ -12,7 +12,7 @@
     "id": "2",
     "image": "http://localhost:8080/images/4080.webp",
     "title": "RTX4080 华硕TUF",
-    "priceInteger": 14999,
+    "priceInteger": 14988,
     "priceDecimal": 0,
     "category": "VIDEOCARD",
     "description": "RTX5080 16G华硕TUF电竞游戏显卡"

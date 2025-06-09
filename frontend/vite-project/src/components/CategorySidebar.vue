@@ -97,10 +97,21 @@ const navigateToCategory = (categoryCode) => {
   padding-bottom: 10px;
 }
 
+.category-link-group {
+  display: flex; /* 保持 flex 布局，确保内部元素在同一行 */
+  align-items: center; /* 垂直居中对齐 */
+  flex-wrap: wrap; /* 允许换行，以防内容过长 */
+  /* 将 padding 从 .inner-category-link 移动到 .category-link-group */
+  padding: 6px 15px; /* 将父元素的 padding 设为链接的高度 */
+  font-size: 0.95em;
+  color: #333;
+  /* 确保背景色和过渡效果在这里 */
+  transition: background-color 0.2s ease;
+}
+
 .category-link, .inner-category-link {
   justify-content: space-between; /* 内容和箭头分别在两端 */
   align-items: center; /* 垂直居中对齐 */
-  padding: 6px 15px;
   color: #333;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -114,7 +125,6 @@ const navigateToCategory = (categoryCode) => {
 .inner-category-link {
   justify-content: space-between; /* 内容和箭头分别在两端 */
   align-items: center; /* 垂直居中对齐 */
-  padding: 6px 15px;
   color: #333;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
