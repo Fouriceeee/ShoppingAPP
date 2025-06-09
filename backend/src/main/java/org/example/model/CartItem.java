@@ -13,7 +13,7 @@ public class CartItem {
     private int quantity;
     private boolean selected;
 
-    public CartItem(String id, String image, String title, String priceInteger, String priceDecimal, Category category, String description, int quantity, boolean selected) {
+    public CartItem(String id, String image, String title, String priceInteger, String priceDecimal, int quantity, boolean selected) {
         this.id = id;
         this.image = image;
         this.title = title;
@@ -49,5 +49,9 @@ public class CartItem {
                 ", quantity=" + quantity +
                 ", selected=" + selected +
                 '}';
+    }
+
+    public boolean isValid() {
+        return (id!= null && !id.isEmpty() && quantity >0);
     }
 }

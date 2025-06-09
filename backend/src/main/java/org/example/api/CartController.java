@@ -47,15 +47,15 @@ public class CartController {
         String requestBodyString = req.body();
 
         try {
-            AddToCartRequest addRequest = GSON.fromJson(requestBodyString, AddToCartRequest.class);
+            CartItem cartItem = GSON.fromJson(requestBodyString, CartItem.class);
 
-            if (addRequest == null || addRequest.getId() == null || addRequest.getId().isEmpty() || addRequest.getQuantity() <= 0) {
+            if(cartItem == null || !cartItem.isValid()){
                 LoggerUtil.error("Invalid add to cart request data. Body: " + requestBodyString);
                 return ApiResponseUtil.clientError(res, 400, "Invalid add to cart data. Required fields: id, quantity (must be > 0).");
             }
 
-            String id = addRequest.getId();
-            int quantity = addRequest.getQuantity();
+            String id = cartItem.getId();
+            int quantity = cartItem.getQuantity();
 
             // 1. 从products.json中查找对应的产品信息
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
@@ -98,8 +98,6 @@ public class CartController {
                         productData.getTitle(),
                         productData.getPriceInteger(),
                         productData.getPriceDecimal(),
-                        productData.getCategory(),
-                        productData.getDescription(),
                         quantity,
                         true
                 );
@@ -264,25 +262,6 @@ public class CartController {
             return ApiResponseUtil.clientError(res, 400, "JSON syntax error in request body: " + e.getMessage());
         } catch (Exception e) {
             return ApiResponseUtil.clientError(res, 400, "Error processing request body: " + e.getMessage());
-        }
-    }
-
-    /**
-     * 购物车添加请求
-     */
-    private static class AddToCartRequest {
-        private String id;
-        private int quantity;
-
-        public String getId() { return id; }
-        public int getQuantity() { return quantity; }
-
-        @Override
-        public String toString() {
-            return "AddToCartRequest{" +
-                    "id='" + id + '\'' +
-                    ", quantity=" + quantity +
-                    '}';
         }
     }
 }

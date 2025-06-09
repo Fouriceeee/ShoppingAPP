@@ -51,4 +51,8 @@ public class Product {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    public Boolean isValid() {
+        return (id != null && !id.isEmpty() && Integer.valueOf(priceInteger) >= 0 && Integer.valueOf(priceDecimal) >= 0 && Integer.valueOf(priceDecimal) <= 99);
+    }
 }

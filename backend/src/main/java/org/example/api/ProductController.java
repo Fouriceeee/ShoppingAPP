@@ -75,20 +75,19 @@ public class ProductController {
         String requestBodyString = req.body();
 
         try{
-            AddToProductsRequest addRequest = GSON.fromJson(requestBodyString, AddToProductsRequest.class);
-
-            if(addRequest == null || !addRequest.isValid()) {
+            Product product = GSON.fromJson(requestBodyString,Product.class);
+            if(product == null || !product.isValid()){
                 LoggerUtil.error("Invalid add to products request data. Body: " + requestBodyString);
                 return ApiResponseUtil.clientError(res, 400, "Invalid add to products data. Required fields: id, priceInteger, priceDecimal, category.");
             }
 
-            String id = addRequest.getId();
-            String image = addRequest.getImage();
-            String title = addRequest.getTitle();
-            int priceInteger = addRequest.getPriceInteger();
-            int priceDecimal = addRequest.getPriceDecimal();
-            String category = addRequest.getCategory();
-            String description = addRequest.getDescription();
+            String id = product.getId();
+            String image = product.getImage();
+            String title = product.getTitle();
+            int priceInteger = Integer.parseInt(product.getPriceInteger());
+            int priceDecimal = Integer.parseInt(product.getPriceDecimal());
+            String category = String.valueOf(product.getCategory());
+            String description = product.getDescription();
 
             //1.从products.json中查找是否有相同ID的商品
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
@@ -137,47 +136,4 @@ public class ProductController {
         }
     }
 
-    /**
-     * 商品添加请求
-     */
-    private static class AddToProductsRequest {
-        private String id;
-        private String image;
-        private String title;
-        private int priceInteger;
-        private int priceDecimal;
-        private String category;
-        private String description;
-
-        public String getId() { return id; }
-        public void setId(String id) { this.id = id; }
-        public String getImage() { return image; }
-        public void setImage(String image) { this.image = image; }
-        public String getTitle() { return title; }
-        public void setTitle(String title) { this.title = title; }
-        public int getPriceInteger() { return priceInteger; }
-        public void setPriceInteger(int priceInteger) { this.priceInteger = priceInteger; }
-        public int getPriceDecimal() { return priceDecimal; }
-        public void setPriceDecimal(int priceDecimal) { this.priceDecimal = priceDecimal; }
-        public String getCategory() { return category; }
-        public void setCategory(String category) { this.category = category; }
-        public String getDescription() { return description; }
-        public void setDescription(String description) { this.description = description; }
-
-        @Override
-        public String toString() {
-            return "AddToProductRequest{" +
-                    "id='" + id + '\'' +
-                    ", title='" + title + '\'' +
-                    ", priceInteger='" + priceInteger + '\'' +
-                    ", priceDecimal='" + priceDecimal + '\'' +
-                    ", category='" + category + '\'' +
-                    ", description='" + description + '\'' +
-                    '}';
-        }
-
-        public Boolean isValid() {
-            return (id != null && !id.isEmpty() && priceInteger >= 0 && priceDecimal >= 0 && priceDecimal <= 99 && Category.containsEnumValue(Category.class,category));
-        }
-    }
 }
