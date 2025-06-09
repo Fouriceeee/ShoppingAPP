@@ -48,7 +48,7 @@
         <el-table-column label="商品图片" width="100">
           <template #default="scope">
             <el-image 
-              :src="scope.row.image" 
+              :src="getProductImageUrl(scope.row.image)"
               :preview-src-list="[scope.row.image]"
               fit="contain"
               style="width: 50px; height: 50px"
@@ -103,11 +103,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { Plus, Search, Edit, Delete } from '@element-plus/icons-vue';
 import { getProducts, deleteProduct, getCategories } from '@/api/products';
+import { getProductImageUrl, formatPrice } from "@/utils/productService.js";
 
 // 设置页面标题
 document.title = '商品管理 - 管理控制台';
@@ -199,7 +200,6 @@ const goToAddProduct = () => {
 
 // 编辑商品
 const editProduct = (product) => {
-  // 实际项目中，这里应该跳转到编辑页面
   router.push(`/admin/products/edit/${product.id}`);
 };
 
@@ -217,7 +217,7 @@ const confirmDelete = (product) => {
     try {
       await deleteProduct(product.id);
       ElMessage.success('商品删除成功');
-      fetchProducts(); // 刷新列表
+      await fetchProducts(); // 刷新列表
     } catch (error) {
       ElMessage.error('删除商品失败：' + (error.response?.data?.message || '未知错误'));
       console.error('删除商品失败:', error);
@@ -227,10 +227,6 @@ const confirmDelete = (product) => {
   });
 };
 
-// 格式化价格
-const formatPrice = (integer, decimal) => {
-  return `¥${integer}.${decimal.toString().padStart(2, '0')}`;
-};
 
 // 获取分类名称
 const getCategoryLabel = (categoryCode) => {

@@ -134,10 +134,12 @@
 
 <script setup>
 //页面导航栏标题信息
+import {getProductImageUrl} from "@/utils/productService.js";
+
 document.title = '购物车 - 易猫商城';
 
 import { ref, computed, onMounted } from 'vue';
-import { ArrowLeft } from '@element-plus/icons-vue';
+import {ArrowLeft, PictureFilled} from '@element-plus/icons-vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import router from "@/router/index.js";
 import TopNav from "@/components/topNav.vue";
@@ -181,42 +183,6 @@ const totalAmount = computed(() => {
 
 
 // --- 方法 ---
-
-/**
- * 计算商品图片的完整URL
- * @param {string} imagePath - 图片路径
- * @returns {string} 完整的图片URL
- */
-const getProductImageUrl = (imagePath) => {
-  if (!imagePath) {
-    // 如果没有图片，返回默认图片
-    try {
-      return new URL('../assets/pictures/products/default-product.jpg', import.meta.url).href;
-    } catch (error) {
-      return '';
-    }
-  }
-
-  // 处理后端返回的图片路径
-  if (imagePath.startsWith('/images/')) {
-    // 静态资源服务器的基础URL
-    const baseUrl = 'http://localhost:8080';
-    // 将 "/images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
-    return `${baseUrl}/${imagePath.substring(1)}`;
-  } else if (imagePath.startsWith('http')) {
-    // 如果已经是完整URL，直接返回
-    return imagePath;
-  } else {
-    // 本地资源文件夹中的图片
-    try {
-      return new URL(`../assets/pictures/products/${imagePath}`, import.meta.url).href;
-    } catch (error) {
-      console.error('无法加载产品图片:', error);
-      return '';
-    }
-  }
-};
-
 
 // 控制全选框的状态：
 const selectAll = computed({

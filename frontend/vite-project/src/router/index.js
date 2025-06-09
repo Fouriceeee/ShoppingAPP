@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import HomeView from "../views/Home/HomeView.vue";
 import Products from "../views/Products/products.vue";
+import ProductDetail from "@/views/Products/ProductDetail.vue";
 import CartView from "../views/Cart/CartView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
 import RegisterView from "@/views/Login/RegisterView.vue";
@@ -18,7 +19,7 @@ import {User} from "@element-plus/icons-vue";
 const customerRoutes = [
     {
         path: '/',
-        name: 'home',
+        name: 'Home',
         component: HomeView,
         meta: {
             title: '首页 - 易猫商城'
@@ -26,7 +27,7 @@ const customerRoutes = [
     },
     {
         path: '/login',
-        name: 'login',
+        name: 'Login',
         component: LoginView,
         meta: {
             title: '登录 - 易猫商城'
@@ -34,16 +35,25 @@ const customerRoutes = [
     },
     {
         path: '/register',
-        name: 'register',
+        name: 'Register',
         component: RegisterView,
         meta: {
             title: '注册 - 易猫商城'
         }
     },
     {
-        path: '/product/:id',
-        name: 'product',
+        path: '/products',
+        name: 'Products',
         component: Products,
+        props: true,
+        meta: {
+            title: '所有商品 - 易猫商城'
+        }
+    },
+    {
+        path: '/products/:id',
+        name: 'ProductDetail',
+        component: ProductDetail,
         props: true,
         meta: {
             title: '商品详情 - 易猫商城'
@@ -51,7 +61,7 @@ const customerRoutes = [
     },
     {
         path: '/user',
-        name: 'user',
+        name: 'User',
         component: UserView,
         meta: {
             requiresAuth: true,
@@ -60,7 +70,7 @@ const customerRoutes = [
     },
     {
         path: '/cart',
-        name: 'cart',
+        name: 'Cart',
         component: CartView,
         meta: {
             requiresAuth: true,
@@ -69,7 +79,7 @@ const customerRoutes = [
     },
 /*    {
         path: '/checkout',
-        name: 'checkout',
+        name: 'Checkout',
         component: CheckoutView,
         meta: {
             requiresAuth: true,
@@ -78,7 +88,7 @@ const customerRoutes = [
     },*/
 /*    {
         path: '/:pathMatch(.*)*',
-        name: 'not-found',
+        name: 'Not-found',
         component: NotFoundView,
         meta: {
             title: '页面未找到 - 易猫商城'
