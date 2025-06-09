@@ -43,6 +43,10 @@ public class Router {
         Spark.get("/api/products/:productId", ProductController::getProductById);
         System.out.println("已注册: GET /api/products/:productId");
 
+        // 管理员路由
+        Spark.patch("/api/admin/products/:productId", ProductController::updateProduct);
+        System.out.println("已注册: PATCH /admin/products/:productId");
+
         Spark.post("/api/products", ProductController::addToProducts);
         System.out.println("已注册: POST /api/products");
 

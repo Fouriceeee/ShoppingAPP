@@ -1,16 +1,16 @@
 [
   {
     "id": "1",
-    "image": "/images/5090.webp",
+    "image": "http://localhost:8080/images/5090.webp",
     "title": "RTX5090 微星魔龙",
-    "priceInteger": "23999",
-    "priceDecimal": "00",
+    "priceInteger": "25999",
+    "priceDecimal": "0",
     "category": "VIDEOCARD",
     "description": "微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"
   },
   {
     "id": "2",
-    "image": "/images/4080.webp",
+    "image": "http://localhost:8080/images/4080.webp",
     "title": "RTX4080 华硕TUF",
     "priceInteger": "14999",
     "priceDecimal": "00",
@@ -19,7 +19,7 @@
   },
   {
     "id": "3",
-    "image": "/images/9700xt.webp",
+    "image": "http://localhost:8080/images/9700xt.webp",
     "title": "RX9700xt 蓝宝石超白金",
     "priceInteger": "7999",
     "priceDecimal": "00",
@@ -28,7 +28,7 @@
   },
   {
     "id": "4",
-    "image": "/images/4070ti.webp",
+    "image": "http://localhost:8080/images/4070ti.webp",
     "title": "RTX4070Ti 技嘉雪鹰",
     "priceInteger": "5999",
     "priceDecimal": "00",
@@ -37,7 +37,7 @@
   },
   {
     "id": "5",
-    "image": "/images/9800x3d.webp",
+    "image": "http://localhost:8080/images/9800x3d.webp",
     "title": "AMD Ryzen 7 9800x3d",
     "priceInteger": "4150",
     "priceDecimal": "00",
@@ -46,43 +46,43 @@
   },
   {
     "id": "6",
-    "image":"/images/Gaomon 1060pro.jpg",
-    "title":"Gaomon 1060pro Graphics Tablet",
-    "priceInteger":"188",
-    "priceDecimal":"88",
-    "category":"GRAPHIC_TABLET",
-    "description":"Gaomon 1060pro Graphics Tablet, 25.4x15.88cm"
+    "image": "http://localhost:8080/images/Gaomon 1060pro.jpg",
+    "title": "Gaomon 1060pro Graphics Tablet",
+    "priceInteger": "188",
+    "priceDecimal": "88",
+    "category": "GRAPHIC_TABLET",
+    "description": "Gaomon 1060pro Graphics Tablet, 25.4x15.88cm"
   },
   {
     "id": "7",
-    "image":"/images/Gaomon M6.jpg",
-    "title":"Gaomon M6 Graphic Tablet",
-    "priceInteger":"168",
-    "priceDecimal":"00",
-    "category":"GRAPHIC_TABLET",
-    "description":"Gaomon M6 Graphic Tablet, 34.7x20.5cm"
+    "image": "http://localhost:8080/images/Gaomon M6.jpg",
+    "title": "Gaomon M6 Graphic Tablet",
+    "priceInteger": "168",
+    "priceDecimal": "00",
+    "category": "GRAPHIC_TABLET",
+    "description": "Gaomon M6 Graphic Tablet, 34.7x20.5cm"
   },
   {
     "id": "8",
-    "image":"/images/Wacom CTL 472.jpg",
-    "title":"Wacom CTL 472 Graphic Tablet",
-    "priceInteger":"346",
-    "priceDecimal":"00",
-    "category":"GRAPHIC_TABLET",
-    "description":"Wacom CTL 472 Graphic Tablet, 21x14.6cm"
+    "image": "http://localhost:8080/images/Wacom CTL 472.jpg",
+    "title": "Wacom CTL 472 Graphic Tablet",
+    "priceInteger": "346",
+    "priceDecimal": "00",
+    "category": "GRAPHIC_TABLET",
+    "description": "Wacom CTL 472 Graphic Tablet, 21x14.6cm"
   },
   {
     "id": "9",
-    "image":"/images/Wacom PTK670.png",
-    "title":"Wacom PTK670 Graphic Tablet",
-    "priceInteger":"3299",
-    "priceDecimal":"99",
-    "category":"GRAPHIC_TABLET",
-    "description":"Wacom PTK670 Graphic Tablet, 29.1x20.6cm"
+    "image": "http://localhost:8080/images/Wacom PTK670.png",
+    "title": "Wacom PTK670 Graphic Tablet",
+    "priceInteger": "3299",
+    "priceDecimal": "99",
+    "category": "GRAPHIC_TABLET",
+    "description": "Wacom PTK670 Graphic Tablet, 29.1x20.6cm"
   },
   {
     "id": "10",
-    "image": "/images/iPad Pro 2024.png",
+    "image": "http://localhost:8080/images/iPad Pro 2024.png",
     "title": "iPad Pro 2024",
     "priceInteger": "8999",
     "priceDecimal": "99",
@@ -91,7 +91,7 @@
   },
   {
     "id": "11",
-    "image": "/images/HUAWEI MatePad Air.jpg",
+    "image": "http://localhost:8080/images/HUAWEI MatePad Air.jpg",
     "title": "HUAWEI MatePad Air 12''",
     "priceInteger": "2199",
     "priceDecimal": "99",
@@ -100,7 +100,7 @@
   },
   {
     "id": "12",
-    "image": "/images/Redmi Pad Pro.jpg",
+    "image": "http://localhost:8080/images/Redmi Pad Pro.jpg",
     "title": "Redmi Pad Pro",
     "priceInteger": "999",
     "priceDecimal": "99",
@@ -109,7 +109,7 @@
   },
   {
     "id": "13",
-    "image": "/images/ASUS TUF 6 Pro.png",
+    "image": "http://localhost:8080/images/ASUS TUF 6 Pro.png",
     "title": "华硕天选6 Pro 酷睿版",
     "priceInteger": "7499",
     "priceDecimal": "99",
@@ -118,7 +118,7 @@
   },
   {
     "id": "14",
-    "image": "/images/LENOVO Legion Y7000P.jpg",
+    "image": "http://localhost:8080/images/LENOVO Legion Y7000P.jpg",
     "title": "联想拯救者Y7000P",
     "priceInteger": "6499",
     "priceDecimal": "99",
@@ -127,7 +127,7 @@
   },
   {
     "id": "15",
-    "image": "/images/i5-14600kf.webp",
+    "image": "http://localhost:8080/images/i5-14600kf.webp",
     "title": "英特尔i5-14600kf盒装CPU",
     "priceInteger": "1315",
     "priceDecimal": "75",
@@ -136,7 +136,7 @@
   },
   {
     "id": "16",
-    "image": "/images/i5-14490f.webp",
+    "image": "http://localhost:8080/images/i5-14490f.webp",
     "title": "英特尔i5-14490f处理器(盒装)",
     "priceInteger": "1080",
     "priceDecimal": "15",
@@ -145,7 +145,7 @@
   },
   {
     "id": "17",
-    "image": "/images/i5-13490f.webp",
+    "image": "http://localhost:8080/images/i5-13490f.webp",
     "title": "INTEL i5-13490f CPU(盒装)",
     "priceInteger": "751",
     "priceDecimal": "45",
@@ -154,7 +154,7 @@
   },
   {
     "id": "18",
-    "image": "/images/i5-12600kf.webp",
+    "image": "http://localhost:8080/images/i5-12600kf.webp",
     "title": "英特尔i5-12600kf盒装CPU",
     "priceInteger": "1080",
     "priceDecimal": "15",
@@ -163,12 +163,11 @@
   },
   {
     "id": "19",
-    "image": "/images/i5-12490f.webp",
+    "image": "http://localhost:8080/images/i5-12490f.webp",
     "title": "英特尔i5-12490f处理器(盒装)",
     "priceInteger": "703",
     "priceDecimal": "95",
     "category": "CPU",
     "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
   }
-
 ]
