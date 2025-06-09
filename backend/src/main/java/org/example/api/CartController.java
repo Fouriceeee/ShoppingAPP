@@ -63,7 +63,7 @@ public class CartController {
                     .filter(p -> p.getId().equals(id))
                     .findFirst();
 
-            if (!productToAddOpt.isPresent()) {
+            if (productToAddOpt.isEmpty()) {
                 return ApiResponseUtil.clientError(res, 404, "Product not found with ID: " + id);
             }
 

@@ -1,19 +1,15 @@
 package org.example.model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class CartItem {
     private String id;
     private String image;
     private String title;
-    @SerializedName("priceInteger")
-    private String priceInteger;
-    @SerializedName("priceDecimal")
-    private String priceDecimal;
+    private int priceInteger;
+    private int priceDecimal;
     private int quantity;
     private boolean selected;
 
-    public CartItem(String id, String image, String title, String priceInteger, String priceDecimal, int quantity, boolean selected) {
+    public CartItem(String id, String image, String title, int priceInteger, int priceDecimal, int quantity, boolean selected) {
         this.id = id;
         this.image = image;
         this.title = title;
@@ -32,10 +28,10 @@ public class CartItem {
     public void setImage(String image) { this.image = image; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
-    public String getPriceInteger() { return priceInteger; }
-    public void setPriceInteger(String priceInteger) { this.priceInteger = priceInteger; }
-    public String getPriceDecimal() { return priceDecimal; }
-    public void setPriceDecimal(String priceDecimal) { this.priceDecimal = priceDecimal; }
+    public int getPriceInteger() { return priceInteger; }
+    public void setPriceInteger(int priceInteger) { this.priceInteger = priceInteger; }
+    public int getPriceDecimal() { return priceDecimal; }
+    public void setPriceDecimal(int priceDecimal) { this.priceDecimal = priceDecimal; }
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
     public boolean isSelected() { return selected; }
