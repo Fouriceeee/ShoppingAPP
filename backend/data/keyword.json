@@ -1,0 +1,15 @@
+{
+  "VIDEOCARD": ["显卡"],
+  "CPU":["处理器"],
+  "MOTHERBOARD": ["主板"],
+  "RAM":["内存条"],
+  "STORAGE": ["存储","硬盘"],
+  "POWERSUPPLY": ["电源"],
+  "COOLING": ["散热"],
+  "CASE": ["机箱"],
+  "PERIPHERALS": ["外设"],
+  "PAD": ["平板"],
+  "MONITOR": ["显示器"],
+  "LAPTOP":["笔记本"],
+  "GRAPHIC_TABLET": ["数位板"]
+}

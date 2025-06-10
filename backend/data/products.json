@@ -1,1 +1,362 @@
-[{"id":"1","image":"http://localhost:8080/images/5090.webp","title":"RTX5090 微星魔龙","priceInteger":25989,"priceDecimal":0,"category":"VIDEOCARD","description":"微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"},{"id":"2","image":"http://localhost:8080/images/4080.webp","title":"RTX4080 华硕TUF","priceInteger":14988,"priceDecimal":0,"category":"VIDEOCARD","description":"RTX5080 16G华硕TUF电竞游戏显卡"},{"id":"3","image":"http://localhost:8080/images/9700xt.webp","title":"RX9700xt 蓝宝石超白金","priceInteger":7999,"priceDecimal":0,"category":"VIDEOCARD","description":"蓝宝石9700XTX 24G超白金版9700XT 9070 台式机游戏算力电脑显卡"},{"id":"4","image":"http://localhost:8080/images/4070ti.webp","title":"RTX4070Ti 技嘉雪鹰","priceInteger":5999,"priceDecimal":0,"category":"VIDEOCARD","description":"技嘉RTX5070Ti/4070ti SUPER魔鹰雪鹰台式电脑独立显卡"},{"id":"5","image":"http://localhost:8080/images/9800x3d.webp","title":"AMD Ryzen 7 9800x3d","priceInteger":4150,"priceDecimal":0,"category":"CPU","description":"AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"},{"id":"6","image":"http://localhost:8080/images/Gaomon 1060pro.jpg","title":"Gaomon 1060pro Graphics Tablet","priceInteger":188,"priceDecimal":88,"category":"GRAPHIC_TABLET","description":"Gaomon 1060pro Graphics Tablet, 25.4x15.88cm"},{"id":"7","image":"http://localhost:8080/images/Gaomon M6.jpg","title":"Gaomon M6 Graphic Tablet","priceInteger":168,"priceDecimal":0,"category":"GRAPHIC_TABLET","description":"Gaomon M6 Graphic Tablet, 34.7x20.5cm"},{"id":"8","image":"http://localhost:8080/images/Wacom CTL 472.jpg","title":"Wacom CTL 472 Graphic Tablet","priceInteger":346,"priceDecimal":0,"category":"GRAPHIC_TABLET","description":"Wacom CTL 472 Graphic Tablet, 21x14.6cm"},{"id":"9","image":"http://localhost:8080/images/Wacom PTK670.png","title":"Wacom PTK670 Graphic Tablet","priceInteger":3299,"priceDecimal":99,"category":"GRAPHIC_TABLET","description":"Wacom PTK670 Graphic Tablet, 29.1x20.6cm"},{"id":"10","image":"http://localhost:8080/images/iPad Pro 2024.png","title":"iPad Pro 2024","priceInteger":8999,"priceDecimal":99,"category":"PAD","description":"11-inch, Ultra Retina XDR display"},{"id":"11","image":"http://localhost:8080/images/HUAWEI MatePad Air.jpg","title":"HUAWEI MatePad Air 12\u0027\u0027","priceInteger":2199,"priceDecimal":99,"category":"PAD","description":"HUAWEI MatePad Air 12-inch, 8GB + 256GB"},{"id":"12","image":"http://localhost:8080/images/Redmi Pad Pro.jpg","title":"Redmi Pad Pro","priceInteger":999,"priceDecimal":99,"category":"PAD","description":"Redmi Pad Pro, 8GB + 128GB"},{"id":"13","image":"http://localhost:8080/images/ASUS TUF 6 Pro.png","title":"华硕天选6 Pro 酷睿版","priceInteger":7499,"priceDecimal":99,"category":"LAPTOP","description":"Ultra 7-255HX/RTX5060/2.5K 16:10高刷高亮高色域电竞屏/1T/16G"},{"id":"14","image":"http://localhost:8080/images/LENOVO Legion Y7000P.jpg","title":"联想拯救者Y7000P","priceInteger":6499,"priceDecimal":99,"category":"LAPTOP","description":"Y7000 2025/i7-14650HX/RTX5060/2.5k 180Hz/512G/16G"},{"id":"15","image":"http://localhost:8080/images/i5-14600kf.webp","title":"英特尔i5-14600kf盒装CPU","priceInteger":1315,"priceDecimal":75,"category":"CPU","description":"Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"},{"id":"16","image":"http://localhost:8080/images/i5-14490f.webp","title":"英特尔i5-14490f处理器(盒装)","priceInteger":1080,"priceDecimal":15,"category":"CPU","description":"Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"},{"id":"17","image":"http://localhost:8080/images/i5-13490f.webp","title":"INTEL i5-13490f CPU(盒装)","priceInteger":751,"priceDecimal":45,"category":"CPU","description":"Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"},{"id":"18","image":"http://localhost:8080/images/i5-12600kf.webp","title":"英特尔i5-12600kf盒装CPU","priceInteger":1080,"priceDecimal":15,"category":"CPU","description":"Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"},{"id":"19","image":"http://localhost:8080/images/i5-12490f.webp","title":"英特尔i5-12490f处理器(盒装)","priceInteger":703,"priceDecimal":95,"category":"CPU","description":"Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"},{"id":"20","image":"https://img.alicdn.com/imgextra/i2/681283030/O1CN01RqfV7r1YFn7geZ0wK_!!681283030.jpg_.webp","title":"AOC27英寸2K电竞240HZ显示器","priceInteger":749,"priceDecimal":0,"category":"MONITOR","description":"\nAOC27英寸2K电竞240HZ显示器Q27G3ZE台式IPS液晶电脑屏幕Q27G40ZE"},{"id":"21","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/299861/36/7495/102083/68290f4cFc5f02c1c/da73e41d6b33ecc5.jpg","title":"RTX5090 华硕黄金夜神","priceInteger":87999,"priceDecimal":0,"category":"VIDEOCARD","description":"显卡 英伟达NVIDI 华硕黄金夜神RTX5090 32G 4纳米 核心频率 2310MHz/boost 2595MHz GDDR7显存"},{"id":"22","image":"https://img13.360buyimg.com/n5/s720x720_jfs/t1/279471/27/17746/296840/67f7366fF3f4f9b63/7b98d46318c7f119.png","title":"ROG STRIX B850-G GAMING WIFI S 小吹雪主板","priceInteger":1581,"priceDecimal":5,"category":"MOTHERBOARD","description":"ROG STRIX B850-G GAMING WIFI S 小吹雪主板 适配CPU 9700X/9800X3D/9600X(AMD B850/socket AM5)"},{"id":"23","image":"https://img14.360buyimg.com/n5/s720x720_jfs/t1/231344/38/9035/90970/657dda51F20400eea/20c71698fad45d0a.jpg","title":"芝奇幻锋戟DDR5 32G(16Gx2)","priceInteger":899,"priceDecimal":0,"category":"RAM","description":"芝奇幻锋戟DDR5 32G 6400频台式内存条 32G(16Gx2) 6400频 C32套装 黑色"},{"id":"24","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/231526/19/30018/172305/675b8fc7F7be1a573/aa6714421e44b794.jpg","title":"微星（MSI）MPG X870E CARBON WIFI 暗黑主板","priceInteger":3272,"priceDecimal":51,"category":"MOTHERBOARD","description":" 微星（MSI）MPG X870E CARBON WIFI 暗黑主板 支持CPU 9900X3D/9950X3D/9800X3D(AMD X870/socket AM5)"},{"id":"25","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/307218/33/463/383898/68231743Face2bbff/435f191aeb4ec9f7.jpg","title":"微星（MSI）B850M GAMING PLUS WIFI主板","priceInteger":1183,"priceDecimal":1,"category":"MOTHERBOARD","description":"微星（MSI）B850M GAMING PLUS WIFI主板 支持CPU AMD 9950X/9800X3D/9700X/9600X(AMD B850/AM5接口)"},{"id":"26","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/275819/2/25901/150607/680ae5c4F043cc141/2718e50cf2c290e3.jpg","title":"微星（MSI）MPG B850 EDGE TI WIFI 刀锋钛电脑主板","priceInteger":2078,"priceDecimal":51,"category":"MOTHERBOARD","description":"微星（MSI）MPG B850 EDGE TI WIFI 刀锋钛电脑主板 支持CPU AMD 9700X/9600X/9800X3D(AMD B850/AM5接口）"},{"id":"27","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/183678/1/52321/134175/67370ba8F34c6e7a8/b015a8769d11e78e.jpg","title":"微星MEG X870E GODLIKE 超神主板","priceInteger":8944,"priceDecimal":1,"category":"MOTHERBOARD","description":" 微星MEG X870E GODLIKE 超神主板 支持CPU 9900X3D/9950X3D/9800X3D(AMD X870/socket AM5)"},{"id":"28","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/255188/24/29174/43879/67c7c07cF0f637389/370fde69171af010.png","title":"AMD锐龙9 9950X3D处理器","priceInteger":5262,"priceDecimal":88,"category":"CPU","description":"AMD锐龙9 9950X3D处理器16核32线程144MB缓存加速频率至高5.7GHz盒装CPU专业生产力 千帧电竞"},{"id":"29","image":"https://img14.360buyimg.com/n5/s720x720_jfs/t1/282699/19/1331/37303/67d12999Ff71be987/ddc8912e81c6d6d7.jpg","title":"AMD锐龙 9000系列  R9 9900X3D盒装","priceInteger":4389,"priceDecimal":0,"category":"CPU","description":"AMD锐龙 9000系列 9600X 9700X 9900X 9950X 9800X3D AM5接口 CPU处理器 R9 9900X3D盒装"},{"id":"30","image":"https://img11.360buyimg.com/n5/s720x720_jfs/t1/238114/20/23479/32922/66b6d4fdF40fc36f5/1def309b4119a650.jpg","title":"AMD 锐龙 9700x处理器CPU","priceInteger":2049,"priceDecimal":0,"category":"CPU","description":"AMD锐龙 9000系列 9600X 9700X 9900X 9950X 9800X3D AM5接口 CPU处理器 R7 9700X盒装8核16线程"},{"id":"31","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/104971/10/49304/78177/661f9092F15c05632/29b62ecb94fef369.jpg","title":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条","priceInteger":496,"priceDecimal":99,"category":"RAM","description":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 天策系列 XMP\u0026EXPO 适配黑神话悟空"},{"id":"32","image":"https://img14.360buyimg.com/n7/jfs/t1/249416/27/19804/121588/66fa1af6F5bd5be7d/45161020b664f634.jpg","title":" 阿斯加特（Asgard）32GB(16GBx2) DDR5 6000 台式机内存条 女武神","priceInteger":945,"priceDecimal":21,"category":"RAM","description":"阿斯加特（Asgard）32GB(16GBx2) DDR5 6000 台式机内存条 女武神·瓦尔基里II代 RGB灯条 海力士A-die CL28 极地白"},{"id":"33","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/164148/20/50878/172614/672b3297Ffdc69e2b/b38bf02ab4e2bb0a.jpg","title":"G.SKILL芝奇（G.SKILL）32GB(16Gx2)套装 DDR5 6000频率","priceInteger":645,"priceDecimal":76,"category":"RAM","description":"G.SKILL芝奇（G.SKILL）32GB(16Gx2)套装 DDR5 6000频率 台式机内存条-焰刃(黯夜黑)/C36"},{"id":"34","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/185071/33/41843/83432/6555b854F290911bd/d1238ac6c82e2a79.jpg.avif","title":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 ","priceInteger":765,"priceDecimal":11,"category":"RAM","description":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 龙武系列 海力士M-die颗粒 CL30 Deepseek硬件"},{"id":"35","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/85933/7/47559/53374/672b1b6dFab1e8106/0c128f92a663cde1.jpg.avif","title":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 银色 三星颗粒","priceInteger":645,"priceDecimal":76,"category":"RAM","description":"光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 龙武系列 三星颗粒 CL38"},{"id":"36","image":"https://img10.360buyimg.com/n5/s720x720_jfs/t1/261219/3/21219/124463/67b3e5cbF514d32d8/05cb172163206131.jpg.avif","title":"HKC 23.8英寸240Hz高刷显示器","priceInteger":576,"priceDecimal":1,"category":"MONITOR","description":"HKC 23.8英寸240Hz高刷FastIPS小金刚1ms硬件低蓝光HDR400广色域电竞游戏PS5显示器猎鹰 G24H3S经典版"},{"id":"38","image":"https://img13.360buyimg.com/n5/s720x720_jfs/t1/301637/8/12450/150591/68428990Ff758a840/146198ec0dcd5c14.jpg.avif","title":" HKC 24.5英寸320Hz显示器","priceInteger":849,"priceDecimal":36,"category":"MONITOR","description":"HKC 24.5英寸320Hz FastIPS快速液晶HDR400硬件低蓝光1ms升降旋转电竞游戏300Hz显示器 猎鹰G25H3Pro"},{"id":"39","image":"https://img14.360buyimg.com/n5/s720x720_jfs/t1/220701/34/27425/56251/646b6d59F1ac9a659/b138fa202c7360fe.jpg.avif","title":"小米 Redmi 27英寸显示器","priceInteger":500,"priceDecimal":0,"category":"MONITOR","description":"小米 Redmi 27英寸显示器 A27 IPS技术 100Hz高刷新率 三微边设计 低蓝光爱眼 电脑办公显示器显示屏\n"},{"id":"37","image":"https://img12.360buyimg.com/n5/s720x720_jfs/t1/260244/31/2510/113930/676a7eb2F2798f012/dc3cf1635393ada2.jpg.avif","title":"AOCMO32英寸显示器2K165Hz","priceInteger":782,"priceDecimal":0,"category":"MONITOR","description":"AOCMO32英寸显示器2K165Hz电竞游戏电脑显示屏4K超薄办公设计高清直播扩展副屏 32英寸4K60HZ直面白色\n"},{"id":"40","image":"https://img11.360buyimg.com/n5/s720x720_jfs/t1/263409/10/5347/107721/67721421Fdd1f0d9b/aea9009fc5fcde75.jpg.avif","title":"HKC 34英寸21:9带鱼屏WQHD准4K显示器","priceInteger":1588,"priceDecimal":0,"category":"MONITOR","description":"HKC 34英寸21:9带鱼屏WQHD准4K超清240Hz HDR400广色域1500R曲面游戏电竞1ms升降旋转显示器CG345UK"}]
+[
+  {
+    "id": "1",
+    "image": "http://localhost:8080/images/5090.webp",
+    "title": "RTX5090 微星魔龙",
+    "priceInteger": 25989,
+    "priceDecimal": 0,
+    "category": "VIDEOCARD",
+    "description": "微星（MSI）RTX5090 24G 超龙/水超龙/魔龙/神龙电竞游戏大型渲染显卡"
+  },
+  {
+    "id": "2",
+    "image": "http://localhost:8080/images/4080.webp",
+    "title": "RTX4080 华硕TUF",
+    "priceInteger": 14988,
+    "priceDecimal": 0,
+    "category": "VIDEOCARD",
+    "description": "RTX5080 16G华硕TUF电竞游戏显卡"
+  },
+  {
+    "id": "3",
+    "image": "http://localhost:8080/images/9700xt.webp",
+    "title": "RX9700xt 蓝宝石超白金",
+    "priceInteger": 7999,
+    "priceDecimal": 0,
+    "category": "VIDEOCARD",
+    "description": "蓝宝石9700XTX 24G超白金版9700XT 9070 台式机游戏算力电脑显卡"
+  },
+  {
+    "id": "4",
+    "image": "http://localhost:8080/images/4070ti.webp",
+    "title": "RTX4070Ti 技嘉雪鹰",
+    "priceInteger": 5999,
+    "priceDecimal": 0,
+    "category": "VIDEOCARD",
+    "description": "技嘉RTX5070Ti/4070ti SUPER魔鹰雪鹰台式电脑独立显卡"
+  },
+  {
+    "id": "5",
+    "image": "http://localhost:8080/images/9800x3d.webp",
+    "title": "AMD Ryzen 7 9800x3d",
+    "priceInteger": 4150,
+    "priceDecimal": 0,
+    "category": "CPU",
+    "description": "AMD锐龙cpu 9600x/9700x/7500f/7800x3D/9900x3d/9800x3d/9950x3d"
+  },
+  {
+    "id": "6",
+    "image": "http://localhost:8080/images/Gaomon 1060pro.jpg",
+    "title": "Gaomon 1060pro Graphics Tablet",
+    "priceInteger": 188,
+    "priceDecimal": 88,
+    "category": "GRAPHIC_TABLET",
+    "description": "Gaomon 1060pro Graphics Tablet, 25.4x15.88cm"
+  },
+  {
+    "id": "7",
+    "image": "http://localhost:8080/images/Gaomon M6.jpg",
+    "title": "Gaomon M6 Graphic Tablet",
+    "priceInteger": 168,
+    "priceDecimal": 0,
+    "category": "GRAPHIC_TABLET",
+    "description": "Gaomon M6 Graphic Tablet, 34.7x20.5cm"
+  },
+  {
+    "id": "8",
+    "image": "http://localhost:8080/images/Wacom CTL 472.jpg",
+    "title": "Wacom CTL 472 Graphic Tablet",
+    "priceInteger": 346,
+    "priceDecimal": 0,
+    "category": "GRAPHIC_TABLET",
+    "description": "Wacom CTL 472 Graphic Tablet, 21x14.6cm"
+  },
+  {
+    "id": "9",
+    "image": "http://localhost:8080/images/Wacom PTK670.png",
+    "title": "Wacom PTK670 Graphic Tablet",
+    "priceInteger": 3299,
+    "priceDecimal": 99,
+    "category": "GRAPHIC_TABLET",
+    "description": "Wacom PTK670 Graphic Tablet, 29.1x20.6cm"
+  },
+  {
+    "id": "10",
+    "image": "http://localhost:8080/images/iPad Pro 2024.png",
+    "title": "iPad Pro 2024",
+    "priceInteger": 8999,
+    "priceDecimal": 99,
+    "category": "PAD",
+    "description": "11-inch, Ultra Retina XDR display"
+  },
+  {
+    "id": "11",
+    "image": "http://localhost:8080/images/HUAWEI MatePad Air.jpg",
+    "title": "HUAWEI MatePad Air 12''",
+    "priceInteger": 2199,
+    "priceDecimal": 99,
+    "category": "PAD",
+    "description": "HUAWEI MatePad Air 12-inch, 8GB + 256GB"
+  },
+  {
+    "id": "12",
+    "image": "http://localhost:8080/images/Redmi Pad Pro.jpg",
+    "title": "Redmi Pad Pro",
+    "priceInteger": 999,
+    "priceDecimal": 99,
+    "category": "PAD",
+    "description": "Redmi Pad Pro, 8GB + 128GB"
+  },
+  {
+    "id": "13",
+    "image": "http://localhost:8080/images/ASUS TUF 6 Pro.png",
+    "title": "华硕天选6 Pro 酷睿版",
+    "priceInteger": 7499,
+    "priceDecimal": 99,
+    "category": "LAPTOP",
+    "description": "Ultra 7-255HX/RTX5060/2.5K 16:10高刷高亮高色域电竞屏/1T/16G"
+  },
+  {
+    "id": "14",
+    "image": "http://localhost:8080/images/LENOVO Legion Y7000P.jpg",
+    "title": "联想拯救者Y7000P",
+    "priceInteger": 6499,
+    "priceDecimal": 99,
+    "category": "LAPTOP",
+    "description": "Y7000 2025/i7-14650HX/RTX5060/2.5k 180Hz/512G/16G"
+  },
+  {
+    "id": "15",
+    "image": "http://localhost:8080/images/i5-14600kf.webp",
+    "title": "英特尔i5-14600kf盒装CPU",
+    "priceInteger": 1315,
+    "priceDecimal": 75,
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "16",
+    "image": "http://localhost:8080/images/i5-14490f.webp",
+    "title": "英特尔i5-14490f处理器(盒装)",
+    "priceInteger": 1080,
+    "priceDecimal": 15,
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "17",
+    "image": "http://localhost:8080/images/i5-13490f.webp",
+    "title": "INTEL i5-13490f CPU(盒装)",
+    "priceInteger": 751,
+    "priceDecimal": 45,
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "18",
+    "image": "http://localhost:8080/images/i5-12600kf.webp",
+    "title": "英特尔i5-12600kf盒装CPU",
+    "priceInteger": 1080,
+    "priceDecimal": 15,
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "19",
+    "image": "http://localhost:8080/images/i5-12490f.webp",
+    "title": "英特尔i5-12490f处理器(盒装)",
+    "priceInteger": 703,
+    "priceDecimal": 95,
+    "category": "CPU",
+    "description": "Intel/英特尔 I5 12490F/12600KF/13490F/14600KF盒装CPU"
+  },
+  {
+    "id": "20",
+    "image": "https://img.alicdn.com/imgextra/i2/681283030/O1CN01RqfV7r1YFn7geZ0wK_!!681283030.jpg_.webp",
+    "title": "AOC27英寸2K电竞240HZ显示器",
+    "priceInteger": 749,
+    "priceDecimal": 0,
+    "category": "MONITOR",
+    "description": "\nAOC27英寸2K电竞240HZ显示器Q27G3ZE台式IPS液晶电脑屏幕Q27G40ZE"
+  },
+  {
+    "id": "21",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/299861/36/7495/102083/68290f4cFc5f02c1c/da73e41d6b33ecc5.jpg",
+    "title": "RTX5090 华硕黄金夜神",
+    "priceInteger": 87999,
+    "priceDecimal": 0,
+    "category": "VIDEOCARD",
+    "description": "显卡 英伟达NVIDI 华硕黄金夜神RTX5090 32G 4纳米 核心频率 2310MHz/boost 2595MHz GDDR7显存"
+  },
+  {
+    "id": "22",
+    "image": "https://img13.360buyimg.com/n5/s720x720_jfs/t1/279471/27/17746/296840/67f7366fF3f4f9b63/7b98d46318c7f119.png",
+    "title": "ROG STRIX B850-G GAMING WIFI S 小吹雪主板",
+    "priceInteger": 1581,
+    "priceDecimal": 5,
+    "category": "MOTHERBOARD",
+    "description": "ROG STRIX B850-G GAMING WIFI S 小吹雪主板 适配CPU 9700X/9800X3D/9600X(AMD B850/socket AM5)"
+  },
+  {
+    "id": "23",
+    "image": "https://img14.360buyimg.com/n5/s720x720_jfs/t1/231344/38/9035/90970/657dda51F20400eea/20c71698fad45d0a.jpg",
+    "title": "芝奇幻锋戟DDR5 32G(16Gx2)",
+    "priceInteger": 899,
+    "priceDecimal": 0,
+    "category": "RAM",
+    "description": "芝奇幻锋戟DDR5 32G 6400频台式内存条 32G(16Gx2) 6400频 C32套装 黑色"
+  },
+  {
+    "id": "24",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/231526/19/30018/172305/675b8fc7F7be1a573/aa6714421e44b794.jpg",
+    "title": "微星（MSI）MPG X870E CARBON WIFI 暗黑主板",
+    "priceInteger": 3272,
+    "priceDecimal": 51,
+    "category": "MOTHERBOARD",
+    "description": " 微星（MSI）MPG X870E CARBON WIFI 暗黑主板 支持CPU 9900X3D/9950X3D/9800X3D(AMD X870/socket AM5)"
+  },
+  {
+    "id": "25",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/307218/33/463/383898/68231743Face2bbff/435f191aeb4ec9f7.jpg",
+    "title": "微星（MSI）B850M GAMING PLUS WIFI主板",
+    "priceInteger": 1183,
+    "priceDecimal": 1,
+    "category": "MOTHERBOARD",
+    "description": "微星（MSI）B850M GAMING PLUS WIFI主板 支持CPU AMD 9950X/9800X3D/9700X/9600X(AMD B850/AM5接口)"
+  },
+  {
+    "id": "26",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/275819/2/25901/150607/680ae5c4F043cc141/2718e50cf2c290e3.jpg",
+    "title": "微星（MSI）MPG B850 EDGE TI WIFI 刀锋钛电脑主板",
+    "priceInteger": 2078,
+    "priceDecimal": 51,
+    "category": "MOTHERBOARD",
+    "description": "微星（MSI）MPG B850 EDGE TI WIFI 刀锋钛电脑主板 支持CPU AMD 9700X/9600X/9800X3D(AMD B850/AM5接口）"
+  },
+  {
+    "id": "27",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/183678/1/52321/134175/67370ba8F34c6e7a8/b015a8769d11e78e.jpg",
+    "title": "微星MEG X870E GODLIKE 超神主板",
+    "priceInteger": 8944,
+    "priceDecimal": 1,
+    "category": "MOTHERBOARD",
+    "description": " 微星MEG X870E GODLIKE 超神主板 支持CPU 9900X3D/9950X3D/9800X3D(AMD X870/socket AM5)"
+  },
+  {
+    "id": "28",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/255188/24/29174/43879/67c7c07cF0f637389/370fde69171af010.png",
+    "title": "AMD锐龙9 9950X3D处理器",
+    "priceInteger": 5262,
+    "priceDecimal": 88,
+    "category": "CPU",
+    "description": "AMD锐龙9 9950X3D处理器16核32线程144MB缓存加速频率至高5.7GHz盒装CPU专业生产力 千帧电竞"
+  },
+  {
+    "id": "29",
+    "image": "https://img14.360buyimg.com/n5/s720x720_jfs/t1/282699/19/1331/37303/67d12999Ff71be987/ddc8912e81c6d6d7.jpg",
+    "title": "AMD锐龙 9000系列  R9 9900X3D盒装",
+    "priceInteger": 4389,
+    "priceDecimal": 0,
+    "category": "CPU",
+    "description": "AMD锐龙 9000系列 9600X 9700X 9900X 9950X 9800X3D AM5接口 CPU处理器 R9 9900X3D盒装"
+  },
+  {
+    "id": "30",
+    "image": "https://img11.360buyimg.com/n5/s720x720_jfs/t1/238114/20/23479/32922/66b6d4fdF40fc36f5/1def309b4119a650.jpg",
+    "title": "AMD 锐龙 9700x处理器CPU",
+    "priceInteger": 2049,
+    "priceDecimal": 0,
+    "category": "CPU",
+    "description": "AMD锐龙 9000系列 9600X 9700X 9900X 9950X 9800X3D AM5接口 CPU处理器 R7 9700X盒装8核16线程"
+  },
+  {
+    "id": "31",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/104971/10/49304/78177/661f9092F15c05632/29b62ecb94fef369.jpg",
+    "title": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条",
+    "priceInteger": 496,
+    "priceDecimal": 99,
+    "category": "RAM",
+    "description": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 天策系列 XMP&EXPO 适配黑神话悟空"
+  },
+  {
+    "id": "32",
+    "image": "https://img14.360buyimg.com/n7/jfs/t1/249416/27/19804/121588/66fa1af6F5bd5be7d/45161020b664f634.jpg",
+    "title": " 阿斯加特（Asgard）32GB(16GBx2) DDR5 6000 台式机内存条 女武神",
+    "priceInteger": 945,
+    "priceDecimal": 21,
+    "category": "RAM",
+    "description": "阿斯加特（Asgard）32GB(16GBx2) DDR5 6000 台式机内存条 女武神·瓦尔基里II代 RGB灯条 海力士A-die CL28 极地白"
+  },
+  {
+    "id": "33",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/164148/20/50878/172614/672b3297Ffdc69e2b/b38bf02ab4e2bb0a.jpg",
+    "title": "G.SKILL芝奇（G.SKILL）32GB(16Gx2)套装 DDR5 6000频率",
+    "priceInteger": 645,
+    "priceDecimal": 76,
+    "category": "RAM",
+    "description": "G.SKILL芝奇（G.SKILL）32GB(16Gx2)套装 DDR5 6000频率 台式机内存条-焰刃(黯夜黑)/C36"
+  },
+  {
+    "id": "34",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/185071/33/41843/83432/6555b854F290911bd/d1238ac6c82e2a79.jpg.avif",
+    "title": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 ",
+    "priceInteger": 765,
+    "priceDecimal": 11,
+    "category": "RAM",
+    "description": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 龙武系列 海力士M-die颗粒 CL30 Deepseek硬件"
+  },
+  {
+    "id": "35",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/85933/7/47559/53374/672b1b6dFab1e8106/0c128f92a663cde1.jpg.avif",
+    "title": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 银色 三星颗粒",
+    "priceInteger": 645,
+    "priceDecimal": 76,
+    "category": "RAM",
+    "description": "光威（Gloway）32GB(16GBx2)套装 DDR5 6000 台式机内存条 龙武系列 三星颗粒 CL38"
+  },
+  {
+    "id": "36",
+    "image": "https://img10.360buyimg.com/n5/s720x720_jfs/t1/261219/3/21219/124463/67b3e5cbF514d32d8/05cb172163206131.jpg.avif",
+    "title": "HKC 23.8英寸240Hz高刷显示器",
+    "priceInteger": 576,
+    "priceDecimal": 1,
+    "category": "MONITOR",
+    "description": "HKC 23.8英寸240Hz高刷FastIPS小金刚1ms硬件低蓝光HDR400广色域电竞游戏PS5显示器猎鹰 G24H3S经典版"
+  },
+  {
+    "id": "38",
+    "image": "https://img13.360buyimg.com/n5/s720x720_jfs/t1/301637/8/12450/150591/68428990Ff758a840/146198ec0dcd5c14.jpg.avif",
+    "title": " HKC 24.5英寸320Hz显示器",
+    "priceInteger": 849,
+    "priceDecimal": 36,
+    "category": "MONITOR",
+    "description": "HKC 24.5英寸320Hz FastIPS快速液晶HDR400硬件低蓝光1ms升降旋转电竞游戏300Hz显示器 猎鹰G25H3Pro"
+  },
+  {
+    "id": "39",
+    "image": "https://img14.360buyimg.com/n5/s720x720_jfs/t1/220701/34/27425/56251/646b6d59F1ac9a659/b138fa202c7360fe.jpg.avif",
+    "title": "小米 Redmi 27英寸显示器",
+    "priceInteger": 500,
+    "priceDecimal": 0,
+    "category": "MONITOR",
+    "description": "小米 Redmi 27英寸显示器 A27 IPS技术 100Hz高刷新率 三微边设计 低蓝光爱眼 电脑办公显示器显示屏\n"
+  },
+  {
+    "id": "37",
+    "image": "https://img12.360buyimg.com/n5/s720x720_jfs/t1/260244/31/2510/113930/676a7eb2F2798f012/dc3cf1635393ada2.jpg.avif",
+    "title": "AOCMO32英寸显示器2K165Hz",
+    "priceInteger": 782,
+    "priceDecimal": 0,
+    "category": "MONITOR",
+    "description": "AOCMO32英寸显示器2K165Hz电竞游戏电脑显示屏4K超薄办公设计高清直播扩展副屏 32英寸4K60HZ直面白色\n"
+  },
+  {
+    "id": "40",
+    "image": "https://img11.360buyimg.com/n5/s720x720_jfs/t1/263409/10/5347/107721/67721421Fdd1f0d9b/aea9009fc5fcde75.jpg.avif",
+    "title": "HKC 34英寸21:9带鱼屏WQHD准4K显示器",
+    "priceInteger": 1588,
+    "priceDecimal": 0,
+    "category": "MONITOR",
+    "description": "HKC 34英寸21:9带鱼屏WQHD准4K超清240Hz HDR400广色域1500R曲面游戏电竞1ms升降旋转显示器CG345UK"
+  }
+]

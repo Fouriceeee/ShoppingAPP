@@ -3,6 +3,7 @@ package org.example.repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken; // 用于泛型类型，如List<CartItem>
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.example.config.AppConfig;
 import org.example.model.CartItem;
@@ -18,6 +19,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -106,5 +108,17 @@ public class JsonIO {
     public static void writeProducts(String fileName, List<Product> products) throws IOException {
         Type listType = new TypeToken<ArrayList<Product>>() {}.getType();
         writeJsonList(fileName, products, listType);
+    }
+
+    public static Map<String,List<String>> readKeywords(String keywordFile) throws IOException {
+        try(JsonReader reader = new JsonReader(new FileReader(keywordFile))) {
+            return GSON.fromJson(reader,Map.class);
+        }
+    }
+
+    public static Product[] testReadProducts(String fileName) throws IOException{
+        try(JsonReader reader = new JsonReader(new FileReader(fileName))) {
+            return GSON.fromJson(reader,Product[].class);
+        }
     }
 }
