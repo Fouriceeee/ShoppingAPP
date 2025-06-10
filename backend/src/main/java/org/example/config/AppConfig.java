@@ -7,7 +7,7 @@ public class AppConfig {
     // 文件路径
     public static final String PRODUCTS_FILE = "products.json";
     public static final String CART_FILE = "cart_items.json";
-    public static final String USERS_FILE = "users.json";
+    public static final String KEYWORD_FILE = "data/keyword.json";
 
     // 数据目录
     public static final String DATA_DIR = "data";

@@ -88,7 +88,7 @@ public class JsonIO {
         }
     }
 
-    // UserIO
+    /*// UserIO
     public static List<User> readUsers(String fileName) throws IOException {
         Type listType = new TypeToken<ArrayList<User>>() {}.getType();
         return readJsonList(fileName, listType);
@@ -97,7 +97,7 @@ public class JsonIO {
     public static void writeUsers(String fileName, List<User> users) throws IOException {
         Type listType = new TypeToken<ArrayList<User>>() {}.getType();
         writeJsonList(fileName, users, listType);
-    }
+    }*/
 
     // ProductIO
     public static List<Product> readProducts(String fileName) throws IOException {
@@ -110,15 +110,13 @@ public class JsonIO {
         writeJsonList(fileName, products, listType);
     }
 
-    public static Map<String,List<String>> readKeywords(String keywordFile) throws IOException {
-        try(JsonReader reader = new JsonReader(new FileReader(keywordFile))) {
-            return GSON.fromJson(reader,Map.class);
+    public static Map<String, List<String>> readKeywords(String keywordFile) throws IOException {
+        // 1. 为目标类型 Map<String, List<String>> 创建一个精确的 Type 对象
+        Type mapType = new TypeToken<Map<String, List<String>>>() {}.getType();
+
+        try (Reader reader = new FileReader(keywordFile)) {
+            return GSON.fromJson(reader, mapType);
         }
     }
 
-    public static Product[] testReadProducts(String fileName) throws IOException{
-        try(JsonReader reader = new JsonReader(new FileReader(fileName))) {
-            return GSON.fromJson(reader,Product[].class);
-        }
-    }
 }

@@ -14,7 +14,7 @@ public class Router {
         System.out.println("已注册: GET /api/products");
 
         // 产品搜索路由
-        Spark.get("/api/products/search", ProductController::searchProducts);
+        Spark.get("/api/products/search", SearchController::searchProducts);
         System.out.println("已注册: GET /api/products/search");
 
         // 分类相关路由
@@ -53,9 +53,6 @@ public class Router {
 
         Spark.post("/api/admin/products", ProductController::addToProducts);
         System.out.println("已注册: POST /api/admin/products");
-
-        //Spark.get("/api/products/:productId", ProductController::addToProducts);
-        //System.out.println("已注册: GET /api/products/:productId");
 
         System.out.println("所有API路由注册完成！");
     }

@@ -11,7 +11,6 @@ import { checkAuth } from '@/utils/userService';
 import { ElMessage } from 'element-plus';
 import {checkAdminAuth} from "@/utils/adminService.js";
 import adminRoutes from "@/router/admin.routes.js";
-import {User} from "@element-plus/icons-vue";
 import CheckoutView from "@/views/Checkout/CheckoutView.vue";
 
 

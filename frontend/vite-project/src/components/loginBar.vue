@@ -35,13 +35,13 @@ export default {
 .login-bar-wrapper {
   display: flex;
   flex-direction: column; /* 子元素自上而下垂直排列 */
-  align-items: center;   /* 子元素在交叉轴（本例中是水平方向）上居中 */
-  justify-content: center; /* 子元素在主轴（本例中是垂直方向）上居中 */
-  height: 400px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   padding: 30px 20px;
   border-radius: 12px;
   background-color: #ebecf0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 220px; /* 设定一个宽度 */
   gap: 18px; /* 设置子元素之间的垂直间距，比分别设置 margin 更简洁 */
   box-sizing: border-box;

@@ -1,19 +1,28 @@
 <template>
-  <title>您的电商网站</title>
+  <title>易猫emall</title>
   <div class="home-page">
-    <top-nav /> <div class="page-container"> <div class="home-top-wrapper"> <div class="home-top-1-wrapper"> <CategorySidebar class="home-category-sidebar" /> </div>
+    <top-nav/>
+    <div class="page-container">
+      <div class="home-top-wrapper">
+        <div class="home-top-1-wrapper">
+          <CategorySidebar class="home-category-sidebar"/>
+        </div>
 
-    <div class="home-top-2-wrapper"> <ImageCarousel class="home-image-carousel" /> </div>
+        <div class="home-top-2-wrapper">
+          <ImageCarousel class="home-image-carousel"/>
+          <RecommendedProducts title="百亿补贴" class="home-recommended-products"/>
+        </div>
 
-    <div class="home-top-3-wrapper"> <div class="home-top-3-top-section"> <RecommendedProducts class="home-recommended-products" /> </div>
-      <div class="home-top-3-bottom-section"> </div>
-    </div>
+        <div class="home-top-3-wrapper">
+          <RecommendedProducts title="为你推荐" class="home-recommended-products"/>
+          <RecommendedProducts title="超值秒杀" class="home-recommended-products"/>
+        </div>
 
-    <div class="home-top-4-wrapper">
-      <login-bar v-if="!isLoggedIn" class="home-login-bar" />
-      <user-info-bar v-else class="home-login-bar" />
-    </div>
-  </div>
+        <div class="home-top-4-wrapper">
+          <login-bar v-if="!isLoggedIn" class="home-login-bar"/>
+          <user-info-bar v-else class="home-login-bar"/>
+        </div>
+      </div>
 
     <main class="home-main-content-wrapper"> <h1>首页</h1>
       <div v-if="isLoading" class="loading-container">
@@ -167,27 +176,13 @@ const handleAddToCart = async (productToAdd) => {
 }
 
 /*主页顶部2区域*/
-.home-top-2-wrapper {
+.home-top-2-wrapper, .home-top-3-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   margin-right: 10px;
   margin-left: 10px;
-}
-
-/*主页顶部3区域*/
-.home-top-3-wrapper {
-  width: 100%;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-/*3区域的上半部分*/
-.home-top-3-top-section {
-  margin-bottom: 10px;
-}
-
-/*3区域的下半部分*/
-.home-top-3-bottom-section {
-  margin-top: 10px;
 }
 
 /*主页顶部4区域*/

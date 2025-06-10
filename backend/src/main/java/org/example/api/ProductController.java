@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import org.example.*;
 import org.example.config.AppConfig;
-import org.example.model.CartItem;
-import org.example.model.Category;
 import org.example.model.Product;
 import org.example.repository.JsonIO;
 import org.example.util.ApiResponseUtil;
@@ -16,7 +14,6 @@ import spark.Response;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * 产品API控制器
@@ -128,6 +125,7 @@ public class ProductController {
             return ApiResponseUtil.serverError(res, "An unexpected error occurred", e);
         }
     }
+
 
     /**
      * 更新商品信息（管理员功能）
