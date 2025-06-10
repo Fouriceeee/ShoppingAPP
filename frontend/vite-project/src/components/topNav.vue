@@ -91,9 +91,9 @@ const goToSearch = () => {
     router.push({
       path: '/search',
       query: { q: searchQuery.value }
-    })/*.then(() => {
+    }).then(() => {
       window.location.reload();
-    })*/
+    })
   }
 }
 </script>
