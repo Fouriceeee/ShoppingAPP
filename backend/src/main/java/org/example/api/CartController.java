@@ -122,32 +122,32 @@ public class CartController {
                     .filter(item -> item.getId().equals(itemId))
                     .findFirst();
 
-            if (existingItemOpt.isPresent()) {
-                CartItem itemToUpdate = existingItemOpt.get();
-
-                if (updateData.has("quantity")) {
-                    int newQuantity = updateData.get("quantity").getAsInt();
-                    if (newQuantity < 0) {
-                        return ApiResponseUtil.clientError(res, 400, "Quantity cannot be negative.");
-                    }
-                    if (newQuantity == 0) {
-                        cartItems.remove(itemToUpdate);
-                        JsonIO.writeCartItems(CART_FILE, cartItems);
-                        return ApiResponseUtil.success("Product removed due to quantity 0.");
-                    } else {
-                        itemToUpdate.setQuantity(newQuantity);
-                    }
-                }
-
-                if (updateData.has("selected")) {
-                    itemToUpdate.setSelected(updateData.get("selected").getAsBoolean());
-                }
-
-                JsonIO.writeCartItems(CART_FILE, cartItems);
-                return GSON.toJson(itemToUpdate);
-            } else {
+            if (existingItemOpt.isEmpty()) {
                 return ApiResponseUtil.clientError(res, 404, "Product not found in cart.");
             }
+
+            CartItem itemToUpdate = existingItemOpt.get();
+
+            if (updateData.has("quantity")) {
+                int newQuantity = updateData.get("quantity").getAsInt();
+                if (newQuantity < 0) {
+                    return ApiResponseUtil.clientError(res, 400, "Quantity cannot be negative.");
+                }
+                if (newQuantity == 0) {
+                    cartItems.remove(itemToUpdate);
+                    JsonIO.writeCartItems(CART_FILE, cartItems);
+                    return ApiResponseUtil.success("Product removed due to quantity 0.");
+                }
+                itemToUpdate.setQuantity(newQuantity);
+            }
+
+            if (updateData.has("selected")) {
+                itemToUpdate.setSelected(updateData.get("selected").getAsBoolean());
+            }
+
+            JsonIO.writeCartItems(CART_FILE, cartItems);
+            return GSON.toJson(itemToUpdate);
+
         } catch (IOException e) {
             return ApiResponseUtil.serverError(res, "Error updating cart data", e);
         } catch (Exception e) {
