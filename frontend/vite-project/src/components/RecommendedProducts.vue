@@ -41,6 +41,8 @@ const loadError = ref(null);
 const allProducts = ref([]);
 const recommendedProducts = ref([]);
 
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
+
 // 定义 RecommendedProducts 组件接受的 props
 const props = defineProps({
   title: String
@@ -89,8 +91,7 @@ const getProductImageUrl = (imagePath) => {
 
   // 处理后端返回的图片路径
   if (imagePath.startsWith('/images/')) {
-    const baseUrl = 'http://localhost:8080';
-    const imageUrl = `${baseUrl}${imagePath}`;
+    const imageUrl = `${API_BASE_URL}${imagePath}`;
     console.log('DEBUG:RecommendedProducts生成的图片URL:', imageUrl);
     return imageUrl;
   } else if (imagePath.startsWith('http')) {

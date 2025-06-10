@@ -1,4 +1,4 @@
-
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
 /**
  * 商品相关工具函数
  */
@@ -31,10 +31,9 @@ export const getProductImageUrl = (imagePath) => {
   // 处理后端返回的图片路径
   if (imagePath.startsWith('/images/')) {
     // 静态资源服务器的基础URL
-    const baseUrl = 'http://localhost:8080';
     // 将 "/images/xxx.webp" 转换为 "http://localhost:8080/images/xxx.webp"
-    console.log('处理图片路径:', `${baseUrl}${imagePath}`);
-    return `${baseUrl}${imagePath}`;
+    console.log('处理图片路径:', `${API_BASE_URL}${imagePath}`);
+    return `${API_BASE_URL}${imagePath}`;
   } else if (imagePath.startsWith('http')) {
     // 如果已经是完整URL，直接返回
     return imagePath;

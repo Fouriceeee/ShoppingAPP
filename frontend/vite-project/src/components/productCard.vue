@@ -26,6 +26,9 @@
 import { defineProps, defineEmits, computed } from 'vue';
 import router from "@/router/index.js";
 
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
+
+
 // 定义 ProductCard 组件接受的 props
 const props = defineProps({
   product: {
@@ -55,11 +58,10 @@ const productImage = computed(() => {
   if (props.product.image.startsWith('http')) {
     return props.product.image;
   } else if (props.product.image.startsWith('/images/')) {
-    const baseUrl = 'http://localhost:8080';
-    console.log('DEBUG:获取到的图片路径：' + baseUrl + props.product.image);
-    let gotImage = `${baseUrl}${props.product.image}`
+    console.log('DEBUG:获取到的图片路径：' + API_BASE_URL + props.product.image);
+    let gotImage = `${API_BASE_URL}${props.product.image}`
     console.log('DEBUG:productImage的值：' + gotImage)
-    return `${baseUrl}${props.product.image}`;
+    return `${API_BASE_URL}${props.product.image}`;
   }
 });
 

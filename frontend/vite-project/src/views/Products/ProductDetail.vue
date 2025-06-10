@@ -135,6 +135,8 @@ import topNav from '@/components/topNav.vue';
 import { getProductById } from '@/api/products';
 import { addCartItem } from '@/api/cart';
 
+const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || 'http://localhost:8080/api';
+
 const route = useRoute();
 const router = useRouter();
 const product = ref({});
@@ -158,8 +160,7 @@ const productImage = computed(() => {
 
   // 处理后端返回的图片路径
   if (product.value.image.startsWith('/images/')) {
-    const baseUrl = 'http://localhost:8080';
-    return `${baseUrl}${product.value.image}`;
+    return `${API_BASE_URL}${product.value.image}`;
   }
 
   return product.value.image;
