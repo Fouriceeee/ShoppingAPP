@@ -6,6 +6,7 @@ import CartView from "../views/Cart/CartView.vue";
 import LoginView from "@/views/Login/LoginView.vue";
 import RegisterView from "@/views/Login/RegisterView.vue";
 import UserView from "@/views/User/UserView.vue";
+import SearchView from "@/views/Search/SearchView.vue";
 import { checkAuth } from '@/utils/userService';
 import { ElMessage } from 'element-plus';
 import {checkAdminAuth} from "@/utils/adminService.js";
@@ -24,6 +25,14 @@ const customerRoutes = [
         component: HomeView,
         meta: {
             title: '首页 - 易猫商城'
+        }
+    },
+    {
+        path: '/search',
+        name: 'Search',
+        component: SearchView,
+        meta: {
+            title: '搜索商品 - 易猫商城'
         }
     },
     {
