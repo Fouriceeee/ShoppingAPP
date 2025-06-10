@@ -1,8 +1,6 @@
 // src/main/java/org/example/Product.java
 package org.example.model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Product {
     private String id;
     private String image;

@@ -3,13 +3,10 @@ package org.example.repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken; // 用于泛型类型，如List<CartItem>
-import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.example.config.AppConfig;
 import org.example.model.CartItem;
 import org.example.model.Product;
-import org.example.model.User;
-
 
 import java.io.File;
 import java.io.FileReader;
@@ -26,14 +23,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class JsonIO {
 
     // 使用 ReentrantReadWriteLock 确保在多线程环境下文件读写的安全
-    // 读写锁允许多个线程同时读，但只允许一个线程写。
+    // 读写锁允许多个线程同时读，但只允许一个线程写
     private static final ReadWriteLock cartFileLock = new ReentrantReadWriteLock();
     // 可以为不同的文件定义不同的锁，或共享一个锁但要小心死锁
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final String DATA_DIR = AppConfig.DATA_DIR; // 数据文件夹名，相对于项目根目录
 
-    // --- 辅助方法：获取文件路径 ---
+    //获取文件路径
     private static File getDataFile(String fileName) {
         // 构建文件路径：项目根目录/data/fileName
         String projectRoot = System.getProperty("user.dir");
@@ -88,17 +85,6 @@ public class JsonIO {
         }
     }
 
-    /*// UserIO
-    public static List<User> readUsers(String fileName) throws IOException {
-        Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-        return readJsonList(fileName, listType);
-    }
-
-    public static void writeUsers(String fileName, List<User> users) throws IOException {
-        Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-        writeJsonList(fileName, users, listType);
-    }*/
-
     // ProductIO
     public static List<Product> readProducts(String fileName) throws IOException {
         Type listType = new TypeToken<ArrayList<Product>>() {}.getType();
@@ -111,7 +97,6 @@ public class JsonIO {
     }
 
     public static Map<String, List<String>> readKeywords(String keywordFile) throws IOException {
-        // 1. 为目标类型 Map<String, List<String>> 创建一个精确的 Type 对象
         Type mapType = new TypeToken<Map<String, List<String>>>() {}.getType();
 
         try (Reader reader = new FileReader(keywordFile)) {
