@@ -73,6 +73,7 @@ const navigateToCategory = (categoryCode) => {
 <style scoped>
 .category-sidebar-wrapper {
   width: 220px; /* 分类栏的固定宽度 */
+  height: 100%;
   background-color: rgb(245, 246, 250);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */

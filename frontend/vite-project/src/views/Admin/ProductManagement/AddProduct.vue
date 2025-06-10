@@ -210,7 +210,7 @@ const submitForm = async () => {
       }
 
       // 调用API添加商品
-      const response = await addProduct(productForm);
+      await addProduct(productForm);
 
       ElMessage.success('商品添加成功');
 

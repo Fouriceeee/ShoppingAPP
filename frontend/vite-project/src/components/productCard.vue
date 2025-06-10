@@ -16,14 +16,14 @@
           @click.stop="addToCart"
       >
         <img class="cart-for-productCard-icon" src="../assets/icons/cart-for-product-card.png" alt="">
-        {{ isAdding ? '添加中...' : '加入购物车' }}
+        {{ '加入购物车' }}
       </el-button>
     </div>
   </el-card>
 </template>
 
 <script setup>
-import { defineProps, defineEmits, computed, ref } from 'vue';
+import { defineProps, defineEmits, computed } from 'vue';
 import router from "@/router/index.js";
 
 // 定义 ProductCard 组件接受的 props
@@ -77,9 +77,9 @@ const navigateToProductDetail = (productId) => {
 
 <style scoped>
 .product-card {
-  padding: 0px;
+  padding: 0;
   --el-card-padding: 15px;
-  margin: 0px;
+  margin: 0;
   background-color: #ffffff;
   border: none;
   border-radius: 30px;
@@ -93,8 +93,8 @@ const navigateToProductDetail = (productId) => {
 
   /* Apply the custom box-shadows */
   box-shadow:
-      10px 10px 30px 0px rgba(0, 0, 0, 0.7),   /* Dark shadow */
-      -5px -5px 30px 0px rgba(255, 255, 255, 0.1); /* Light shadow */
+      10px 10px 30px 0 rgba(0, 0, 0, 0.7),   /* Dark shadow */
+      -5px -5px 30px 0 rgba(255, 255, 255, 0.1); /* Light shadow */
 
   /* Optional: Add transition for hover effects */
   transition: all 0.3s ease;
@@ -103,8 +103,8 @@ const navigateToProductDetail = (productId) => {
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow:
-      30px 30px 80px 0px rgba(0, 0, 0, 1),
-      -30px -30px 80px 0px rgba(255, 255, 255, 0.18);
+      30px 30px 80px 0 rgba(0, 0, 0, 1),
+      -30px -30px 80px 0 rgba(255, 255, 255, 0.18);
 }
 
 :deep(.el-card__body) { /*并非从未使用。IDE解析错了*/
@@ -174,7 +174,7 @@ const navigateToProductDetail = (productId) => {
 /* 小数部分样式 */
 .product-price .price-decimal {
   font-size: 0.6em; /* 关键：相对于父级 .product-price 的字号缩小，例如 0.6 * 2.0em = 1.2em */
-  margin-left: 0px; /* 与整数部分紧密连接 */
+  margin-left: 0; /* 与整数部分紧密连接 */
   color: #ed115d; /* 小数部分可以颜色稍浅 */
 }
 
@@ -182,7 +182,7 @@ const navigateToProductDetail = (productId) => {
   background-color: #7852f5;
   border: none;
   width: 80%;
-  padding-left: 0px;
+  padding-left: 0;
   padding-right: 5px;
   margin: 0 15px;
   z-index: 100 !important;

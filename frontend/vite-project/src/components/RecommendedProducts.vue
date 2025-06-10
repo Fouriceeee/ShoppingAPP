@@ -1,7 +1,7 @@
 <template>
   <div class="recommended-products-wrapper" ref="moduleRef">
     <div class="header-wrapper">
-      <h3>为你推荐</h3>
+      <h3>{{ title }}</h3>
       <div @click="navigateToProducts" class="more-link">查看更多 ></div>
     </div>
 
@@ -31,10 +31,9 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, onMounted, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import { getProducts } from '@/api/products';
-import { ElMessage } from 'element-plus';
 
 const router = useRouter();
 const isLoading = ref(true);
@@ -42,6 +41,10 @@ const loadError = ref(null);
 const allProducts = ref([]);
 const recommendedProducts = ref([]);
 
+// 定义 RecommendedProducts 组件接受的 props
+const props = defineProps({
+  title: String
+});
 
 // 获取产品数据
 const fetchRecommendedProducts = async () => {
@@ -163,6 +166,7 @@ const navigateToProducts = () => {
 onMounted(() => {
   fetchRecommendedProducts();
 });
+
 </script>
 
 <style scoped>

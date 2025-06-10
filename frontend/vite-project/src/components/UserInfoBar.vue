@@ -154,11 +154,11 @@ onMounted(async () => {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 400px;
+  height: 100%;
   padding: 30px 20px;
   border-radius: 12px;
-  background-color: #ebecf0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 220px;
   box-sizing: border-box;
 }

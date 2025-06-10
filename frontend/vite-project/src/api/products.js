@@ -18,6 +18,7 @@ export const getProducts = () => {
  * @returns {Promise<AxiosResponse>} 包含搜索结果的响应。
  */
 export const searchProducts = (query) => {
+    console.log("DEBUG:searchProducts:开始调用");
     return axiosInstance.get(`${API_BASE_URL}/products/search`, {
         params: { query }
     });
