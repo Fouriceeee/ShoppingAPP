@@ -12,6 +12,7 @@ import { ElMessage } from 'element-plus';
 import {checkAdminAuth} from "@/utils/adminService.js";
 import adminRoutes from "@/router/admin.routes.js";
 import CheckoutView from "@/views/Checkout/CheckoutView.vue";
+import AboutView from "@/views/About/AboutView.vue";
 
 
 /**
@@ -92,6 +93,14 @@ const customerRoutes = [
         component: CheckoutView,
         meta: { requiresAuth: true }
     },
+    {
+        path: '/about',
+        name: 'About',
+        component: AboutView,
+        meta: {
+            title: '关于我们'
+        }
+    }
 /*    {
         path: '/checkout',
         name: 'Checkout',
