@@ -12,7 +12,9 @@ import spark.Request;
 import spark.Response;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -20,6 +22,7 @@ import java.util.Optional;
  */
 public class ProductController {
     private static final String PRODUCTS_FILE = AppConfig.PRODUCTS_FILE;
+    private static final String KEYWORD_FILE = AppConfig.KEYWORD_FILE;
     private static final Gson GSON = App.getGson();
 
     /**
@@ -91,23 +94,10 @@ public class ProductController {
             if (productToAddOpt.isPresent()) {
                 // 更新已存在的商品
                 productData = productToAddOpt.get();
-                productData.setImage(product.getImage());
-                productData.setTitle(product.getTitle());
-                productData.setPriceInteger(product.getPriceInteger());
-                productData.setPriceDecimal(product.getPriceDecimal());
-                productData.setCategory(product.getCategory());
-                productData.setDescription(product.getDescription());
+                productData.copyFrom(product);
             }else{
                 //添加新商品
-                productData = new Product(
-                        product.getId(),
-                        product.getImage(),
-                        product.getTitle(),
-                        product.getPriceInteger(),
-                        product.getPriceDecimal(),
-                        product.getCategory(),
-                        product.getDescription()
-                );
+                productData = product.copy();
                 products.add(productData);
             }
 
@@ -165,12 +155,7 @@ public class ProductController {
             Product existingProduct = products.get(productIndex);
 
             // 更新商品字段（仅更新非空字段）
-            existingProduct.setImage(product.getImage());
-            existingProduct.setTitle(product.getTitle());
-            existingProduct.setPriceInteger(product.getPriceInteger());
-            existingProduct.setPriceDecimal(product.getPriceDecimal());
-            existingProduct.setCategory(product.getCategory());
-            existingProduct.setDescription(product.getDescription());
+            existingProduct.copyFrom(product);
 
             // 保存更新后的商品列表
             JsonIO.writeProducts(PRODUCTS_FILE, products);
@@ -188,4 +173,5 @@ public class ProductController {
             return ApiResponseUtil.serverError(res, "发生意外错误", e);
         }
     }
+
 }

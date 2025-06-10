@@ -78,12 +78,7 @@ public class CartController {
             for (CartItem item : cartItems) {
                 if (item.getId().equals(id)) {
                     // 更新已存在的商品
-                    item.setQuantity(item.getQuantity() + quantity);
-                    item.setImage(productData.getImage());
-                    item.setTitle(productData.getTitle());
-                    item.setPriceInteger(productData.getPriceInteger());
-                    item.setPriceDecimal(productData.getPriceDecimal());
-                    item.setSelected(true);
+                    item.copyFrom(productData,item.getQuantity()+quantity,true);
                     updatedOrNewCartItem = item;
                     foundInCart = true;
                     break;
@@ -92,15 +87,7 @@ public class CartController {
 
             // 4. 如果购物车中不存在，则添加新商品
             if (!foundInCart) {
-                updatedOrNewCartItem = new CartItem(
-                        productData.getId(),
-                        productData.getImage(),
-                        productData.getTitle(),
-                        productData.getPriceInteger(),
-                        productData.getPriceDecimal(),
-                        quantity,
-                        true
-                );
+                updatedOrNewCartItem = productData.toCartItem(quantity,true);
                 cartItems.add(updatedOrNewCartItem);
             }
 

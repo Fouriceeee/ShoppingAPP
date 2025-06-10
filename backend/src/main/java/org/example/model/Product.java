@@ -55,4 +55,24 @@ public class Product {
     public Boolean isValid() {
         return (id != null && !id.isEmpty() && priceInteger >= 0 && priceDecimal >= 0 && priceDecimal <= 99);
     }
+
+    //返回this的拷贝
+    public Product copy() {
+        return new Product(id,image,title,priceInteger,priceDecimal,category,description);
+    }
+
+    //从newProduct拷贝除id的内容到this
+    public void copyFrom(Product newProduct) {
+        image = newProduct.getImage();
+        title = newProduct.getTitle();
+        priceInteger = newProduct.getPriceInteger();
+        priceDecimal = newProduct.getPriceDecimal();
+        category = newProduct.getCategory();
+        description = newProduct.getDescription();
+    }
+
+    //创建新CartItem
+    public CartItem toCartItem(int quantity,boolean selected) {
+        return new CartItem(id,image,title,priceInteger,priceDecimal,quantity,selected);
+    }
 }

@@ -50,4 +50,29 @@ public class CartItem {
     public boolean isValid() {
         return (id!= null && !id.isEmpty() && quantity >0);
     }
+
+    //返回this的拷贝
+    public CartItem copy() {
+        return  new CartItem(id,image,title,priceInteger,priceDecimal,quantity,selected);
+    }
+
+    //从newCartItem拷贝除id的内容到this
+    public void copyFrom(CartItem newCartItem) {
+        image = newCartItem.getImage();
+        title = newCartItem.getTitle();
+        priceInteger = newCartItem.getPriceInteger();
+        priceDecimal = newCartItem.getPriceDecimal();
+        quantity = newCartItem.getQuantity();
+        selected= newCartItem.isSelected();
+    }
+
+    //从product拷贝相应信息
+    public void copyFrom(Product product,int quantity,boolean selected) {
+        image = product.getImage();
+        title = product.getTitle();
+        priceInteger = product.getPriceInteger();
+        priceDecimal = product.getPriceDecimal();
+        this.quantity = quantity;
+        this.selected = selected;
+    }
 }
