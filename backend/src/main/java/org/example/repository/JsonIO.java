@@ -3,13 +3,10 @@ package org.example.repository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken; // 用于泛型类型，如List<CartItem>
-import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.example.config.AppConfig;
 import org.example.model.CartItem;
 import org.example.model.Product;
-import org.example.model.User;
-
 
 import java.io.File;
 import java.io.FileReader;

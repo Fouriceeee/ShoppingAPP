@@ -1,12 +1,9 @@
 package org.example.api;
 
-import com.google.gson.Gson;
-import org.example.App;
 import org.example.config.AppConfig;
 import org.example.model.Product;
 import org.example.repository.JsonIO;
 import org.example.util.ApiResponseUtil;
-import org.example.util.SearchUtil; // 1. 导入 SearchUtil 类
 import spark.Request;
 import spark.Response;
 
@@ -18,7 +15,6 @@ import java.util.Map;
 public class SearchController {
     private static final String PRODUCTS_FILE = AppConfig.PRODUCTS_FILE;
     private static final String KEYWORD_FILE = AppConfig.KEYWORD_FILE;
-    private static final Gson GSON = App.getGson();
 
     /**
      * 根据搜索字符串，在产品数据中查找匹配的产品ID.
@@ -50,6 +46,7 @@ public class SearchController {
                 }
             }
         }
-        return ApiResponseUtil.success("Search successfully.", GSON.toJson(results));
+
+        return ApiResponseUtil.success("Search successfully.", results);
     }
 }

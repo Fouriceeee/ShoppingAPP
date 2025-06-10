@@ -2,8 +2,6 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.example.api.CartController;
-import org.example.api.ProductController;
 import org.example.config.AppConfig;
 import spark.Spark;
 import org.example.api.Router;
@@ -58,7 +56,6 @@ public class App {
             Spark.externalStaticFileLocation(dataDirectoryPath);
         }
     }
-
     /**
      * 设置CORS
      */

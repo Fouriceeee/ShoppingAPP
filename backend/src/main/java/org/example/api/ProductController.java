@@ -22,7 +22,6 @@ import java.util.Optional;
  */
 public class ProductController {
     private static final String PRODUCTS_FILE = AppConfig.PRODUCTS_FILE;
-    private static final String KEYWORD_FILE = AppConfig.KEYWORD_FILE;
     private static final Gson GSON = App.getGson();
 
     /**
@@ -50,22 +49,15 @@ public class ProductController {
 
         try {
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
-            Product foundProduct = null;
 
             for (Product product : products) {
                 if (product.getId().equals(productId)) {
-                    foundProduct = product;
-                    break;
+                    System.out.println("DEBUG: 成功找到ID为 " + productId + " 的产品");
+                    return ApiResponseUtil.success("产品获取成功", product);
                 }
             }
-
-            if (foundProduct != null) {
-                System.out.println("DEBUG: 成功找到ID为 " + productId + " 的产品");
-                return ApiResponseUtil.success("产品获取成功", foundProduct);
-            } else {
-                res.status(404);
-                return ApiResponseUtil.clientError(res, 404, "未找到ID为" + productId + "的产品");
-            }
+            res.status(404);
+            return ApiResponseUtil.clientError(res, 404, "未找到ID为" + productId + "的产品");
         } catch (IOException e) {
             return ApiResponseUtil.serverError(res, "获取产品数据失败", e);
         }
@@ -139,30 +131,20 @@ public class ProductController {
             List<Product> products = JsonIO.readProducts(PRODUCTS_FILE);
 
             // 查找要更新的商品
-            int productIndex = -1;
-            for (int i = 0; i < products.size(); i++) {
-                if (products.get(i).getId().equals(productId)) {
-                    productIndex = i;
-                    break;
+            for (Product existingProduct:products) {
+                if (existingProduct.getId().equals(productId)) {
+                    // 更新商品字段（仅更新非空字段）
+                    existingProduct.copyFrom(product);
+
+                    // 保存更新后的商品列表
+                    JsonIO.writeProducts(PRODUCTS_FILE, products);
+
+                    System.out.println("DEBUG: 成功更新ID为" + productId + "的商品");
+                    return ApiResponseUtil.success("商品更新成功", existingProduct);
                 }
             }
-
-            if (productIndex == -1) {
-                res.status(404);
-                return ApiResponseUtil.clientError(res, 404, "未找到ID为" + productId + "的商品");
-            }
-
-            Product existingProduct = products.get(productIndex);
-
-            // 更新商品字段（仅更新非空字段）
-            existingProduct.copyFrom(product);
-
-            // 保存更新后的商品列表
-            JsonIO.writeProducts(PRODUCTS_FILE, products);
-
-            System.out.println("DEBUG: 成功更新ID为" + productId + "的商品");
-            return ApiResponseUtil.success("商品更新成功", existingProduct);
-
+            res.status(404);
+            return ApiResponseUtil.clientError(res, 404, "未找到ID为" + productId + "的商品");
         }catch (IllegalArgumentException e) {
             return ApiResponseUtil.clientError(res, 400, "无效的商品分类: ");
         } catch (JsonSyntaxException e) {
