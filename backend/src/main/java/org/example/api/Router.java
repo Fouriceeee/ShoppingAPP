@@ -13,6 +13,10 @@ public class Router {
         Spark.get("/api/products", ProductController::getAllProducts);
         System.out.println("已注册: GET /api/products");
 
+        // 产品搜索路由
+        Spark.get("/api/products/search", ProductController::searchProducts);
+        System.out.println("已注册: GET /api/products/search");
+
         // 分类相关路由
         Spark.get("/api/categories", CategoryController::getAllCategories);
         System.out.println("已注册: GET /api/categories");

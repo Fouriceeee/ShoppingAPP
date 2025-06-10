@@ -18,7 +18,7 @@
 
         <!-- 菜单按钮 -->
         <div class="menu">
-          <el-dropdown @command="handleCommand" trigger="click">
+          <el-dropdown trigger="click">
             <el-button type="text" class="menu-btn" @click="toggleMenu">
               <svg class="menu-icon"
                   xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -48,8 +48,8 @@
 
       <!-- 中间搜索框 -->
       <div class="search-box">
-        <input type="text" placeholder="搜索商品..." class="search-input" />
-        <el-button class="search-button" type="primary" @click="handleSearch">搜索</el-button>
+        <input type="text" v-model="searchQuery" placeholder="搜索商品..." class="search-input" @keyup.enter="goToSearch" />
+        <el-button class="search-button" type="primary" @click="goToSearch">搜索</el-button>
       </div>
 
       <!-- 购物车 -->
@@ -63,26 +63,38 @@
     </div>
     </div>
 
-
-<!--    <main class="content">-->
-<!--      <p style="height: 2000px;">滚动内容测试...</p>-->
-<!--    </main>-->
 </template>
 
 <script setup lang="js">
 import { ref } from 'vue'
-import { } from "@element-plus/icons-vue";
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const searchQuery = ref('')
 
 const navItems = ref([
   { text: '首页', path: '/' },
+  { text: '商品', path: '/products' },
+  { text: '搜索', path: '/search' },
   { text: '登录', path: '/login' },
   { text: '关于我们', path: '/about' },
   { text: '管理员登录', path: '/admin/login' }
 ]);
 const showMenu = ref(false)
 
-function toggleMenu() {
+const toggleMenu = () => {
   showMenu.value = !showMenu.value
+}
+
+const goToSearch = () => {
+  if (searchQuery.value.trim()) {
+    router.push({
+      path: '/search',
+      query: { q: searchQuery.value }
+    })/*.then(() => {
+      window.location.reload();
+    })*/
+  }
 }
 </script>
 

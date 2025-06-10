@@ -12,6 +12,18 @@ export const getProducts = () => {
 };
 
 /**
+ * 搜索产品。
+ * 根据关键词搜索产品名称、描述等字段。
+ * @param {string} query - 搜索关键词。
+ * @returns {Promise<AxiosResponse>} 包含搜索结果的响应。
+ */
+export const searchProducts = (query) => {
+    return axiosInstance.get(`${API_BASE_URL}/products/search`, {
+        params: { query }
+    });
+};
+
+/**
  * 根据产品ID获取单个产品详情。
  * @param {number} productId - 产品ID。
  * @returns {Promise<AxiosResponse>} 包含单个产品详情的响应。
@@ -38,20 +50,6 @@ export const getProductById = (productId) => {
 export const getProductsByCategory = (category) => {
     return axiosInstance.get(`${API_BASE_URL}/products`, {
         params: { category }
-    });
-};
-
-/**
- * 获取推荐产品列表。
- * 注意：这个API将使用与getProducts相同的接口，
- * 但前端会随机选择部分产品作为推荐显示。
- * 如果后端支持，也可以传递一个limit参数限制返回的数量。
- * @param {number} limit - 可选，限制返回的推荐产品数量。
- * @returns {Promise<AxiosResponse>} 包含推荐产品列表的响应。
- */
-export const getRecommendedProducts = (limit) => {
-    return axiosInstance.get(`${API_BASE_URL}/products`, {
-        params: { limit, recommended: true }
     });
 };
 
