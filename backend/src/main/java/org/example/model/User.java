@@ -9,30 +9,30 @@ public class User {
     private String email;
     private String password;
 
-    private Group group;
+    private final boolean admin;
 
     //String:id of lProduct
     //Integer:quantity of lProduct
     //the sign of Integer:selected(+ : true, - : false)
     private LinkedHashMap<Long,Integer> cartMap;
 
-    public User(long id,String name,String picture,String email,String password,Group group){
+    public User(long id,String name,String picture,String email,String password,boolean admin){
         this.id = id;
         this.name = name;
         this.picture = picture;
         this.email = email;
         this.password = password;
-        this.group = group;
+        this.admin = admin;
         this.cartMap = new LinkedHashMap<>();
     }
 
-    public User(long id,String name,String picture,String email,String password,Group group,LinkedHashMap<Long,Integer> cartMap){
+    public User(long id,String name,String picture,String email,String password,boolean admin,LinkedHashMap<Long,Integer> cartMap){
         this.id = id;
         this.name = name;
         this.picture = picture;
         this.email = email;
         this.password = password;
-        this.group = group;
+        this.admin = admin;
         this.cartMap = cartMap;
     }
     //Standard Getter & Setter
@@ -46,8 +46,7 @@ public class User {
     public void setEmail(String email) {this.email = email;}
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
-    public Group getGroup() {return group;}
-    public void setGroup(Group group) {this.group = group;}
+    public boolean isAdmin() {return admin;}
     public LinkedHashMap<Long, Integer> getCartMap() {return cartMap;}
     public void setCartMap(LinkedHashMap<Long, Integer> cartMap) {this.cartMap = cartMap;}
 
@@ -59,7 +58,7 @@ public class User {
                 ", picture='" + picture + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", group='" + group + '\'' +
+                ", admin='" + admin + '\'' +
                 ", cartMap='" + cartMap + '\'' +
                 '}';
     }
@@ -70,16 +69,15 @@ public class User {
 
     //返回this的拷贝
     public User copy() {
-        return new User(id,name,picture,email,password,group,cartMap);
+        return new User(id,name,picture,email,password,admin,cartMap);
     }
 
-    //从newUser拷贝除id外的内容到this
+    //从newUser拷贝除id,admin外的内容到this
     public void copyFrom(User newUser) {
         name = newUser.getName();
         picture = newUser.getPicture();
         email = newUser.getEmail();
         password = newUser.getPassword();
-        group = newUser.getGroup();
         cartMap = newUser.getCartMap();
     }
 }
