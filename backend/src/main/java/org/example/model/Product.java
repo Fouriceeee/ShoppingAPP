@@ -10,8 +10,6 @@ public class Product {
     private Category category;
     private String description;
 
-    // 无参构造函数是 Gson 反序列化所必需的
-
     public Product(String id, String image, String title, int priceInteger, int priceDecimal, Category category, String description) {
         this.id = id;
         this.image = image;

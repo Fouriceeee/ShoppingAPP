@@ -7,6 +7,7 @@ import com.google.gson.stream.JsonWriter;
 import org.example.config.AppConfig;
 import org.example.model.CartItem;
 import org.example.model.Product;
+import org.example.model.User;
 
 import java.io.File;
 import java.io.FileReader;
@@ -96,12 +97,28 @@ public class JsonIO {
         writeJsonList(fileName, products, listType);
     }
 
+    //KeywordIO
     public static Map<String, List<String>> readKeywords(String keywordFile) throws IOException {
         Type mapType = new TypeToken<Map<String, List<String>>>() {}.getType();
-
         try (Reader reader = new FileReader(keywordFile)) {
             return GSON.fromJson(reader, mapType);
         }
+    }
+
+    //以下方法均未检验
+    public static void writeKeyword(String fileName, Map<String, List<String>> keywordMap) throws IOException{
+        try(JsonWriter writer = new JsonWriter(new FileWriter(fileName))) {
+            GSON.toJson(keywordMap,new TypeToken<Map<String, List<String>>>() {}.getType(),writer);
+        }
+    }
+
+    //UserIO
+    public static List<User> readUsers(String fileName) throws IOException {
+        return readJsonList(fileName, new TypeToken<ArrayList<User>>() {}.getType());
+    }
+
+    public static void writeUsers(String fileName,List<User> users) throws IOException {
+        writeJsonList(fileName, users, new TypeToken<ArrayList<User>>() {}.getType());
     }
 
 }
